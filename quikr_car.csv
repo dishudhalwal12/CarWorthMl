@@ -1,893 +1,1061 @@
 name,company,year,Price,kms_driven,fuel_type
-Hyundai Santro Xing XO eRLX Euro III,Hyundai,2007,"80,000","45,000 kms",Petrol
-Mahindra Jeep CL550 MDI,Mahindra,2006,"4,25,000",40 kms,Diesel
-Maruti Suzuki Alto 800 Vxi,Maruti,2018,Ask For Price,"22,000 kms",Petrol
-Hyundai Grand i10 Magna 1.2 Kappa VTVT,Hyundai,2014,"3,25,000","28,000 kms",Petrol
-Ford EcoSport Titanium 1.5L TDCi,Ford,2014,"5,75,000","36,000 kms",Diesel
-Ford EcoSport Titanium 1.5L TDCi,Ford,2015,Ask For Price,"59,000 kms",Diesel
-Ford Figo,Ford,2012,"1,75,000","41,000 kms",Diesel
-Hyundai Eon,Hyundai,2013,"1,90,000","25,000 kms",Petrol
-Ford EcoSport Ambiente 1.5L TDCi,Ford,2016,"8,30,000","24,530 kms",Diesel
-Maruti Suzuki Alto K10 VXi AMT,Maruti,2015,"2,50,000","60,000 kms",Petrol
-Skoda Fabia Classic 1.2 MPI,Skoda,2010,"1,82,000","60,000 kms",Petrol
-Maruti Suzuki Stingray VXi,Maruti,2015,"3,15,000","30,000 kms",Petrol
-Hyundai Elite i20 Magna 1.2,Hyundai,2014,"4,15,000","32,000 kms",Petrol
-Mahindra Scorpio SLE BS IV,Mahindra,2015,"3,20,000","48,660 kms",Diesel
-Hyundai Santro Xing XO eRLX Euro III,Hyundai,2007,"80,000","45,000 kms",Petrol
-Mahindra Jeep CL550 MDI,Mahindra,2006,"4,25,000",40 kms,Diesel
-Audi A8,Audi,2017,"10,00,000","4,000 kms",Petrol
-Audi Q7,Audi,2014,"5,00,000","16,934 kms",Diesel
-Mahindra Scorpio S10,Mahindra,2016,"3,50,000","43,000 kms",Diesel
-Maruti Suzuki Alto 800,Maruti,2014,"1,60,000","35,550 kms",Petrol
-Mahindra Scorpio S10,Mahindra,2016,"3,50,000","43,000 kms",Diesel
-Mahindra Scorpio S10,Mahindra,2016,"3,10,000","39,522 kms",Diesel
-Maruti Suzuki Alto 800 Vxi,Maruti,2015,"75,000","39,000 kms",Petrol
-Hyundai i20 Sportz 1.2,Hyundai,2012,"1,00,000","55,000 kms",Petrol
-Hyundai i20 Sportz 1.2,Hyundai,2012,"1,00,000","55,000 kms",Petrol
-Hyundai i20 Sportz 1.2,Hyundai,2012,"1,00,000","55,000 kms",Petrol
-Maruti Suzuki Alto 800 Lx,Maruti,2017,"1,90,000","72,000 kms",Petrol
-Maruti Suzuki Vitara Brezza ZDi,Maruti,2016,"2,90,000","15,975 kms",Diesel
-Maruti Suzuki Alto LX,Maruti,2008,"95,000","70,000 kms",Petrol
-Mahindra Bolero DI,Mahindra,2017,"1,80,000","23,452 kms",Diesel
-Maruti Suzuki Swift Dzire ZDi,Maruti,2014,"3,85,000","35,522 kms",Diesel
-Mahindra Scorpio S10 4WD,Mahindra,2015,"2,50,000","48,508 kms",Diesel
-Maruti Suzuki Swift Vdi BSIII,Maruti,2017,"1,80,000","15,487 kms",Petrol
-Maruti Suzuki Wagon R VXi BS III,Maruti,2013,"1,05,000","39,000 kms",Petrol
-Maruti Suzuki Wagon R VXi Minor,Maruti,2013,"1,05,000","39,000 kms",Petrol
-Toyota Innova 2.0 G 8 STR BS IV,Toyota,2012,"6,50,000","82,000 kms",Diesel
-Renault Lodgy 85 PS RXL,Renault,2018,"6,89,999","20,000 kms",Diesel
-Skoda Yeti Ambition 2.0 TDI CR 4x2,Skoda,2012,"4,48,000","68,000 kms",Diesel
-Maruti Suzuki Baleno Delta 1.2,Maruti,2017,"5,49,000","32,000 kms",Diesel
-Renault Duster 110 PS RxZ Diesel Plus,Renault,2012,"5,01,000","38,000 kms",Diesel
-Renault Duster 85 PS RxE Diesel,Renault,2013,"4,89,999","27,000 kms",Diesel
-Honda City 1.5 S MT,Honda,2011,"2,80,000","33,000 kms",Petrol
-Maruti Suzuki Alto K10 VXi AMT,Maruti,2015,"2,50,000","60,000 kms",Petrol
-Maruti Suzuki Dzire,Maruti,2013,"3,49,999","46,000 kms",Diesel
-Honda Amaze,Honda,2013,"2,84,999","46,000 kms",Diesel
-Honda Amaze 1.5 SX i DTEC,Honda,2015,"3,45,000","36,000 kms",Diesel
-Honda City,Honda,2015,"4,99,999","55,000 kms",Petrol
-Datsun Redi GO S,Datsun,2017,"2,35,000","16,000 kms",Petrol
-Maruti Suzuki SX4 ZXI MT,Maruti,2010,"2,49,999","36,000 kms",Petrol
-Mitsubishi Pajero Sport Limited Edition,Mitsubishi,2015,"14,75,000","47,000 kms",Diesel
-Mahindra Bolero DI,Mahindra,2017,"1,80,000","23,452 kms",Diesel
-Maruti Suzuki Swift Dzire ZDi,Maruti,2014,"3,85,000","35,522 kms",Diesel
-Mahindra Scorpio S10 4WD,Mahindra,2015,"2,50,000","48,508 kms",Diesel
-Maruti Suzuki Swift Vdi BSIII,Maruti,2017,"1,80,000","15,487 kms",Petrol
-Maruti Suzuki Wagon R VXi BS III,Maruti,2013,"1,05,000","39,000 kms",Petrol
-Maruti Suzuki Wagon R VXi Minor,Maruti,2013,"1,05,000","39,000 kms",Petrol
-Mahindra Scorpio S10,Mahindra,2015,"3,95,000","35,000 kms",Diesel
-Maruti Suzuki Swift VXi 1.2 ABS BS IV,Maruti,2017,"2,20,000","30,874 kms",Petrol
-Honda City ZX CVT,Honda,2017,"1,70,000","15,000 kms",Diesel
-Maruti Suzuki Wagon R LX BS IV,Maruti,2013,"85,000","29,685 kms",Petrol
-Ford Figo,Ford,2012,"1,75,000","41,000 kms",Diesel
-Hyundai Eon,Hyundai,2013,"1,90,000","25,000 kms",Petrol
-Tata Indigo eCS LS CR4 BS IV,Tata,2017,"2,00,000","1,30,000 kms",Diesel
-Ford EcoSport Ambiente 1.5L TDCi,Ford,2016,"8,30,000","24,530 kms",Diesel
-Tata Indigo eCS LS CR4 BS IV,Tata,2017,"2,00,000","1,30,000 kms",Diesel
-Mahindra Scorpio SLE BS IV,Mahindra,2012,"5,70,000","19,000 kms",Diesel
-Volkswagen Polo Highline Exquisite P,Volkswagen,2014,"3,15,000","60,000 kms",Petrol
-Skoda Fabia Classic 1.2 MPI,Skoda,2010,"1,82,000","60,000 kms",Petrol
-Maruti Suzuki Stingray VXi,Maruti,2015,"3,15,000","30,000 kms",Petrol
-I want to sell my car Tata Zest,I,2017,Ask For Price,,
-Chevrolet Spark LS 1.0,Chevrolet,2010,"1,10,000","41,000 kms",Petrol
-Renault Duster 110PS Diesel RxZ,Renault,2012,"5,01,000","35,000 kms",Diesel
-Honda City,Honda,2015,"4,48,999","54,000 kms",Petrol
-Mini Cooper S 1.6,Mini,2013,"18,91,111","13,000 kms",Petrol
-Datsun Redi GO S,Datsun,2017,"2,35,000","16,000 kms",Petrol
-Skoda Fabia 1.2L Diesel Ambiente,Skoda,2011,"1,59,500","38,200 kms",Diesel
-Honda Amaze,Honda,2015,"3,44,999","22,000 kms",Petrol
-Honda Amaze,Honda,2015,"3,44,999","22,000 kms",Petrol
-Renault Duster,Renault,2014,"4,49,999","50,000 kms",Diesel
-Mini Cooper S 1.6,Mini,2013,"18,91,111","13,500 kms",Petrol
-Mahindra Scorpio S4,Mahindra,2015,"8,65,000","30,000 kms",Diesel
-Mahindra Scorpio VLX 2WD BS IV,Mahindra,2014,"6,99,000","50,000 kms",Diesel
-Mahindra Quanto C8,Mahindra,2013,"3,75,000","20,000 kms",Diesel
-Ford EcoSport,Ford,2017,"4,89,999","39,000 kms",Petrol
-Honda Brio,Honda,2012,"2,24,999","30,000 kms",Petrol
-I want to sell my car Tata Zest,I,2017,Ask For Price,,
-Volkswagen Vento Highline Plus 1.5 Diesel AT,Volkswagen,2019,"12,00,000","3,600 kms",Diesel
-Hyundai i20 Magna,Hyundai,2009,"1,95,000","32,000 kms",Petrol
-Toyota Corolla Altis Diesel D4DG,Toyota,2010,"3,51,000","38,000 kms",Diesel
-Hyundai Verna Transform SX VTVT,Hyundai,2008,"1,60,000","45,000 kms",Petrol
-Toyota Corolla Altis Petrol Ltd,Toyota,2009,"2,40,000","35,000 kms",Petrol
-Honda City 1.5 EXi New,Honda,2005,"90,000","50,000 kms",Petrol
-Hyundai Elite i20 Magna 1.2,Hyundai,2014,"4,15,000","32,000 kms",Petrol
-Skoda Fabia 1.2L Diesel Elegance,Skoda,2011,"1,55,000","45,863 kms",Diesel
-BMW 3 Series 320i,BMW,2011,"6,00,000","60,500 kms",Petrol
-Maruti Suzuki A Star Lxi,Maruti,2011,"1,89,500","12,500 kms",Petrol
-Toyota Etios GD,Toyota,2013,"3,50,000","60,000 kms",Diesel
-Ford Figo Diesel EXI Option,Ford,2012,"2,10,000","35,000 kms",Diesel
-Maruti Suzuki Swift Dzire VXi 1.2 BS IV,Maruti,2014,"3,90,000","35,000 kms",Petrol
-Chevrolet Beat LT Diesel,Chevrolet,2012,"1,35,000","45,000 kms",Diesel
-BMW 7 Series 740Li Sedan,BMW,2009,"16,00,000","35,000 kms",Petrol
-Mahindra XUV500 W8 AWD 2013,Mahindra,2013,"7,01,000","38,000 kms",Diesel
-Hyundai i10 Magna 1.2,Hyundai,2014,"2,65,000","18,000 kms",Petrol
-Hyundai Verna Fluidic New,Hyundai,2015,"5,25,000","35,000 kms",Diesel
-Maruti Suzuki Swift VXi 1.2 BS IV,Maruti,2013,"3,72,000","13,349 kms",Petrol
-Maruti Suzuki Ertiga ZXI Plus,Maruti,2016,"6,35,000","29,000 kms",Petrol
-Ford EcoSport Titanium 1.5L TDCi,Ford,2014,"5,50,000","44,000 kms",Diesel
-Maruti Suzuki Ertiga Vxi,Maruti,2016,"5,75,000","29,000 kms",Petrol
-Maruti Suzuki Ertiga VDi,Maruti,2013,"4,85,000","42,000 kms",Diesel
-Maruti Suzuki Alto LXi BS III,Maruti,2012,"1,55,000","14,000 kms",Petrol
-Hyundai Grand i10 Asta 1.1 CRDi,Hyundai,2014,"3,45,000","49,000 kms",Diesel
-Honda Amaze 1.2 S i VTEC,Honda,2014,"3,25,000","42,000 kms",Petrol
-Hyundai i20 Asta 1.4 CRDI 6 Speed,Hyundai,2012,"3,29,500","36,200 kms",Diesel
-Ford Figo Diesel EXI,Ford,2014,"1,95,000","50,000 kms",Diesel
-Maruti Suzuki Eeco 5 STR WITH AC HTR,Maruti,2015,"2,51,111","55,000 kms",Petrol
-Maruti Suzuki Ertiga ZXi,Maruti,2014,"5,69,999","45,000 kms",Petrol
-Maruti Suzuki Esteem LXi BS III,Maruti,2007,"69,999","51,000 kms",Petrol
-Maruti Suzuki Ritz VXI,Maruti,2014,"2,99,999","19,000 kms",Petrol
-Maruti Suzuki Dzire,Maruti,2009,"2,20,000","46,000 kms",Petrol
-Maruti Suzuki Ritz LDi,Maruti,2013,"3,99,999","33,000 kms",Diesel
-Maruti Suzuki Swift VXi 1.2 BS IV,Maruti,2013,"3,72,000","13,349 kms",Petrol
-Maruti Suzuki Dzire VDI,Maruti,2015,"4,50,000","1,04,000 kms",Diesel
-Toyota Etios Liva G,Toyota,2014,"2,70,000","55,000 kms",Petrol
-Hyundai i20 Sportz 1.4 CRDI,Hyundai,2011,"3,50,000","33,333 kms",Diesel
-Chevrolet Spark,Chevrolet,2012,"1,58,400","33,600 kms",Petrol
-Maruti Suzuki Alto K10 VXi AMT,Maruti,2017,"3,50,000","5,600 kms",Petrol
-Nissan Micra XV,Nissan,2011,"1,79,000","41,000 kms",Petrol
-Maruti Suzuki Swift,Maruti,2007,"1,25,000","70,000 kms",Petrol
-Maruti Suzuki Alto 800,Maruti,2018,"2,00,000","7,500 kms",Petrol
-Honda Amaze 1.5 S i DTEC,Honda,2013,"2,99,000","45,000 kms",Diesel
-Maruti Suzuki Alto 800 Vxi,Maruti,2015,"2,20,000","38,000 kms",Petrol
-Chevrolet Beat,Chevrolet,2015,"1,50,000","30,000 kms",Petrol
-Toyota Corolla,Toyota,2009,"2,75,000","26,000 kms",
-Honda City 1.5 V MT,Honda,2010,"2,85,000","35,000 kms",Petrol
-Ford EcoSport Trend 1.5L TDCi,Ford,2016,"8,30,000","24,330 kms",Diesel
-Hyundai i20 Asta 1.2,Hyundai,2009,"2,10,000","65,480 kms",Petrol
-Maruti Suzuki Swift Dzire VXi 1.2 BS IV,Maruti,2013,"3,40,000","41,000 kms",Petrol
-Tata Indica V2 eLS,Tata,2006,"90,000","20,000 kms",Petrol
-Maruti Suzuki Alto 800 Lxi,Maruti,2018,Ask For Price,"28,028 kms",Petrol
-Hindustan Motors Ambassador,Hindustan,2000,"70,000","2,00,000 kms",Diesel
-Toyota Corolla Altis 1.8 GL,Toyota,2010,"2,89,999","70,000 kms",Petrol
-Toyota Corolla Altis 1.8 J,Toyota,2012,"3,49,999","59,000 kms",Petrol
-Toyota Innova 2.5 GX BS IV 7 STR,Toyota,2012,"8,49,999","99,000 kms",Diesel
-Volkswagen Jetta Highline TDI AT,Volkswagen,2014,"7,49,999","46,000 kms",Diesel
-Volkswagen Polo Comfortline 1.2L P,Volkswagen,2015,"3,99,999","2,800 kms",Petrol
-Volkswagen Polo,Volkswagen,2014,"2,74,999","32,000 kms",Petrol
-Mahindra Scorpio,Mahindra,2015,"9,84,999","22,000 kms",Diesel
-Renault Duster,Renault,2014,"4,49,999","50,000 kms",Diesel
-Honda Amaze,Honda,2015,"3,44,999","22,000 kms",Petrol
-Nissan Sunny,Nissan,2012,"2,24,999","45,000 kms",Petrol
-Hyundai Elite i20,Hyundai,2018,"5,99,999","21,000 kms",Petrol
-Renault Kwid,Renault,2016,"2,44,999","11,000 kms",Petrol
-Renault Duster,Renault,2013,"3,99,999","41,000 kms",Diesel
-Ford EcoSport,Ford,2017,"4,89,999","39,000 kms",Petrol
-Renault Duster,Renault,2014,"4,74,999","50,000 kms",Diesel
-Mahindra Scorpio VLX Airbag,Mahindra,2011,"4,99,999","66,000 kms",Diesel
-Maruti Suzuki Alto 800 Lxi,Maruti,2018,"3,10,000","3,000 kms",Petrol
-Chevrolet Spark LT 1.0,Chevrolet,2010,"85,000","45,000 kms",Petrol
-Datsun Redi GO T O,Datsun,2016,"2,45,000","7,000 kms",Petrol
-Maruti Suzuki Swift RS VDI,Maruti,2010,"1,89,500","38,500 kms",Diesel
-Fiat Punto Emotion 1.2,Fiat,2012,"1,69,500","37,200 kms",Diesel
-Maruti Suzuki Swift RS VDI,Maruti,2010,"1,59,500","43,200 kms",Diesel
-Toyota Etios GD,Toyota,2013,"2,75,000","24,800 kms",Petrol
-Hyundai i20 Sportz 1.4 CRDI,Hyundai,2014,"3,70,000","60,000 kms",Diesel
-Hyundai i10 Sportz 1.2,Hyundai,2010,"1,68,000","45,872 kms",Petrol
-Chevrolet Beat LT Opt Diesel,Chevrolet,2011,"1,50,000","40,000 kms",Diesel
-Chevrolet Beat LS Diesel,Chevrolet,2011,"1,45,000","45,000 kms",Diesel
-Chevrolet Beat LT Diesel,Chevrolet,2012,"98,500","38,000 kms",Diesel
-Mahindra Scorpio VLX 2WD BS IV,Mahindra,2014,"6,99,000","50,000 kms",Diesel
-Tata Indigo CS,Tata,2011,"85,000","11,400 kms",Diesel
-Toyota Corolla Altis 1.8 J,Toyota,2015,"5,75,000","42,000 kms",Petrol
-Honda City 1.5 V MT,Honda,2014,"5,49,000","39,000 kms",Petrol
-Maruti Suzuki Swift VDi,Maruti,2011,"2,09,000","47,000 kms",Diesel
-Hyundai Eon Era Plus,Hyundai,2013,"1,85,000","27,000 kms",Petrol
-Mahindra Scorpio S10,Mahindra,2015,"9,00,000","97,200 kms",Diesel
-Mahindra XUV500,Mahindra,2014,"6,99,999","52,000 kms",Diesel
-Honda Brio,Honda,2012,"2,24,999","30,000 kms",Petrol
-Ford Fiesta,Ford,2011,"2,74,999","55,000 kms",Diesel
-Honda Amaze,Honda,2013,"2,84,999","46,000 kms",Diesel
-Honda City,Honda,2015,"5,99,999","30,000 kms",Diesel
-Maruti Suzuki Wagon R,Maruti,2012,"1,99,999","44,000 kms",Petrol
-Honda City,Honda,2014,"5,44,999","45,000 kms",Diesel
-Hyundai i20,Hyundai,2009,"1,99,000","31,000 kms",Petrol
-Tata Indigo eCS LX TDI BS III,Tata,2016,"3,20,000","1,75,430 kms",Diesel
-Hyundai Fluidic Verna 1.6 CRDi SX,Hyundai,2015,"5,40,000","38,000 kms",Diesel
-"Commercial , DZire LDI, 2016, for sale",Commercial,...,Ask For Price,,
-Mahindra Quanto C8,Mahindra,2013,"3,40,000","37,000 kms",Diesel
-Fiat Petra ELX 1.2 PS,Fiat,2008,"75,000","65,000 kms",Petrol
-Skoda Fabia 1.2L Diesel Ambiente,Skoda,2011,"1,59,500","38,200 kms",Diesel
-Mini Cooper S 1.6,Mini,2013,"18,91,111","13,000 kms",Petrol
-Hyundai Santro Xing XS,Hyundai,2005,"49,000","7,500 kms",Petrol
-Maruti Suzuki Ciaz VXi Plus,Maruti,2016,"7,00,000","3,350 kms",Petrol
-Maruti Suzuki Zen VX,Maruti,2000,"55,000","60,000 kms",Petrol
-Honda City,Honda,2015,"4,48,999","54,000 kms",Petrol
-Hyundai Creta 1.6 SX Plus Petrol,Hyundai,2017,"8,95,000","32,000 kms",Petrol
-"Tata indigo ecs LX, 201",Tata,150k,"1,50,000",,
-Mahindra Scorpio SLX,Mahindra,2007,"3,55,000","75,000 kms",Diesel
-Mahindra Scorpio SLE BS IV,Mahindra,2012,"5,65,000","62,000 kms",Diesel
-Toyota Innova 2.5 G BS III 8 STR,Toyota,2006,"3,65,000","73,000 kms",Diesel
-Maruti Suzuki Alto K10 VXi AMT,Maruti,2011,"1,45,000","41,000 kms",Petrol
-Maruti Suzuki Wagon R LXI BS IV,Maruti,2011,"2,10,000","35,000 kms",Petrol
-Tata Nano Cx BSIV,Tata,2013,"40,000","2,200 kms",Petrol
-Maruti Suzuki Alto Std BS IV,Maruti,2013,"1,25,000","39,000 kms",Petrol
-Maruti Suzuki Wagon R LXi BS III,Maruti,2009,"1,35,000","45,000 kms",Petrol
-Maruti Suzuki Swift VXI BSIII,Maruti,2006,"1,35,000","45,000 kms",Petrol
-Tata Sumo Victa EX 10 by 7 Str BSIII,Tata,2012,"2,85,000","65,000 kms",Diesel
-MARUTI SUZUKI DESI,MARUTI,TOUR,"4,00,000",,
-Maruti Suzuki Wagon R LXi BS III,Maruti,2010,"1,45,000","54,870 kms",Petrol
-Maruti Suzuki Alto LXi BS III,Maruti,2010,"1,35,000","34,580 kms",Petrol
-Volkswagen Passat Diesel Comfortline AT,Volkswagen,2009,"4,50,000","97,000 kms",Diesel
-Renault Scala RxL Diesel Travelogue,Renault,2015,"3,75,000","25,000 kms",Diesel
-Mahindra Quanto C8,Mahindra,2013,"3,75,000","20,000 kms",Diesel
-Hyundai Grand i10 Sportz O 1.2 Kappa VTVT,Hyundai,2014,"3,65,000","20,000 kms",Petrol
-Hyundai i20 Active 1.2 SX,Hyundai,2015,"5,00,000","18,000 kms",Petrol
-Mahindra Xylo E4,Mahindra,2012,"4,00,000","35,000 kms",Diesel
-Mahindra Jeep MM 550 XDB,Mahindra,2019,"3,90,000",60 kms,Diesel
-Renault Duster 110PS Diesel RxZ,Renault,2012,"5,01,000","35,000 kms",Diesel
-Mahindra Bolero SLE BS IV,Mahindra,2013,"3,30,000","80,200 kms",Diesel
-Force Motors Force One LX ABS 7 STR,Force,2015,"5,80,000","3,200 kms",Diesel
-Maruti Suzuki SX4,Maruti,2012,"2,65,000","46,000 kms",Diesel
-Mahindra Jeep CL550 MDI,Mahindra,2019,"3,79,000","0,000 kms",Diesel
-Maruti Suzuki Alto 800,Maruti,2015,"2,19,000","5,000 kms",Petrol
-Mahindra Jeep CL550 MDI,Mahindra,2018,"3,85,000",588 kms,Diesel
-Toyota Etios,Toyota,2011,"2,75,000","36,000 kms",Diesel
-Volkswagen Polo,Volkswagen,2015,"3,30,000","38,000 kms",Diesel
-Honda City ZX VTEC,Honda,2008,"1,10,000","45,000 kms",Petrol
-Maruti Suzuki Wagon R LX BS III,Maruti,2006,"80,000","71,200 kms",Petrol
-Honda City VX O MT Diesel,Honda,2016,"5,19,000","52,000 kms",Diesel
-Mahindra Thar CRDe 4x4 AC,Mahindra,2016,"7,30,000","29,000 kms",Diesel
-Mitsubishi Pajero Sport Limited Edition,Mitsubishi,2015,"14,75,000","47,000 kms",Diesel
-Audi A4 1.8 TFSI Multitronic Premium Plus,Audi,2009,"6,99,000","47,000 kms",Petrol
-Mercedes Benz GLA Class 200 CDI Sport,Mercedes,2015,"20,00,000","20,000 kms",Diesel
-Land Rover Freelander 2 SE,Land,2015,"21,00,000","30,000 kms",Diesel
-Renault Kwid RXT,Renault,2017,"3,40,000","5,000 kms",Petrol
-Tata Aria Pleasure 4X2,Tata,2014,"3,90,000","35,000 kms",Diesel
-Mercedes Benz B Class B180 Sports,Mercedes,2014,"14,00,000","31,000 kms",Petrol
-Datsun GO T O,Datsun,2016,"2,45,000","7,000 kms",Petrol
-Tata Indigo eCS LX TDI BS III,Tata,2016,"3,20,000","1,75,430 kms",Diesel
-Tata Indigo eCS LX TDI BS III,Tata,2016,"3,20,000","1,75,400 kms",Diesel
-Honda Jazz VX MT,Honda,2016,"4,50,000","41,000 kms",Petrol
-Honda Amaze 1.2 S i VTEC,Honda,2014,"3,11,000","33,000 kms",Petrol
-Honda Amaze,Honda,2013,"2,84,999","46,000 kms",Diesel
-Honda City,Honda,2012,"3,99,999","45,000 kms",Petrol
-Honda City,Honda,2015,"5,99,999","39,000 kms",Diesel
-Honda Amaze,Honda,2015,"3,44,999","22,000 kms",Petrol
-Audi A4 1.8 TFSI Multitronic Premium Plus,Audi,2009,"6,99,000","47,000 kms",Petrol
-Force Motors Force One LX ABS 7 STR,Force,2015,"5,80,000","3,200 kms",Diesel
-Mahindra Scorpio S4,Mahindra,2015,"8,55,000","30,000 kms",Diesel
-Hyundai i20 Active 1.4L SX O,Hyundai,2015,"5,35,000","37,000 kms",Diesel
-Mini Cooper S,Mini,2013,"18,91,111","13,000 kms",Petrol
-Maruti Suzuki Ciaz ZXI Plus,Maruti,2017,"6,99,000","14,000 kms",Petrol
-Chevrolet Tavera Neo,Chevrolet,2013,"3,75,000","55,000 kms",Diesel
-Honda Amaze,Honda,2013,"2,84,999","46,000 kms",Diesel
-Hyundai Eon Sportz,Hyundai,2012,"1,78,000","30,000 kms",Petrol
-Tata Sumo Gold Select Variant,Tata,2013,"3,00,000","50,000 kms",Diesel
-Maruti Suzuki Wagon R 1.0,Maruti,2003,"90,000","45,000 kms",Petrol
-Maruti Suzuki Esteem VXi BS III,Maruti,2006,"95,000","45,000 kms",Petrol
-Maruti Suzuki Eeco 5 STR WITH AC HTR,Maruti,2015,"2,55,000","9,300 kms",Petrol
-Chevrolet Enjoy 1.4 LS 8 STR,Chevrolet,2013,"2,45,000","55,000 kms",Diesel
-Hyundai i20 Asta 1.4 CRDI 6 Speed,Hyundai,2012,"3,29,500","36,200 kms",Diesel
-Ford Figo Diesel EXI,Ford,2014,"1,95,000","50,000 kms",Diesel
-Maruti Suzuki Eeco 5 STR WITH AC HTR,Maruti,2015,"2,51,111","55,000 kms",Petrol
-Maruti Suzuki Ertiga ZXi,Maruti,2014,"5,69,999","45,000 kms",Petrol
-Maruti Suzuki Esteem LXi BS III,Maruti,2007,"69,999","51,000 kms",Petrol
-Maruti Suzuki Ritz VXI,Maruti,2014,"2,99,999","19,000 kms",Petrol
-Maruti Suzuki Dzire,Maruti,2009,"2,20,000","46,000 kms",Petrol
-Maruti Suzuki Ritz LDi,Maruti,2013,"3,99,999","33,000 kms",Diesel
-Maruti Suzuki SX4 ZXI MT,Maruti,2010,"2,49,999","36,000 kms",Petrol
-Maruti Suzuki Wagon R 1.0 VXi,Maruti,2015,"2,89,999","22,000 kms",Petrol
-Mini Cooper S 1.6,Mini,2013,"18,91,111","13,500 kms",Petrol
-Nissan Terrano XL D Plus,Nissan,2015,"4,99,999","60,000 kms",Diesel
-Renault Duster 85 PS RxE Diesel,Renault,2013,"4,89,999","27,000 kms",Diesel
-Renault Duster 85 PS RxE Diesel,Renault,2014,"4,89,999","59,000 kms",Diesel
-Renault Duster 85 PS RxL Diesel,Renault,2015,"5,49,999","19,000 kms",Diesel
-Maruti Suzuki Dzire ZXI,Maruti,2013,"3,80,000","30,000 kms",Petrol
-Renault Kwid RXT Opt,Renault,2018,"3,25,000","15,000 kms",Petrol
-Maruti Suzuki Maruti 800 Std,Maruti,2003,"57,000","56,758 kms",Petrol
-Renault Kwid 1.0 RXT AMT,Renault,2018,"3,49,999","10,000 kms",Petrol
-Renault Lodgy 85 PS RXL,Renault,2018,"6,89,999","20,000 kms",Diesel
-Renault Scala RxL Diesel,Renault,2014,"3,49,999","49,000 kms",Diesel
-Hyundai Grand i10 Asta 1.2 Kappa VTVT O,Hyundai,2014,"4,10,000","41,000 kms",Petrol
-Maruti Suzuki Swift Dzire VXi 1.2 BS IV,Maruti,2011,"2,25,000","45,000 kms",Petrol
-Chevrolet Beat LS Petrol,Chevrolet,2010,"1,20,000","43,000 kms",Petrol
-Tata Indigo eCS LX TDI BS III,Tata,2016,"3,20,000","1,75,430 kms",Diesel
-Hyundai Santro Xing XO eRLX Euro III,Hyundai,2000,"59,000","56,450 kms",Petrol
-Hyundai Fluidic Verna 1.6 CRDi SX,Hyundai,2015,"5,40,000","38,000 kms",Diesel
-"Commercial , DZire LDI, 2016, for sale",Commercial,...,Ask For Price,,
-Chevrolet Beat LS Petrol,Chevrolet,2010,"80,000","56,000 kms",Petrol
-Mahindra Quanto C8,Mahindra,2013,"3,40,000","37,000 kms",Diesel
-Fiat Petra ELX 1.2 PS,Fiat,2008,"75,000","65,000 kms",Petrol
-Chevrolet Beat LS Petrol,Chevrolet,2015,"2,20,000","32,700 kms",Petrol
-Skoda Fabia 1.2L Diesel Ambiente,Skoda,2011,"1,59,500","38,200 kms",Diesel
-Ford EcoSport Titanium 1.5L TDCi,Ford,2016,"5,99,000","30,000 kms",Diesel
-Hyundai Accent GLX,Hyundai,2006,"80,000","56,000 kms",Petrol
-Yama,Yamaha,r 15,"55,000",,
-Maruti Suzuki Swift LDi,Maruti,2010,Ask For Price,"52,000 kms",Diesel
-Mahindra TUV300 T4 Plus,Mahindra,2016,"6,75,000","9,000 kms",Diesel
-Mini Cooper S 1.6,Mini,2013,"18,91,111","13,000 kms",Petrol
-Mini Cooper S 1.6,Mini,2013,"18,91,111","13,000 kms",Petrol
-Tata Indica V2 Xeta e GLE,Tata,2008,"1,50,000","11,000 kms",Petrol
-Mini Cooper S,Mini,2013,"18,91,111","13,000 kms",Petrol
-Tata Indigo CS LS DiCOR,Tata,2009,"72,500","46,000 kms",Diesel
-Maruti Suzuki Swift VXi 1.2 ABS BS IV,Maruti,2019,"6,10,000",73 kms,Petrol
-Mahindra Scorpio VLX Special Edition BS III,Mahindra,2004,"2,30,000","1,60,000 kms",Diesel
-Tata Indica eV2 LS,Tata,2017,Ask For Price,"84,000 kms",Diesel
-Honda Accord,Honda,2009,"1,75,000","58,559 kms",Petrol
-Mahindra Scorpio S4,Mahindra,2015,"8,55,000","30,000 kms",Diesel
-Chevrolet Tavera Neo,Chevrolet,2013,"3,75,000","55,000 kms",Diesel
-Ford EcoSport Titanium 1.5 TDCi,Ford,2014,"5,20,000","57,000 kms",Diesel
-Maruti Suzuki Ertiga,Maruti,2015,"5,24,999","50,000 kms",Diesel
-Honda Amaze,Honda,2014,"2,99,999","37,000 kms",Petrol
-Maruti Suzuki Dzire,Maruti,2012,"2,99,999","40,000 kms",Petrol
-Honda City,Honda,2011,"2,84,999","55,000 kms",Petrol
-Mahindra Scorpio 2.6 CRDe,Mahindra,2007,"2,20,000","1,70,000 kms",Diesel
-Maruti Suzuki Dzire,Maruti,2014,"4,24,999","55,000 kms",Diesel
-Honda City,Honda,2015,"6,44,999","39,000 kms",Petrol
-Honda Mobilio,Honda,2014,"3,99,999","44,000 kms",Petrol
-Toyota Corolla Altis,Toyota,2009,"1,99,999","65,000 kms",Petrol
-Honda City,Honda,2014,"5,84,999","39,000 kms",Petrol
-Skoda Laura,Skoda,2012,"3,49,999","44,000 kms",Diesel
-Renault Duster,Renault,2015,"4,49,999","49,000 kms",Diesel
-Maruti Suzuki Ertiga,Maruti,2018,"7,99,999","9,000 kms",Diesel
-Maruti Suzuki Dzire,Maruti,2015,"4,44,999","45,000 kms",Diesel
-Mahindra XUV500,Mahindra,2014,"6,49,999","47,000 kms",Diesel
-Hyundai Verna Fluidic,Hyundai,2012,"4,44,999","40,000 kms",Diesel
-Maruti Suzuki Vitara Brezza,Maruti,2016,"6,89,999","29,000 kms",Diesel
-Maruti Suzuki Wagon R,Maruti,2016,"3,44,999","15,000 kms",Petrol
-Mahindra Scorpio,Mahindra,2015,"9,44,999","45,000 kms",Diesel
-Honda Amaze,Honda,2014,"2,74,999","35,000 kms",Petrol
-Mahindra XUV500,Mahindra,2013,"6,89,999","80,000 kms",Diesel
-Mahindra Scorpio,Mahindra,2013,"5,74,999","68,000 kms",Diesel
-Skoda Laura,Skoda,2013,"3,74,999","50,000 kms",Diesel
-Volkswagen Polo,Volkswagen,2010,"1,99,999","60,000 kms",Diesel
-Hyundai Elite i20,Hyundai,2016,"5,49,999","9,000 kms",Petrol
-Tata Manza Aura Quadrajet,Tata,2012,"1,30,000","72,000 kms",Diesel
-Chevrolet Sail UVA Petrol LT ABS,Chevrolet,2013,"2,10,000","60,000 kms",Petrol
-Renault Duster 110 PS RxZ Diesel Plus,Renault,2012,"5,01,000","38,000 kms",Diesel
-Hyundai Verna Fluidic 1.6 VTVT SX,Hyundai,2013,"4,01,000","45,000 kms",Diesel
-Audi A4 2.0 TDI 177bhp Premium,Audi,2012,"13,50,000","40,000 kms",Diesel
-Hyundai Elantra SX,Hyundai,2013,"6,00,000","20,000 kms",Petrol
-Mahindra Scorpio VLX 4WD Airbag,Mahindra,2013,"6,10,000","35,000 kms",Diesel
-Mahindra KUV100 K8 D 6 STR,Mahindra,2016,"4,00,000","20,000 kms",Diesel
-Renault Scala RxL Diesel Travelogue,Renault,2015,"3,75,000","25,000 kms",Diesel
-Mahindra Quanto C8,Mahindra,2013,"3,75,000","20,000 kms",Diesel
-Hyundai Grand i10 Sportz O 1.2 Kappa VTVT,Hyundai,2014,"3,65,000","20,000 kms",Petrol
-Hyundai i20 Active 1.2 SX,Hyundai,2015,"5,00,000","18,000 kms",Petrol
-Mahindra Xylo E4,Mahindra,2012,"4,00,000","35,000 kms",Diesel
-Hyundai Grand i10,Hyundai,2017,"5,24,999","6,821 kms",Petrol
-Hyundai i20,Hyundai,2014,"4,49,999","23,000 kms",Petrol
-Hyundai Eon,Hyundai,2014,"1,74,999","14,000 kms",Petrol
-Hyundai i10,Hyundai,2012,"2,44,999","38,000 kms",Petrol
-Hyundai i20 Active,Hyundai,2015,"5,74,999","35,000 kms",Diesel
-Datsun Redi GO,Datsun,2017,"2,44,999","22,000 kms",Petrol
-Toyota Etios Liva,Toyota,2011,"2,39,999","41,000 kms",Petrol
-Hyundai Accent,Hyundai,2010,"99,999","45,000 kms",Petrol
-Hyundai Verna,Hyundai,2014,"4,89,999","44,000 kms",Diesel
-Maruti Suzuki Swift,Maruti,2013,"3,24,999","45,000 kms",Diesel
-Toyota Fortuner,Toyota,2011,"10,74,999","52,000 kms",Diesel
-Hyundai i10 Sportz,Hyundai,2012,"2,30,000","34,000 kms",Petrol
-Mahindra Bolero Power Plus SLE,Mahindra,2018,"6,99,000","1,800 kms",Diesel
-selling car Ta,selling,Zest,Ask For Price,,
-Mahindra XUV500,Mahindra,2015,"10,00,000","15,000 kms",Diesel
-Honda City 1.5 V MT Exclusive,Honda,2010,"2,40,000","4,00,000 kms",Petrol
-Chevrolet Spark LT 1.0 Airbag,Chevrolet,2009,"1,10,000","44,000 kms",Petrol
-Mahindra Jeep MM 550 XDB,Mahindra,2019,"3,90,000",60 kms,Diesel
-Renault Duster 110PS Diesel RxZ,Renault,2012,"5,01,000","35,000 kms",Diesel
-Mahindra XUV500,Mahindra,2016,"11,30,000","72,000 kms",Diesel
-Tata Indigo eCS VX CR4 BS IV,Tata,2014,"2,50,000","40,000 kms",Diesel
-Tata Zest 90,Tata,/-Rs,Ask For Price,,
-Mahindra Bolero SLE BS IV,Mahindra,2013,"3,30,000","80,200 kms",Diesel
-Force Motors Force One LX ABS 7 STR,Force,2015,"5,80,000","3,200 kms",Diesel
-Skoda Rapid Elegance 1.6 TDI CR MT,Skoda,2013,"3,40,000","48,000 kms",Diesel
-Tata Vista Quadrajet VX,Tata,2011,"1,20,000","90,000 kms",Diesel
-Maruti Suzuki Alto K10 VXi AT,Maruti,2015,"2,65,000","12,000 kms",Petrol
-Maruti Suzuki SX4,Maruti,2012,"2,65,000","46,000 kms",Diesel
-Maruti Suzuki Zen LXi BS III,Maruti,2003,"85,000","69,900 kms",Petrol
-Mahindra Jeep CL550 MDI,Mahindra,2019,"3,79,000","0,000 kms",Diesel
-Hyundai i10 Magna 1.2,Hyundai,2011,"1,75,000","45,000 kms",Petrol
-Maruti Suzuki Alto 800,Maruti,2015,"2,19,000","5,000 kms",Petrol
-Maruti Suzuki Swift Dzire Tour LDi,Maruti,2016,"3,50,000","1,66,000 kms",Diesel
-Honda City ZX EXi,Honda,2008,"1,49,000","42,000 kms",Petrol
-Mahindra Jeep CL550 MDI,Mahindra,2018,"3,85,000",588 kms,Diesel
-Mahindra Jeep MM 550 XDB,Mahindra,2006,"4,25,000",122 kms,Diesel
-Chevrolet Beat Diesel,Chevrolet,2017,"1,50,000","62,000 kms",Diesel
-Honda City 1.5 S MT,Honda,2010,"2,25,000","70,000 kms",Petrol
-Maruti Suzuki Swift Dzire car,Maruti,sale,"3,00,000",,
-Hyundai Verna 1.4 VTVT,Hyundai,2014,"3,75,000","36,000 kms",Petrol
-Toyota Innova 2.5 E MS 7 STR BS IV,Toyota,2012,"7,70,000",0 kms,Diesel
-Maruti Suzuki Alto 800 Lxi,Maruti,2018,Ask For Price,"24,000 kms",Petrol
-Maruti Suzuki Maruti 800 Std – Befo,Maruti,1995,"30,000","55,000 kms",Petrol
-Toyota Etios,Toyota,2011,"2,75,000","36,000 kms",Diesel
-Volkswagen Polo,Volkswagen,2015,"3,30,000","38,000 kms",Diesel
-Maruti Suzuki Swift,Maruti,2014,"3,35,000","55,000 kms",Diesel
-Hyundai Elite i20 Asta 1.4 CRDI,Hyundai,2015,"4,50,000","20,000 kms",Diesel
-Maruti Suzuki Swift Dzire VXi 1.2 BS IV,Maruti,2012,"2,25,000","40,000 kms",Petrol
-Maruti Suzuki Swift Dzire Tour (Gat,Maruti,ara),"3,00,000",,
-Maruti Suzuki Versa DX2 8 SEATER BSIII,Maruti,2004,"80,000","50,000 kms",Petrol
-Tata Indigo LX TDI BS III,Tata,2016,"1,30,000","1,04,000 kms",Diesel
-Volkswagen Vento Konekt Diesel Highline,Volkswagen,2011,"2,45,000","65,000 kms",Diesel
-Mercedes Benz C Class 200 CDI Classic,Mercedes,2002,"3,99,000","41,000 kms",Petrol
-Maruti Suzuki Ertiga VDi,Maruti,2013,"4,50,000","90,000 kms",Diesel
-URJE,URJENT,SELL,"1,80,000",,
-Honda City,Honda,2000,"65,000","80,000 kms",Petrol
-Hyundai Santro Xing GLS,Hyundai,2006,"75,000","46,000 kms",Petrol
-Maruti Suzuki Omni Limited Edition,Maruti,2001,"70,000","70,000 kms",Petrol
-Hyundai Sonata Transform 2.4 GDi MT,Hyundai,2017,"1,90,000","36,469 kms",Diesel
-Hyundai Elite i20 Sportz 1.2,Hyundai,2018,"6,00,000","7,800 kms",Petrol
-Volkswagen Vento Konekt Diesel Highline,Volkswagen,2011,"2,45,000","65,000 kms",Diesel
-Maruti Suzuki Alto 800 Lxi,Maruti,2017,"2,40,000","60,000 kms",Petrol
-Maruti Suzuki Alto LXi BS III,Maruti,2011,"1,55,000","32,000 kms",Petrol
-Honda Jazz S MT,Honda,2009,"1,69,999","24,695 kms",Petrol
-Hyundai Grand i10 Sportz 1.2 Kappa VTVT,Hyundai,2017,"4,50,000","15,141 kms",Petrol
-Maruti Suzuki Zen LXi BSII,Maruti,2001,"40,000","40,000 kms",Petrol
-Mahindra Scorpio W Turbo 2.6DX 9 Seater,Mahindra,2012,"1,65,000","65,000 kms",Diesel
-Swift Dzire Tour 27 Dec 2016 Regis,Swift,tion,"3,70,000",,
-Maruti Suzuki Alto K10 VXi,Maruti,2014,"2,70,000","22,000 kms",Petrol
-Hyundai Grand i10 Asta 1.2 Kappa VTVT,Hyundai,2016,"2,80,000","59,910 kms",Diesel
-Mahindra XUV500 W8,Mahindra,2012,"5,60,000","1,00,000 kms",Diesel
-Hyundai Creta 1.6 SX Plus Petrol,Hyundai,2016,"9,50,000","25,000 kms",Petrol
-Hyundai i20 Magna O 1.2,Hyundai,2013,"3,10,000","35,000 kms",Petrol
-Renault Duster 85 PS RxL Explore LE,Renault,2015,"7,15,000","65,000 kms",Diesel
-Hyundai Grand i10 Sportz 1.2 Kappa VTVT,Hyundai,2014,"3,40,000","35,000 kms",Petrol
-Honda Brio V MT,Honda,2012,"2,35,000","33,000 kms",Petrol
-Mahindra TUV300 T4 Plus,Mahindra,2017,"6,10,000","68,000 kms",Diesel
-Chevrolet Spark LS 1.0,Chevrolet,2010,"95,000","23,000 kms",Petrol
-Mahindra TUV300 T8,Mahindra,2018,"10,00,000","4,500 kms",Diesel
-Maruti Suzuki Swift Dzire Tour LDi,Maruti,2015,"2,20,000","1,29,000 kms",Diesel
-Nissan X Trail Select Variant,Nissan,2019,"12,00,000",300 kms,Diesel
-Maruti Suzuki Alto 800 Vxi,Maruti,2015,"2,30,000","5,000 kms",Petrol
-Ford Ikon 1.3 CLXi NXt Finesse,Ford,2001,"45,000","65,000 kms",Petrol
-Toyota Fortuner 3.0 4x4 MT,Toyota,2010,"9,40,000","1,31,000 kms",Diesel
-Tata Manza ELAN Quadrajet,Tata,2010,"1,55,555","1,11,111 kms",Petrol
-Tata zest x,Tata,odel,"3,20,000",,
-Mahindra xyl,Mahindra,2 bs,"3,50,000",,
-Mercedes Benz A Class A 180 Sport Petrol,Mercedes,2013,"15,00,000","14,000 kms",Petrol
-Chevrolet Beat LS Diesel,Chevrolet,2016,"2,10,000","22,000 kms",Diesel
-Ford EcoSport Trend 1.5L TDCi,Ford,2013,"4,95,000","38,000 kms",Diesel
-Tata Indigo LS,Tata,2016,"1,25,000","70,000 kms",Diesel
-Hyundai i20 Magna 1.2,Hyundai,2010,"1,95,000","36,000 kms",Petrol
-Volkswagen Vento Highline Plus 1.5 Diesel AT,Volkswagen,2015,"5,50,000","34,000 kms",Diesel
-Renault Kwid RXT,Renault,2015,"2,70,000","43,000 kms",Petrol
-Used Commercial Maruti Omn,Used,arry,"1,50,000",,
-Ford EcoSport Titanium 1.5L TDCi,Ford,2014,"5,00,000","40,000 kms",Diesel
-Honda Amaze 1.5 E i DTEC,Honda,2016,"2,40,000","1,60,000 kms",Diesel
-Hyundai Verna 1.6 EX VTVT,Hyundai,2017,"8,00,000","12,000 kms",Petrol
-BMW 5 Series 520d Sedan,BMW,2011,"12,99,000","49,000 kms",Diesel
-Skoda Superb 1.8 TFSI AT,Skoda,2011,"5,30,000","68,000 kms",Petrol
-Audi Q3 2.0 TDI quattro Premium,Audi,2013,"14,99,000","37,000 kms",Diesel
-Mahindra Bolero DI BSII,Mahindra,2012,"2,20,000","59,466 kms",Diesel
-Maruti Suzuki Zen Estilo LXI Green CNG,Maruti,2011,Ask For Price,"16,000 kms",Petrol
-Mahindra Scorpio S10,Mahindra,2015,"9,00,000","97,200 kms",Diesel
-Ford Figo Duratorq Diesel Titanium 1.4,Ford,2012,"2,50,000","99,000 kms",Diesel
-Maruti Suzuki Wagon R VXI BS IV,Maruti,2018,"3,95,000","25,500 kms",Petrol
-Mahindra Logan Diesel 1.5 DLS,Mahindra,2009,"1,30,000","66,000 kms",Petrol
-Tata Nano GenX XMA,Tata,2010,"32,000","44,005 kms",Petrol
-Mahindra TUV300 T4 Plus,Mahindra,2016,"5,40,000","35,000 kms",Diesel
-Mahindra TUV300 T4 Plus,Mahindra,2016,"5,40,000","35,000 kms",Diesel
-Hyundai Elite i20 Magna 1.2,Hyundai,2015,"4,05,000","28,000 kms",Petrol
-Hyundai Elite i20 Magna 1.2,Hyundai,2015,"4,00,000","30,000 kms",Petrol
-Honda City SV,Honda,2017,"7,60,000","4,000 kms",Petrol
-Maruti Suzuki Baleno Delta 1.2,Maruti,2016,"5,00,000","28,000 kms",Petrol
-Ford Figo Petrol LXI,Ford,2011,"1,75,000","75,000 kms",Petrol
-Mahindra Scorpio S10,Mahindra,2015,"9,00,000","97,200 kms",Diesel
-Honda City,Honda,2017,"7,50,000","3,000 kms",Petrol
-Hyundai Elite i20 Magna 1.2,Hyundai,2015,"4,19,000","20,000 kms",Petrol
-Maruti Suzuki Versa DX2 8 SEATER BSIII,Maruti,2004,"90,000","50,000 kms",Petrol
-Hyundai Eon Era Plus,Hyundai,2018,"1,40,000","2,110 kms",Petrol
-Mitsubishi Pajero Sport Limited Edition,Mitsubishi,2015,"15,40,000","43,222 kms",Petrol
-Hyundai i10 Magna 1.2 Kappa2,Hyundai,2008,"2,75,000","1,00,200 kms",Petrol
-Toyota Corolla H2,Toyota,2003,"1,50,000","1,00,000 kms",Petrol
-Maruti Suzuki Swift Dzire Tour VXi,Maruti,2011,"2,30,000",65 kms,Petrol
-Tata Indigo CS eLS BS IV,Tata,2015,"1,23,000","1,00,000 kms",Diesel
-Mahindra Scorpio S10,Mahindra,2015,"9,00,000","97,200 kms",Diesel
-Mahindra Scorpio S10,Mahindra,2015,"9,00,000","97,200 kms",Diesel
-Hyundai Xcent Base 1.1 CRDi,Hyundai,2016,"3,00,000","1,40,000 kms",Diesel
-Honda City,Honda,2015,"4,99,999","55,000 kms",Petrol
-Hyundai Accent Executive Edition,Hyundai,2009,"1,65,000","48,000 kms",Petrol
-Maruti Suzuki Baleno Delta 1.2,Maruti,2016,"4,98,000","22,000 kms",Petrol
-Tata Zest XE 75 PS Diesel,Tata,2018,"4,80,000","1,03,553 kms",Diesel
-Maruti Suzuki Dzire LDI,Maruti,2017,"4,88,000","80,000 kms",Diesel
-Tata Sumo Gold LX BS IV,Tata,2014,"2,50,000","99,000 kms",Diesel
-Toyota Corolla Altis GL Petrol,Toyota,2010,"2,20,000","58,000 kms",Petrol
-Maruti Suzuki Eeco 7 STR,Maruti,2013,"2,90,000","70,000 kms",LPG
-Toyota Fortuner 3.0 4x2 MT,Toyota,2015,"15,25,000","1,20,000 kms",Diesel
-Mahindra XUV500 W6,Mahindra,2013,"5,48,900","49,800 kms",Diesel
-Tata Tigor Revotron XZ,Tata,2019,"6,50,000",100 kms,Diesel
-Maruti Suzuki 800,Maruti,2001,"55,000","81,876 kms",Petrol
-Maruti Suzuki Ertiga Vxi,Maruti,2015,"5,50,000","75,000 kms",Petrol
-Maruti Suzuki Versa DX2 8 SEATER BSIII,Maruti,2004,"90,000","50,000 kms",Petrol
-Honda Mobilio S i DTEC,Honda,2014,"3,99,000","44,000 kms",Diesel
-Maruti Suzuki Ertiga,Maruti,2016,"7,30,000","55,000 kms",Diesel
-Maruti Suzuki Vitara Brezza,Maruti,2017,"7,25,000","36,000 kms",Diesel
-Hyundai Verna 1.6 CRDI E,Hyundai,2016,"1,95,000","56,000 kms",Diesel
-Maruti Suzuki Swift VXI BSIII,Maruti,2007,"1,30,000","62,000 kms",Petrol
-Toyota Fortuner 3.0 4x2 MT,Toyota,2015,"15,25,000","1,20,000 kms",Diesel
-Maruti Suzuki Omni Select Variant,Maruti,2014,"1,90,000","6,020 kms",Petrol
-Honda Amaze,Honda,2013,"2,50,000","55,700 kms",Diesel
-Tata Indica,Tata,2005,"80,000","42,000 kms",Petrol
-Hyundai Santro Xing,Hyundai,2003,"1,20,000","50,000 kms",Petrol
-Maruti Suzuki Zen Estilo,Maruti,2010,"1,49,000","35,000 kms",Petrol
-Maruti Suzuki Wagon R LXI BS IV,Maruti,2014,"2,50,000","18,500 kms",Petrol
-Maruti Suzuki Wagon R,Maruti,2007,"1,20,000","7,000 kms",Petrol
-Honda Brio VX AT,Honda,2017,"4,50,000","11,000 kms",Petrol
-Hyundai Xcent Base 1.1 CRDi,Hyundai,2015,Ask For Price,"1,80,000 kms",Diesel
-Maruti Suzuki Zen LXi BSII,Maruti,2003,"99,999","53,000 kms",Petrol
-Maruti Suzuki Zen Estilo LXI Green CNG,Maruti,2008,"1,35,000","23,000 kms",Petrol
-Maruti Suzuki Wagon R Select Variant,Maruti,2016,"2,25,000","35,500 kms",Diesel
-Maruti Suzuki Alto LXi BS III,Maruti,2010,"99,000","22,134 kms",Petrol
-Renault Kwid RXT,Renault,2019,"3,70,000","1,000 kms",Petrol
-Tata Nano Lx BSIV,Tata,2010,"52,000","9,000 kms",Petrol
-Jaguar XE XE Portfolio,Jaguar,2016,"28,00,000","8,500 kms",Petrol
-Hyundai Xcent S 1.2,Hyundai,2015,Ask For Price,"35,000 kms",Petrol
-Hyundai Eon Magna Plus,Hyundai,2014,"1,90,000","35,000 kms",Petrol
-Honda City 1.5 S MT,Honda,2014,"4,99,000","22,000 kms",Petrol
-Hindustan Motors Ambassador,Hindustan,2002,"90,000","25,000 kms",Diesel
-Maruti Suzuki Ritz GENUS VXI,Maruti,2010,"1,49,000","40,000 kms",Petrol
-Hyundai Grand i10 Magna AT 1.2 Kappa VTVT,Hyundai,2017,"4,00,000","20,000 kms",Petrol
-Hyundai Eon D Lite Plus,Hyundai,2016,"1,20,000","87,000 kms",Petrol
-Maruti Suzuki Swift Dzire VXi 1.2 BS IV,Maruti,2015,"2,50,000","55,000 kms",Petrol
-Maruti Suzuki Wagon R VXI BS IV,Maruti,2017,"3,75,000","23,000 kms",Petrol
-Honda Amaze 1.2 VX i VTEC,Honda,2014,"3,81,000","6,000 kms",Petrol
-Maruti Suzuki Estilo VXi ABS BS IV,Maruti,2013,"1,80,000","65,000 kms",Petrol
-Maruti Suzuki Vitara Brezza LDi O,Maruti,2016,"5,80,000","25,000 kms",Diesel
-Maruti Suzuki Eeco 5 STR WITH AC HTR,Maruti,2015,"2,78,000","39,000 kms",Petrol
-Toyota Innova 2.0 V,Toyota,2009,Ask For Price,"15,574 kms",Diesel
-Hyundai Creta 1.6 SX Plus Petrol AT,Hyundai,2016,"10,00,000","8,000 kms",Petrol
-Mahindra Scorpio Vlx BSIV,Mahindra,2013,"6,90,000","75,000 kms",Diesel
-Maruti Suzuki Ertiga VDi,Maruti,2012,"4,80,000","51,000 kms",Diesel
-Mitsubishi Lancer 1.8 LXi,Mitsubishi,2006,"85,000","50,000 kms",Petrol
-Maruti Suzuki Maruti 800 AC,Maruti,2001,"40,000","75,000 kms",Petrol
-Maruti Suzuki Alto 800 LXI CNG O,Maruti,2015,"90,000","55,800 kms",Petrol
-Hyundai Grand i10 Magna 1.2 Kappa VTVT,Hyundai,2015,"3,40,000","53,000 kms",Petrol
-Hyundai Eon D Lite Plus,Hyundai,2018,"2,60,000","25,000 kms",Petrol
-Ford Fiesta SXi 1.6 ABS,Ford,2009,"2,50,000","56,400 kms",Petrol
-Maruti Suzuki Ritz VDi,Maruti,2010,"1,80,000","72,160 kms",Diesel
-Hyundai Verna Fluidic New,Hyundai,2012,"3,50,000","10,000 kms",Diesel
-Maruti Suzuki Wagon R LXi BS III,Maruti,2006,"90,001","48,000 kms",Petrol
-Maruti Suzuki Estilo LX BS IV,Maruti,2007,"1,15,000","36,000 kms",Petrol
-Audi A6 2.0 TDI Premium,Audi,2012,"15,99,000","11,500 kms",Diesel
-Maruti Suzuki Wagon R LXi BS III,Maruti,2003,"1,30,000","1,33,000 kms",Petrol
-Maruti Suzuki Wagon R,Maruti,2009,"1,59,000","27,000 kms",Petrol
-Maruti Suzuki Wagon R,Maruti,2009,"1,60,000","35,000 kms",Petrol
-Maruti Suzuki Alto,Maruti,2010,"1,10,000","55,000 kms",Petrol
-Maruti Suzuki Baleno Sigma 1.2,Maruti,2016,"4,25,000","40,000 kms",Petrol
-Hyundai Verna 1.6 SX VTVT AT,Hyundai,2019,"9,00,000","2,000 kms",Petrol
-Maruti Suzuki Swift GLAM,Maruti,2009,"1,50,000","45,000 kms",Petrol
-Hyundai Getz Prime 1.3 GVS,Hyundai,2009,"1,10,000","20,000 kms",Petrol
-Hyundai Santro,Hyundai,2000,"51,999","88,000 kms",Petrol
-Hyundai Getz Prime 1.3 GLX,Hyundai,2009,"1,15,000","20,000 kms",Petrol
-Chevrolet Beat PS Diesel,Chevrolet,2012,"2,15,000","65,422 kms",Diesel
-Ford EcoSport Trend 1.5 Ti VCT,Ford,2017,"5,80,000","10,000 kms",Petrol
-Maruti Suzuki Dzire ZXI,Maruti,2013,"3,80,000","35,000 kms",Petrol
-Hyundai Fluidic Verna 1.6 CRDi SX,Hyundai,2013,"3,50,000","1,17,000 kms",Diesel
-Tata Indica V2 DLG,Tata,2005,"35,000","1,50,000 kms",Diesel
-BMW X1 xDrive20d xLine,BMW,2011,"11,50,000","72,000 kms",Diesel
-Hyundai i20 Asta 1.2,Hyundai,2010,"3,00,000","10,750 kms",Petrol
-Honda City 1.5 V AT,Honda,2009,"2,69,000","55,000 kms",Petrol
-Tata Nano,Tata,2013,"60,000","6,800 kms",Petrol
-Chevrolet Cruze LTZ AT,Chevrolet,2014,"4,00,000","41,000 kms",Diesel
-Hyundai Verna Fluidic New,Hyundai,2015,"4,30,000","73,000 kms",Diesel
-Hyun,Hyundai,Eon,Ask For Price,,
-Maruti Suzuki Swift Dzire VDi,Maruti,2011,"1,40,000","65,000 kms",Diesel
-Mahindra XUV500 W6,Mahindra,2014,"85,00,003","45,000 kms",Diesel
-Mahindra XUV500 W10,Mahindra,2018,"12,99,000","40,000 kms",Diesel
-Maruti Suzuki Alto K10 LXi CNG,Maruti,2014,"1,99,000","37,000 kms",Petrol
-Hyundai Accent GLE,Hyundai,2006,"90,000","55,000 kms",Petrol
-Force Motors One SUV,Force,2013,"5,50,000","1,40,000 kms",Diesel
-Datsun Go Plus T O,Datsun,2016,Ask For Price,5 kms,Petrol
-Maruti Suzuki Alto,Maruti,2019,"2,65,000","9,800 kms",Petrol
-Chevrolet Spark 1.0 LT,Chevrolet,2011,"1,00,000","27,000 kms",Petrol
-Hyundai i10,Hyundai,2009,"2,15,000","27,000 kms",Petrol
-Toyota Etios Liva GD,Toyota,2012,"3,80,000","20,000 kms",Diesel
-Renault Duster 85PS Diesel RxL Optional with Nav,Renault,2013,"4,01,919","57,923 kms",Diesel
-Chevrolet Enjoy,Chevrolet,2014,"4,90,000","30,201 kms",Diesel
-Maruti Suzuki Alto 800 Lxi,Maruti,2017,"2,80,000","6,200 kms",Petrol
-BMW 5 Series 530i,BMW,2009,"6,50,000","37,518 kms",Petrol
-Toyota Etios Liva G,Toyota,2014,"1,60,000","24,652 kms",Petrol
-Mahindra Jeep MM 550 XDB,Mahindra,2004,"4,24,000",383 kms,Diesel
-Chevrolet Beat LS Diesel,Chevrolet,2016,"2,25,000","95,000 kms",Diesel
-Chevrolet Cruze LTZ,Chevrolet,2011,"3,50,000","35,000 kms",Diesel
-Jeep Wrangler Unlimited 4x4 Diesel,Jeep,2015,"9,50,000","3,528 kms",Diesel
-Maruti Suzuki Ertiga VDi,Maruti,2013,"4,85,000","52,500 kms",Diesel
-Hyundai Verna VGT CRDi SX ABS,Hyundai,2010,"2,05,000","47,900 kms",Diesel
-Maruti Suzuki Omni,Maruti,2012,"1,60,000","14,000 kms",Petrol
-Maruti Suzuki Celerio VDi,Maruti,2018,"3,10,000","37,000 kms",Petrol
-Tata Zest Quadrajet 1.3,Tata,2017,"1,80,000","90,000 kms",Diesel
-Mahindra XUV500 W6,Mahindra,2013,"5,49,900","52,800 kms",Diesel
-Tata Indigo CS eLX BS IV,Tata,2016,"1,50,000","1,04,000 kms",Diesel
-Hyundai i10 Era,Hyundai,2011,"1,75,000","30,000 kms",Petrol
-Tata Indigo eCS LX TDI BS III,Tata,2014,"95,000","1,95,000 kms",Diesel
-Tata Indigo LX TDI BS III,Tata,2016,"2,30,000","1,04,000 kms",Diesel
-Tata Indigo eCS LX CR4 BS IV,Tata,2016,"2,30,000","1,04,000 kms",Diesel
-Tata Indigo Marina LS,Tata,2004,"1,80,000","70,000 kms",Diesel
-Commercial Chevrolet Sail Hatchback ca,Commercial,o...,"2,25,000",,
-Hyundai Xcent SX 1.2,Hyundai,2015,"4,00,000","43,000 kms",Diesel
-Hyundai Eon Magna Plus,Hyundai,2013,"1,85,000","23,000 kms",Petrol
-Renault Duster 85 PS RxL Diesel,Renault,2015,"3,85,000","51,000 kms",Diesel
-Maruti Suzuki Alto K10 LXi CNG,Maruti,2009,"90,000","62,000 kms",Petrol
-Tata Nano LX Special Edition,Tata,2010,"32,000","48,008 kms",Petrol
-Commercial Car Ta,Commercial,Zest,"3,71,500",,
-Renault Duster 110 PS RxZ Diesel,Renault,2013,"4,35,000","39,000 kms",Diesel
-Maruti Suzuki Wagon R AX BSIV,Maruti,2010,"2,25,000","40,000 kms",Petrol
-Maruti Suzuki Swift,Maruti,2006,"1,89,700","48,247 kms",Petrol
-Maruti Suzuki Ertiga,Maruti,2012,"3,89,700","39,000 kms",Diesel
-Maruti Suzuki Swift VXi 1.2 ABS BS IV,Maruti,2014,"3,65,000","23,000 kms",Petrol
-Maruti Suzuki Alto K10 New,Maruti,2017,"3,60,000","9,400 kms",Petrol
-Hyundai i20 Magna,Hyundai,2010,"2,10,000","50,000 kms",Petrol
-Hyundai i10 Magna 1.2,Hyundai,2009,"1,70,000","75,000 kms",Petrol
-tata Indica,tata,sale,"1,30,000",,
-Tata Zest XE 75 PS Diesel,Tata,2017,"3,80,000","70,000 kms",Diesel
-Mahindra Xylo E8,Mahindra,2009,"2,95,000","64,000 kms",Diesel
-Toyota Corolla Altis GL Petrol,Toyota,2010,"1,85,000","55,000 kms",Petrol
-Tata Manza Aqua Quadrajet,Tata,2014,"1,60,000","2,00,000 kms",Diesel
-Mahindra KUV100 K8 D 6 STR,Mahindra,2018,Ask For Price,"7,500 kms",Diesel
-Used bt new conditions ta,Used,Zest,"2,55,000",,
-Renault Kwid 1.0,Renault,2018,"2,90,000","2,137 kms",Petrol
-Sale tata,Sale,ture,"1,00,000",,
-Tata Venture EX 8 STR,Tata,2013,"1,00,000","30,000 kms",Diesel
-Maruti Suzuki Swift Dzire Tour LXi,Maruti,2014,"3,15,000","44,000 kms",Petrol
-Maruti Suzuki Alto LX BSII,Maruti,2002,Ask For Price,"56,000 kms",Petrol
-Skoda Octavia Classic 1.9 TDI MT,Skoda,2006,"1,14,990","65,000 kms",Diesel
-Maruti Suzuki Omni LPG BS IV,Maruti,2012,"1,20,000","1,60,000 kms",LPG
-Chevrolet Beat Diesel,Chevrolet,2011,"1,25,000","56,000 kms",Diesel
-Tata Sumo Gold EX BS IV,Tata,2012,"2,10,000","75,000 kms",Diesel
-Tata indigo 2017 top model..,Tata,emi,"1,70,000",,
-Hyundai Verna 1.6 CRDI SX,Hyundai,2018,"8,55,000","42,000 kms",Diesel
-Tata Sumo Gold EX BS IV,Tata,2012,"2,10,000","75,000 kms",Diesel
-Mahindra Scorpio 2.6 CRDe,Mahindra,2007,"2,60,000","56,000 kms",Diesel
-Maruti Suzuki Zen LXi BS III,Maruti,2002,"95,000","10,544 kms",Petrol
-Maruti Suzuki Swift Dzire VXi 1.2 BS IV,Maruti,2011,"2,55,000","64,000 kms",Petrol
-Mahindra Scorpio SLX 2.6 Turbo 8 Str,Mahindra,2008,"3,00,000","70,000 kms",Diesel
-Hyundai Grand i10 Sportz 1.2 Kappa VTVT,Hyundai,2014,"3,40,000","25,000 kms",Petrol
-Hyundai Elite i20 Sportz 1.2,Hyundai,2017,"5,50,000","15,000 kms",Petrol
-Ford Ikon 1.6 Nxt,Ford,2003,"60,000","50,000 kms",Petrol
-Hyundai Elite i20 Sportz 1.2,Hyundai,2015,Ask For Price,"49,500 kms",Petrol
-Tata indigo,Tata,car,"1,50,000",,
-Toyota Innova 2.5 V 7 STR,Toyota,2011,"7,50,000","1,47,000 kms",Diesel
-Nissan Sunny XL,Nissan,2011,"2,30,000","52,000 kms",Petrol
-Chevrolet Beat LT Diesel,Chevrolet,2012,"1,30,000","90,001 kms",Diesel
-Maruti Suzuki Alto 800 Lxi,Maruti,2017,"2,70,000","21,000 kms",Petrol
-Maruti Suzuki Swift VDi BS IV,Maruti,2012,"2,80,000","48,006 kms",Diesel
-Maruti Suzuki Swift VDi BS IV,Maruti,2012,"2,80,000","48,006 kms",Diesel
-Maruti Suzuki Swift,Maruti,2012,"2,80,000","48,006 kms",Diesel
-very good condition tata bolts are av,very,able,"2,00,000",,
-Toyota Innova 2.0 G4,Toyota,2012,"6,00,000","80,000 kms",Diesel
-Sale Hyundai xcent commerc,Sale,no.,Ask For Price,,
-Maruti Suzuki Swift VDi ABS,Maruti,2010,"1,90,000","74,000 kms",Diesel
-Hyundai Elite i20 Asta 1.2,Hyundai,2015,"5,00,000","22,000 kms",Petrol
-Mahindra XUV500 W10,Mahindra,2016,"10,65,000","41,000 kms",Diesel
-Volkswagen Polo Trendline 1.5L D,Volkswagen,2015,"3,50,000","25,000 kms",Diesel
-Toyota Etios Liva Diesel,Toyota,2012,"3,50,000","85,000 kms",Diesel
-Mahindra TUV300 T4 Plus,Mahindra,2016,"5,40,000","29,500 kms",Diesel
-Hyundai Elite i20 Asta 1.2,Hyundai,2015,"4,70,000","30,000 kms",Petrol
-Hyundai Santro Xing GLS,Hyundai,2014,"1,79,000","57,000 kms",Petrol
-Maruti Suzuki Zen LXi BS III,Maruti,2003,"48,000","60,000 kms",Petrol
-Maruti Suzuki Ciaz ZXi Plus RS,Maruti,2016,"6,50,000","50,000 kms",Petrol
-Hyundai Eon Era Plus,Hyundai,2013,"1,90,000","39,700 kms",Petrol
-Hyundai Elantra 1.8 S,Hyundai,2012,"5,00,000","65,000 kms",Petrol
-Maruti Suzuki Swift VDi,Maruti,2010,"2,70,000","67,000 kms",Diesel
-Maruti Suzuki Zen Estilo LXI Green CNG,Maruti,2008,"1,25,000","46,000 kms",Petrol
-Hyundai Eon Era Plus,Hyundai,2012,"1,88,000","38,000 kms",Petrol
-Hyundai Grand i10 Magna 1.2 Kappa VTVT,Hyundai,2016,"3,80,000","27,000 kms",Petrol
-Hyundai Verna Fluidic New,Hyundai,2011,"3,65,000","43,000 kms",Diesel
-Ford EcoSport Trend 1.5L Ti VCT,Ford,2014,"4,65,000","47,000 kms",Petrol
-Hyundai i20 Magna,Hyundai,2011,"2,40,000","42,000 kms",Petrol
-Chevrolet Beat Diesel,Chevrolet,2016,"1,79,999","19,336 kms",Diesel
-Tata Indica eV2 LS,Tata,2015,"1,40,000","60,105 kms",Diesel
-Jaguar XF 2.2 Diesel Luxury,Jaguar,2013,"21,90,000","29,000 kms",Diesel
-Audi Q5 2.0 TDI quattro Premium Plus,Audi,2014,"23,90,000","34,000 kms",Diesel
-BMW 3 Series 320d Sedan,BMW,2011,"10,75,000","35,000 kms",Diesel
-Maruti Suzuki Swift ZXi 1.2 BS IV,Maruti,2015,"4,75,000","22,000 kms",Petrol
-BMW X1 sDrive20d,BMW,2012,"10,25,000","41,000 kms",Diesel
-Maruti Suzuki S Cross Sigma 1.3,Maruti,2016,"6,15,000","21,000 kms",Diesel
-Maruti Suzuki Ertiga LDi,Maruti,2013,"4,75,000","48,000 kms",Diesel
-Maruti Suzuki Alto K10 VXi AMT,Maruti,2016,"2,70,000","38,000 kms",Petrol
-Honda City SV,Honda,2014,"4,75,000","34,000 kms",Diesel
-Volkswagen Vento Comfortline Petrol,Volkswagen,2011,"2,40,000","45,933 kms",Petrol
-Honda City 1.5 EXi New,Honda,2005,"1,20,000","68,000 kms",Petrol
-Audi A4 2.0 TDI 177bhp Premium,Audi,2016,"19,00,000","44,000 kms",Diesel
-Mahindra KUV100,Mahindra,2017,"3,60,000","35,000 kms",Diesel
-Tata Zest XE 75 PS Diesel,Tata,2018,"4,50,000","1,02,563 kms",Diesel
-Mahindra XUV500 W8,Mahindra,2015,"9,00,000","28,600 kms",Diesel
-Maruti Suzuki Swift Dzire Tour VDi,Maruti,2017,"6,50,000","41,800 kms",Diesel
-Tata Sumo Gold LX BS IV,Tata,2014,"2,75,000","1,16,000 kms",Diesel
-Maruti Suzuki Swift Dzire VXi 1.2 BS IV,Maruti,2009,"2,10,000","59,000 kms",Petrol
-Mahindra Scorpio 2.6 SLX,Mahindra,2004,"1,75,000","58,000 kms",Diesel
-Maruti Suzuki Omni 8 STR BS III,Maruti,2009,"85,000","45,000 kms",Petrol
-Mitsubishi Pajero Sport Limited Edition,Mitsubishi,2015,"14,90,000","42,590 kms",Diesel
-Renault Duster,Renault,2014,"8,00,000","7,400 kms",Diesel
-Volkswagen Jetta Comfortline 1.9 TDI AT,Volkswagen,2009,"4,50,000","54,500 kms",Diesel
-Maruti Suzuki Ertiga Vxi,Maruti,2012,"10,00,000","2,00,000 kms",Diesel
-Audi A4 2.0 TDI 177bhp Premium,Audi,2013,"15,10,000","27,000 kms",Diesel
-Volvo S80 Summum D4,Volvo,2015,"18,50,000","42,000 kms",Diesel
-Toyota Corolla Altis VL AT Petrol,Toyota,2014,"7,90,000","29,000 kms",Petrol
-Mitsubishi Pajero Sport 2.5 AT,Mitsubishi,2015,"17,25,000","37,000 kms",Diesel
-Chevrolet Beat LT Petrol,Chevrolet,2012,"1,35,000","36,000 kms",Petrol
-BMW X1,BMW,2011,"10,00,000","34,000 kms",Diesel
-Datsun Redi GO S,Datsun,2018,"2,99,999","7,000 kms",Petrol
-Mercedes Benz C Class C 220 CDI Avantgarde,Mercedes,2009,"12,25,000","76,000 kms",Diesel
-Mahindra Scorpio SLX,Mahindra,2004,"1,75,000","60,000 kms",Diesel
-Volkswagen Vento Comfortline Diesel,Volkswagen,2011,"2,00,000","95,000 kms",Diesel
-Tata Indigo CS GLS,Tata,2017,"2,70,000","50,000 kms",Diesel
-Ford Figo Petrol Titanium,Ford,2019,"5,25,000",00 kms,Petrol
-Honda City ZX GXi,Honda,2006,"1,80,000","50,000 kms",Petrol
-Maruti Suzuki Wagon R Duo Lxi,Maruti,2008,"1,40,000","68,000 kms",Petrol
-Ford EcoSport Trend 1.5L TDCi,Ford,2014,"4,00,000","16,000 kms",Petrol
-Maruti Suzuki Swift Dzire VDi,Maruti,2016,"4,99,000","51,000 kms",Diesel
-Maruti Suzuki Omni 8 STR BS III,Maruti,2009,"85,000","56,000 kms",Petrol
-Maruti Suzuki Zen LX BSII,Maruti,2004,"70,000","1,00,000 kms",Petrol
-Renault Duster RxL Petrol,Renault,2015,"5,50,000","36,000 kms",Petrol
-Maruti Suzuki Swift VXi 1.2 BS IV,Maruti,2014,"3,70,000","11,523 kms",Petrol
-Maruti Suzuki Baleno Zeta 1.2,Maruti,2018,"6,90,000","1,000 kms",Petrol
-Honda WR V S MT Petrol,Honda,2009,"2,50,000","60,000 kms",Petrol
-Tata Indigo CS eLX BS IV,Tata,2016,"1,10,000","85,000 kms",Diesel
-Renault Duster 110 PS RxL Diesel,Renault,2013,"4,90,000","38,600 kms",Diesel
-Mahindra Scorpio LX BS III,Mahindra,2009,"3,20,000","95,500 kms",Diesel
-Maruti Suzuki Zen LXi BS III,Maruti,2004,"68,000","56,000 kms",Petrol
-Maruti Suzuki Wagon R LXi BS III,Maruti,2014,"1,30,000","37,458 kms",Petrol
-Maruti Suzuki SX4 Celebration Diesel,Maruti,2016,"9,70,000","85,960 kms",Diesel
-Audi A3 Cabriolet 40 TFSI,Audi,2015,"31,00,000","12,516 kms",Petrol
-Hyundai Eon D Lite Plus,Hyundai,2018,"2,80,000","35,000 kms",Petrol
-Maruti Suzuki Zen Estilo LXI Green CNG,Maruti,2009,"1,25,000",00 kms,Petrol
-Mahindra Scorpio SLX,Mahindra,2008,"2,85,000","80,000 kms",Diesel
-I want to sell my commercial car due t,I,o...,"4,75,000",,
-Hyundai Santro AE GLS Audio,Hyundai,2011,"1,65,000","45,000 kms",Petrol
-i want sale my car.no emi....uber atta,i,d...,"3,20,000",,
-Maruti Suzuki Swift Dzire Tour VDi,Maruti,2009,"2,50,000","51,000 kms",Diesel
-Mahindra Scorpio S4,Mahindra,2015,"8,65,000","30,000 kms",Diesel
-Tata ZEST 6 month old,Tata,car,"3,70,000",,
-Mahindra Xylo D2 BS IV,Mahindra,2011,"3,90,000","48,000 kms",Diesel
-Hyundai Santro,Hyundai,2003,"60,000","51,000 kms",Petrol
-Chevrolet Beat LT Diesel,Chevrolet,2015,"2,15,000","90,000 kms",Diesel
-Maruti Suzuki Swift Dzire VDi,Maruti,2015,"4,75,000","43,000 kms",Diesel
-Mahindra XUV500 W8,Mahindra,2015,"8,99,000","53,000 kms",Diesel
-Toyota Fortuner 3.0 4x4 MT,Toyota,2013,"14,99,000","97,000 kms",Diesel
-Maruti Suzuki Alto K10 VXi,Maruti,2013,"2,40,000","20,000 kms",Petrol
-Hyundai Getz GLE,Hyundai,2007,"99,000","55,000 kms",Petrol
-Maruti Suzuki Swift Dzire Tour LDi,Maruti,2014,"2,60,000","1,20,000 kms",Diesel
-Hyundai Creta 1.6 SX,Hyundai,2019,"12,00,000",0 kms,Petrol
-Hyundai Santro Xing XL AT eRLX Euro III,Hyundai,2007,"1,15,000","46,000 kms",Petrol
-Hyundai Santro Xing XL eRLX Euro III,Hyundai,2009,"88,000","43,200 kms",Petrol
-Mahindra Xylo D2 BS IV,Mahindra,2011,"3,90,000","56,000 kms",Diesel
-Hyundai Santro Xing XL eRLX Euro III,Hyundai,2007,"1,35,000","42,000 kms",Petrol
-Tata Indica V2 DLS BS III,Tata,2009,"90,000","30,600 kms",Diesel
-Hyundai i10 Sportz 1.2,Hyundai,2011,"2,20,000","38,000 kms",Petrol
-Hyundai Grand i10 Magna 1.2 Kappa VTVT,Hyundai,2017,"4,24,999","2,550 kms",Petrol
-Hyundai Santro Xing XL AT eRLX Euro III,Hyundai,2007,"1,35,000","47,000 kms",Petrol
-Honda City 1.5 E MT,Honda,2005,"95,000","41,000 kms",Petrol
-Nissan Micra XL,Nissan,2017,"4,30,000","62,500 kms",Diesel
-Honda City 1.5 S Inspire,Honda,2005,"1,15,000","68,000 kms",Petrol
-Maruti Suzuki Alto 800 Lxi,Maruti,2015,"2,15,000","50,000 kms",Petrol
-Maruti Suzuki Wagon R LX BS III,Maruti,2004,"53,000","69,000 kms",Petrol
-Maruti Suzuki Ertiga VDi,Maruti,2012,"5,00,000","48,000 kms",Diesel
-Tata Indica eV2 eXeta eGLX,Tata,2012,"85,000","55,000 kms",Diesel
-Maruti Suzuki Omni E 8 STR BS IV,Maruti,2013,"1,65,000","25,000 kms",Petrol
-Hyundai Eon Era Plus,Hyundai,2014,"2,00,000","28,400 kms",Petrol
-Hyundai Eon,Hyundai,2014,"2,00,000","28,000 kms",Petrol
-Maruti Suzuki Swift LDi,Maruti,2015,"4,25,000","42,000 kms",Diesel
-MARUTI SUZUKI ERTIGA F,MARUTI,SALE,"6,50,000",,
-Hyundai Verna 1.6 CRDI SX Plus AT,Hyundai,2012,"6,00,000","29,000 kms",Diesel
-Chevrolet Tavera LS B3 10 Seats BSII,Chevrolet,2005,"1,30,000","68,485 kms",Diesel
-Tata Tiago Revotron XM,Tata,2018,"4,30,000","3,500 kms",Petrol
-Tata Tiago Revotorq XZ,Tata,2019,"5,68,500",0 kms,Petrol
-Tata Nexon,Tata,2019,Ask For Price,0 kms,Petrol
-Tata,Tata,digo,Ask For Price,,
-Maruti Suzuki Zen LXi BS III,Maruti,2006,"71,000","32,000 kms",Petrol
-Mahindra KUV100 K8 D 6 STR,Mahindra,2018,"5,60,000","8,000 kms",Diesel
-Ford EcoSport Titanium 1.5 TDCi,Ford,2014,"5,90,000","34,000 kms",Diesel
-Hindustan Motors Ambassador Classic Mark 4 – Befo,Hindustan,1995,"7,50,000","37,000 kms",Petrol
-Ford Fusion 1.4 TDCi Diesel,Ford,2007,"1,25,000","85,455 kms",Diesel
-Hyundai Santro Xing XL AT eRLX Euro III,Hyundai,2007,"1,35,000","46,000 kms",Petrol
-Hyundai Santro,Hyundai,2002,"60,000","47,000 kms",Petrol
-Fiat Linea Emotion 1.4 L T Jet Petrol,Fiat,2009,"1,20,000","64,000 kms",Petrol
-Ford Ikon 1.3 Flair Josh 100,Ford,2008,"95,000","46,000 kms",Petrol
-Maruti Suzuki Omni E 8 STR BS IV,Maruti,2017,"2,40,000","8,000 kms",Petrol
-Tata Indica V2 LS,Tata,2012,"1,15,000","64,000 kms",Diesel
-Mahindra Scorpio S4,Mahindra,2015,"7,95,000","63,000 kms",Diesel
-Hyundai Santro Xing XL eRLX Euro III,Hyundai,2007,"55,000","65,000 kms",Petrol
-Mahindra Xylo D2,Mahindra,2009,"3,00,000","62,000 kms",Diesel
-Hyundai Grand i10 Asta 1.2 Kappa VTVT,Hyundai,2014,"3,20,000","41,000 kms",Petrol
-Maruti Suzuki Alto 800 Lxi,Maruti,2015,"2,65,000","14,000 kms",Petrol
-Toyota Corolla,Toyota,2006,"1,60,000","40,000 kms",Petrol
-Hyundai Eon Magna,Hyundai,2017,"3,00,000","1,600 kms",Petrol
-Tata Sumo Grande MKII GX,Tata,2010,"1,30,000","90,000 kms",Diesel
-Maruti Suzuki Swift VDi,Maruti,2011,"2,50,000","58,000 kms",Diesel
-Volkswagen Polo Highline1.2L P,Volkswagen,2013,"3,80,000","27,000 kms",Petrol
-Maruti Suzuki Alto 800 Lx,Maruti,2003,"42,000","60,000 kms",Petrol
-Tata Tiago Revotron XZ,Tata,2017,"4,00,000","31,000 kms",Petrol
-Maruti Suzuki Swift LDi,Maruti,2009,"1,20,000","90,000 kms",Diesel
-Maruti Suzuki Swift VDi,Maruti,2009,"1,20,000","90,000 kms",Diesel
-Tata Indigo eCS,Tata,2016,"1,30,000","1,50,000 kms",Diesel
-Chevrolet Beat LS Diesel,Chevrolet,2014,"1,89,000","31,000 kms",Diesel
-2012 Tata Sumo Gold f,2012,sell,"2,50,000",,
-Mahindra Xylo E8 BS IV,Mahindra,2011,"3,65,000","43,000 kms",Diesel
-Hyundai Eon D Lite Plus,Hyundai,2013,"1,70,000","20,000 kms",Petrol
-Well mentained Tata Sumo,Well,d Ex,"3,80,000",,
-all paper updated tata indica v2 and u,all,n...,"1,45,000",,
-Maruti Ertiga showroom condition with,Maruti,e...,"4,80,000",,
-7 SEATER MAHINDRA BOLERO IN VERY GOOD,7,D...,Ask For Price,,
-9 SEATER MAHINDRA BOL,9,", Ac",Ask For Price,,
-scratch less Tata I,scratch,go .,"1,40,000",,
-Maruti Suzuki swift dzire for sale in,Maruti,d...,"3,60,000",,
-Commercial Chevrolet beat for sale in,Commercial,k...,"1,80,000",,
-urgent sell my Mahindra qu,urgent,o c4,"3,50,000",,
-Tata Sumo Gold FX BSIII,Tata,2013,"2,15,000","1,00,000 kms",Petrol
-sell my car Maruti Suzuki Swif,sell,zire,"3,00,000",,
-Maruti Suzuki Swift Dzire good car fo,Maruti,o...,"3,10,000",,
-Hyunda,Hyundai,cent,Ask For Price,,
-Commercial Maruti Suzuki Alto Lxi 800,Commercial,...,Ask For Price,,
-urgent sale Ta,urgent,Sumo,"2,20,000",,
-Maruti Suzuki Alto vxi t,Maruti,cab,"95,000",,
-tata,tata,t xe,Ask For Price,,
-TATA INDI,TATA,EV2,"1,10,000",,
-Tata Nano,Tata,2013,"60,000","7,000 kms",Petrol
-Hyundai Elite i20,Hyundai,2017,"5,99,999","31,000 kms",Petrol
-Hyundai i10 Magna 1.2 Kappa2,Hyundai,2009,"4,00,000","33,000 kms",Petrol
-Hyundai Creta,Hyundai,2016,"9,00,000","60,000 kms",Diesel
-Volkswagen Polo,Volkswagen,2013,"2,99,999","48,000 kms",Diesel
-Maruti Suzuki Dzire,Maruti,2014,"3,74,999","33,000 kms",Petrol
-Tata Bolt XM Petrol,Tata,2015,"6,00,000","15,000 kms",Petrol
-Maruti Suzuki Alto 800 Lx,Maruti,2005,"70,000","47,000 kms",Petrol
-Maruti Suzuki Alto,Maruti,2005,"1,00,000","40,000 kms",Petrol
-Hyundai Venue,Hyundai,2019,Ask For Price,"7,000 kms",Diesel
-Maruti Suzuki Ritz,Maruti,2010,"1,50,000","38,000 kms",Diesel
-Maruti Suzuki Alto 800 Lxi,Maruti,2017,"2,25,000","12,500 kms",Petrol
-Maruti Suzuki Dzire,Maruti,2009,"2,10,000","42,000 kms",Petrol
-Renault Lodgy,Renault,2016,Ask For Price,"20,000 kms",Diesel
-Hyundai i20 Asta,Hyundai,2014,"4,25,000","31,000 kms",Petrol
-Maruti Suzuki Swift Select Variant,Maruti,2008,"1,62,000","60,000 kms",Diesel
-Tata Indica V2 DLX BS III,Tata,2005,"60,000","80,000 kms",Diesel
-Mahindra Scorpio VLX 2.2 mHawk Airbag BSIV,Mahindra,2014,"6,50,000","77,000 kms",Diesel
-Toyota Innova 2.5 E 8 STR,Toyota,2012,"7,50,000","75,000 kms",Diesel
-Mahindra Xylo E8,Mahindra,2010,"3,75,000","40,000 kms",Diesel
-Hyundai i20 Magna 1.2,Hyundai,2011,"2,30,000","47,000 kms",Petrol
-Maruti Suzuki Omni,Maruti,2000,"35,999","60,000 kms",Petrol
-Mahindra KUV100,Mahindra,2016,"3,80,000","26,500 kms",Petrol
-Mahindra KUV100 K8 6 STR,Mahindra,2019,"5,60,000","2,875 kms",Petrol
-Datsun Go Plus,Datsun,2016,"2,85,000","13,900 kms",Petrol
-Ford Endeavor 4x4 Thunder Plus,Ford,2019,"29,00,000","9,000 kms",Diesel
-Tata Indica V2,Tata,2005,"39,999","80,000 kms",Diesel
-Hyundai Santro Xing GL,Hyundai,2006,"85,000","60,000 kms",Petrol
-Maruti Suzuki Wagon R 1.0 VXi,Maruti,2016,"3,95,000","20,000 kms",Petrol
-Maruti Suzuki Swift Select Variant,Maruti,2008,"1,75,000","58,000 kms",Diesel
-Maruti Suzuki Alto 800 Lx,Maruti,2019,"4,00,000","1,500 kms",Petrol
-Toyota Innova 2.5 Z Diesel 7 Seater,Toyota,2011,"7,50,000","75,000 kms",Diesel
-Any type car avaiabel hare...comercica,Any,r...,"1,70,000",,
-Maruti Suzuki Alto 800,Maruti,2016,"2,50,000","2,450 kms",Petrol
-Maruti Suzuki Alto AX,Maruti,2019,"4,25,000","1,625 kms",Petrol
-Maruti Suzuki Alto 800 Lx,Maruti,2019,Ask For Price,"1,500 kms",Petrol
-Volkswagen Polo Highline1.2L P,Volkswagen,2017,"5,25,000","45,000 kms",Petrol
-Mahindra Logan,Mahindra,2009,"1,30,000","65,000 kms",Diesel
-Maruti Suzuki 800 Std BS III,Maruti,2000,"30,000","33,400 kms",Petrol
-Mahindra Scorpio,Mahindra,2011,"4,75,000","60,123 kms",Diesel
-Chevrolet Sail 1.2 LS,Chevrolet,2013,"3,00,000","28,000 kms",Petrol
-Volkswagen Vento Highline Plus 1.5 Diesel,Volkswagen,2015,Ask For Price,"38,900 kms",Diesel
-Hyundai Santro AE GLS Audio,Hyundai,2003,"60,000","70,000 kms",Petrol
-Maruti Suzuki Wagon R VXi Minor,Maruti,2006,"1,00,000","7,000 kms",Petrol
-Hyundai Eon,Hyundai,2018,"2,60,000","25,000 kms",Petrol
-Tata Manza,Tata,2015,"1,00,000","1,00,000 kms",Diesel
-Toyota Innova 2.0 G1 Petrol 8seater,Toyota,2019,Ask For Price,"4,000 kms",Petrol
-Toyota Etios G,Toyota,2013,"2,65,000","42,000 kms",Petrol
-Hyundai Getz Prime 1.3 GLX,Hyundai,2009,"1,15,000","20,000 kms",Petrol
-Toyota Qualis,Toyota,2003,"1,80,000","1,00,000 kms",Diesel
-Hyundai Santro Xing,Hyundai,2004,"45,000","1,37,495 kms",Petrol
-Tata Indica eV2 LS,Tata,2016,"50,500","91,200 kms",Diesel
-Honda City 1.5 S MT,Honda,2009,"2,70,000","55,000 kms",Petrol
-Tata Zest XE 75 PS Diesel,Tata,2017,"2,90,000","1,20,000 kms",Diesel
-Mahindra Quanto C4,Mahindra,2013,"3,25,000","63,000 kms",Diesel
-Tata Indigo eCS LX CR4 BS IV,Tata,2016,"1,60,000","1,04,000 kms",Diesel
-Maruti Suzuki Swift Dzire,Maruti,2016,"3,50,000","1,46,000 kms",Diesel
-Hyundai Elite i20,Hyundai,2011,"2,90,000","40,000 kms",Petrol
-Hyundai i20 Select Variant,Hyundai,2011,"2,90,000","40,000 kms",Petrol
-Chevrolet Tavera Neo,Chevrolet,2007,"4,65,000","1,00,800 kms",Diesel
-Maruti Suzuki Dzire,Maruti,2016,"3,25,000","1,50,000 kms",Diesel
-Hyundai Elite i20,Hyundai,2018,"5,10,000","2,100 kms",Petrol
-Honda City VX Petrol,Honda,2016,"8,60,000","95,000 kms",Petrol
-Maruti Suzuki Dzire,Maruti,2016,"4,50,000","2,500 kms",Diesel
-Hyundai Getz,Hyundai,2006,"1,25,000","80,000 kms",Petrol
-Mercedes Benz C Class 200 K MT,Mercedes,2006,"5,00,001","15,000 kms",Petrol
-Maruti Suzuki Alto LXi BS III,Maruti,2005,"95,000","65,000 kms",Petrol
-Maruti Suzuki Swift Dzire Tour VDi,Maruti,2009,"2,50,000","51,000 kms",Diesel
-Skoda Fabia,Skoda,2009,"1,10,000","45,000 kms",Petrol
-Maruti Suzuki Alto 800 Select Variant,Maruti,2015,Ask For Price,"70,000 kms",Petrol
-Maruti Suzuki Ritz VXI ABS,Maruti,2011,"2,70,000","50,000 kms",Petrol
-tata zest 2017 f,tata,sale,"4,50,000",,
-Tata Indica V2 DLE BS III,Tata,2009,"1,10,000","30,000 kms",Diesel
-Toyota Corolla Altis,Toyota,2009,"3,00,000","1,32,000 kms",Petrol
-Ta,Tara,zest,"3,10,000",,
-Tata Zest XM Diesel,Tata,2018,"2,60,000","27,000 kms",Diesel
-Mahindra Quanto C8,Mahindra,2013,"3,90,000","40,000 kms",Diesel
-Honda Amaze 1.2 E i VTEC,Honda,2014,"1,80,000",Petrol,
-Chevrolet Sail 1.2 LT ABS,Chevrolet,2014,"1,60,000",Petrol,
+Nissan Micra VXI,Nissan,2014,34609,"118,086 kms",Petrol
+Renault Kwid ZXI,Renault,2012,37855,"121,939 kms",Diesel
+Maruti Dzire VXI,Maruti,2014,36889,"115,620 kms",Petrol
+Maruti Ertiga ZXI,Maruti,2017,90087,"62,364 kms",LPG
+Renault Duster ZXI,Renault,2010,37373,"147,288 kms",Petrol
+Chevrolet Cruze VXI,Chevrolet,2019,184706,"47,972 kms",Diesel
+Kia Sonet ZXI,Kia,2019,290369,"52,886 kms",Diesel
+Kia Sonet LXI,Kia,2009,33650,"168,475 kms",Petrol
+Maruti Swift VXI,Maruti,2013,48357,"140,711 kms",Diesel
+Maruti Ignis LXI,Maruti,2016,96873,"111,850 kms",Diesel
+Datsun GO+ VXI,Datsun,2015,39966,"116,184 kms",LPG
+Honda City VXI,Honda,2014,36360,"124,105 kms",Petrol
+Tata Safari VXI,Tata,2012,38391,"140,861 kms",Diesel
+Datsun GO+ ZXI,Datsun,2016,38928,"121,019 kms",Petrol
+Force Gurkha VXI,Force,2015,45001,"122,580 kms",Petrol
+Nissan Terrano LXI,Nissan,2021,200411,"36,737 kms",Petrol
+Honda WR-V VXI,Honda,2023,395546,"12,781 kms",LPG
+Hindustan Ambassador LXI,Hindustan,2015,37390,"130,698 kms",Diesel
+Chevrolet Cruze VXI,Chevrolet,2011,37673,"169,276 kms",Diesel
+Maruti Ertiga LXI,Maruti,2012,42193,"163,111 kms",Diesel
+Toyota Innova VXI,Toyota,2015,75018,"104,922 kms",Petrol
+Chevrolet Spark VXI,Chevrolet,2019,120016,"63,446 kms",Petrol
+Nissan Terrano ZXI,Nissan,2008,42159,"214,477 kms",Petrol
+Maruti Baleno VXI,Maruti,2014,42685,"117,971 kms",Petrol
+Mahindra KUV100 LXI,Mahindra,2012,38408,"177,614 kms",Diesel
+Kia Sonet LXI,Kia,2020,445726,"16,424 kms",Diesel
+Force Gurkha LXI,Force,2011,42496,"163,087 kms",Petrol
+Renault Triber ZXI,Renault,2019,159997,"30,645 kms",Petrol
+Toyota Glanza ZXI,Toyota,2015,198316,"78,586 kms",Diesel
+Renault Kwid VXI,Renault,2017,110952,"93,298 kms",Diesel
+Maruti Celerio LXI,Maruti,2013,40293,"152,863 kms",Petrol
+Toyota Fortuner VXI,Toyota,2017,170529,"106,599 kms",Diesel
+Hyundai Verna VXI,Hyundai,2008,36017,"182,585 kms",Petrol
+Hindustan Ambassador LXI,Hindustan,2009,44857,"177,139 kms",Diesel
+Maruti Dzire VXI,Maruti,2012,42070,"157,170 kms",Diesel
+Jeep Meridian VXI,Jeep,2010,43303,"176,543 kms",Diesel
+Renault Kwid LXI,Renault,2023,233266,"26,032 kms",Petrol
+Mahindra XUV500 LXI,Mahindra,2008,38533,"200,292 kms",Diesel
+Chevrolet Cruze VXI,Chevrolet,2022,213052,"48,621 kms",Diesel
+Land Rover Discovery VXI,Land,2017,454407,"87,122 kms",Diesel
+Hyundai Venue VXI,Hyundai,2012,38018,"150,709 kms",LPG
+Tata Harrier LXI,Tata,2016,64606,"121,777 kms",Diesel
+Tata Safari LXI,Tata,2012,46332,"173,797 kms",Petrol
+Renault Duster LXI,Renault,2017,129097,"44,190 kms",Petrol
+Tata Safari ZXI,Tata,2015,78367,"104,242 kms",Diesel
+Nissan Kicks VXI,Nissan,2010,39761,"145,780 kms",Diesel
+Mahindra Scorpio VXI,Mahindra,2018,151605,"57,718 kms",Diesel
+Mahindra XUV500 ZXI,Mahindra,2010,40848,"152,183 kms",Diesel
+Ford Endeavour VXI,Ford,2017,113891,"114,782 kms",Diesel
+Chevrolet Beat VXI,Chevrolet,2012,44085,"144,551 kms",Petrol
+Mahindra KUV100 LXI,Mahindra,2015,44393,"121,730 kms",Petrol
+Datsun GO LXI,Datsun,2012,37162,"112,651 kms",Petrol
+Mahindra Thar VXI,Mahindra,2023,313806,"5,000 kms",LPG
+Nissan Kicks VXI,Nissan,2019,103119,"79,764 kms",LPG
+Mahindra Bolero VXI,Mahindra,2019,157688,"51,594 kms",Petrol
+Chevrolet Beat ZXI,Chevrolet,2014,42873,"128,602 kms",Petrol
+Chevrolet Beat ZXI,Chevrolet,2012,43621,"148,195 kms",Petrol
+Fiat Linea LXI,Fiat,2018,100452,"94,481 kms",Diesel
+Renault Triber VXI,Renault,2009,40212,"168,056 kms",LPG
+Jaguar XF VXI,Jaguar,2009,33189,"198,134 kms",Petrol
+Force Gurkha ZXI,Force,2020,243308,"61,919 kms",Diesel
+Mahindra Scorpio VXI,Mahindra,2018,133346,"71,911 kms",Petrol
+Datsun GO VXI,Datsun,2013,34871,"136,248 kms",Petrol
+Hindustan Ambassador VXI,Hindustan,2009,43816,"195,660 kms",Diesel
+Ford Figo VXI,Ford,2013,37879,"133,558 kms",Diesel
+Skoda Rapid VXI,Skoda,2018,245395,"53,069 kms",Petrol
+Renault Triber LXI,Renault,2013,35543,"137,549 kms",Petrol
+Tata Tigor VXI,Tata,2017,68843,"99,608 kms",LPG
+Skoda Superb VXI,Skoda,2009,42309,"157,573 kms",Diesel
+Nissan Kicks VXI,Nissan,2016,67110,"91,059 kms",Petrol
+Hyundai Verna ZXI,Hyundai,2011,43599,"146,951 kms",Diesel
+MG Hector ZXI,MG,2016,165838,"79,013 kms",Diesel
+Honda WR-V LXI,Honda,2011,40214,"153,349 kms",Diesel
+Maruti Baleno LXI,Maruti,2017,156279,"61,839 kms",Diesel
+Tata Tigor ZXI,Tata,2015,49540,"98,103 kms",Petrol
+MG ZS EV LXI,MG,2023,380889,"5,000 kms",Diesel
+Hyundai Creta ZXI,Hyundai,2016,101978,"100,819 kms",Diesel
+Chevrolet Beat VXI,Chevrolet,2008,36626,"205,657 kms",LPG
+Ford Figo ZXI,Ford,2022,218719,"28,157 kms",LPG
+Toyota Innova LXI,Toyota,2019,315539,"67,526 kms",Diesel
+Nissan Kicks LXI,Nissan,2019,"198,002",54139,Diesel
+Hyundai Grand i10 LXI,Hyundai,2015,"42,138",99710,Petrol
+Kia Seltos VXI,Kia,2018,"283,871",52830,Diesel
+Jaguar XF VXI,Jaguar,2011,"41,135",165861,Diesel
+Datsun Redi-GO VXI,Datsun,2009,"42,046",163230,Petrol
+Force Gurkha ZXI,Force,2016,"141,597",80348,Diesel
+Chevrolet Cruze VXI,Chevrolet,2013,"35,635",106306,Diesel
+Nissan Micra LXI,Nissan,2008,"39,985",214405,Diesel
+Renault Kwid LXI,Renault,2020,"141,819",64047,LPG
+Hindustan Ambassador ZXI,Hindustan,2009,"44,856",168909,Diesel
+Chevrolet Cruze VXI,Chevrolet,2019,"126,559",69734,Petrol
+Hindustan Ambassador VXI,Hindustan,2008,"36,234",181715,Diesel
+Toyota Glanza LXI,Toyota,2008,"44,352",197447,Diesel
+Mahindra Thar LXI,Mahindra,2009,"36,992",176764,Petrol
+Renault Kwid LXI,Renault,2013,"38,333",126801,Diesel
+Ford Figo ZXI,Ford,2019,"151,528",46003,Petrol
+Land Defender VXI,Land,2021,"706,241",52356,Petrol
+Hyundai Creta VXI,Hyundai,2019,"123,389",70809,LPG
+Tata Safari VXI,Tata,2017,"84,063",112789,Diesel
+Renault Kwid VXI,Renault,2017,"104,718",83220,Diesel
+Tata Altroz VXI,Tata,2009,"40,029",175881,Diesel
+Force Gurkha LXI,Force,2014,"42,813",101530,Petrol
+Honda Jazz LXI,Honda,2010,"34,293",185814,Diesel
+Hindustan Ambassador VXI,Hindustan,2013,"45,442",134176,Diesel
+Hindustan Ambassador ZXI,Hindustan,2008,"41,919",170346,Petrol
+Jeep Compass ZXI,Jeep,2018,"283,067",47646,Petrol
+MG ZS EV VXI,MG,2009,"40,069",160158,Diesel
+Mahindra Scorpio LXI,Mahindra,2022,"212,800",42359,Petrol
+Toyota Corolla Altis VXI,Toyota,2018,"261,287",65929,Diesel
+Maruti Celerio VXI,Maruti,2018,"161,073",54351,Diesel
+Mercedes GLC LXI,Mercedes,2008,"36,829",212993,Diesel
+Datsun GO VXI,Datsun,2015,"37,853",91630,Petrol
+Nissan Kicks VXI,Nissan,2019,"127,751",73979,Petrol
+Honda Jazz ZXI,Honda,2017,"191,730",51434,Petrol
+Maruti Ignis VXI,Maruti,2017,"76,724",89634,Petrol
+Volkswagen Vento VXI,Volkswagen,2011,"38,671",182534,Diesel
+Honda WR-V LXI,Honda,2016,"188,008",71956,Diesel
+Skoda Octavia LXI,Skoda,2021,"313,595",45142,Petrol
+Nissan Terrano VXI,Nissan,2018,"110,204",75395,Petrol
+Hyundai Verna ZXI,Hyundai,2018,"188,643",50590,Diesel
+Renault Triber ZXI,Renault,2019,Ask For Price,33480,Diesel
+Jaguar XF ZXI,Jaguar,2017,Ask For Price,102516,Diesel
+Toyota Corolla Altis ZXI,Toyota,2011,Ask For Price,164686,Petrol
+Toyota Corolla Altis ZXI,Toyota,2013,Ask For Price,141166,Diesel
+Fiat Punto ZXI,Fiat,2019,Ask For Price,52642,Petrol
+Renault Kwid LXI,Renault,2017,Ask For Price,86748,Diesel
+BMW X1 LXI,BMW,2013,Ask For Price,106263,Petrol
+Mahindra Bolero VXI,Mahindra,2016,Ask For Price,58655,Petrol
+Hindustan Ambassador ZXI,Hindustan,2011,Ask For Price,161512,Petrol
+Toyota Corolla Altis VXI,Toyota,2017,Ask For Price,69171,Diesel
+Mahindra KUV100 LXI,Mahindra,2015,Ask For Price,79588,Diesel
+Tata Tigor LXI,Tata,2017,Ask For Price,76614,Petrol
+Chevrolet Cruze LXI,Chevrolet,2013,Ask For Price,131507,Petrol
+Renault Triber VXI,Renault,2013,Ask For Price,106158,Diesel
+Force Gurkha VXI,Force,2010,Ask For Price,182200,Petrol
+Nissan Micra VXI,Nissan,2017,Ask For Price,93098,Diesel
+Fiat Punto VXI,Fiat,2010,Ask For Price,179787,Diesel
+Force Gurkha LXI,Force,2018,Ask For Price,94335,Petrol
+Honda Accord ZXI,Honda,2017,Ask For Price,78983,Petrol
+Force Gurkha LXI,Force,2010,Ask For Price,153239,LPG
+Mahindra Bolero VXI,Mahindra,2018,Ask For Price,89324,LPG
+Ford Figo ZXI,Ford,2012,Ask For Price,154215,Petrol
+Datsun GO+ ZXI,Datsun,2009,Ask For Price,192732,Diesel
+Ford Figo LXI,Ford,2012,Ask For Price,138152,Diesel
+Renault Triber LXI,Renault,2018,Ask For Price,85179,LPG
+Fiat Linea LXI,Fiat,2018,Ask For Price,57113,Diesel
+Datsun GO ZXI,Datsun,2013,Ask For Price,122332,Diesel
+Tata Altroz VXI,Tata,2014,Ask For Price,119652,Petrol
+Datsun Redi-GO LXI,Datsun,2011,Ask For Price,156707,LPG
+Chevrolet Spark VXI,Chevrolet,2021,Ask For Price,49860,Petrol
+Mahindra Thar ZXI,Mahindra,2012,41133,140480,
+Mahindra XUV500 ZXI,Mahindra,2008,37168,178617,
+Renault Triber VXI,Renault,2015,43684,100595,
+Hindustan Ambassador LXI,Hindustan,2013,39936,122771,
+Chevrolet Cruze VXI,Chevrolet,2010,42103,159467,
+Datsun Redi-GO VXI,Datsun,2010,40645,174118,
+Hyundai Santro VXI,Hyundai,2023,242119,21448,
+Force Gurkha VXI,Force,2011,44096,172243,
+Hyundai Verna VXI,Hyundai,2014,34069,106437,
+Nissan Terrano VXI,Nissan,2016,50834,100418,
+MG Hector ZXI,MG,2008,33737,175880,
+Nissan Micra LXI,Nissan,2009,38941,179192,
+Chevrolet Beat VXI,Chevrolet,2011,42648,157112,
+Force Gurkha LXI,Force,2022,264553,27171,
+Hindustan Ambassador VXI,Hindustan,2016,62619,112254,
+Renault Kwid VXI,Renault,2013,45962,126436,
+Mahindra KUV100 ZXI,Mahindra,2020,146309,60686,
+Mahindra Thar VXI,Mahindra,2013,40609,129464,
+Fiat Linea VXI,Fiat,2016,42625,110730,
+Datsun GO+ ZXI,Datsun,2016,88223,97827,
+Skoda Superb ZXI,Skoda,2019,205828,,LPG
+Nissan Micra VXI,Nissan,2014,44087,,Diesel
+Maruti Celerio LXI,Maruti,2017,78828,,Petrol
+Tata Tigor ZXI,Tata,2012,41053,,Diesel
+Datsun Redi-GO LXI,Datsun,2009,41244,,Petrol
+Fiat Linea VXI,Fiat,2014,38796,,LPG
+Volvo XC40 ZXI,Volvo,2016,252401,,LPG
+Maruti Baleno LXI,Maruti,2017,151816,,Diesel
+Force Gurkha VXI,Force,2014,73330,,Diesel
+Fiat Linea LXI,Fiat,2010,41325,,Diesel
+Hyundai Grand i10 VXI,Hyundai,2019,197560,,Diesel
+Nissan Terrano LXI,Nissan,2019,131142,,Petrol
+Hindustan Ambassador VXI,Hindustan,2011,40291,,Diesel
+Tata Safari ZXI,Tata,2017,116119,,Petrol
+Renault Duster ZXI,Renault,2019,155823,,Diesel
+Force Gurkha ZXI,Force,2016.0,96800,77222,Diesel
+Skoda Rapid LXI,Skoda,2013.0,31246,146576,Diesel
+Chevrolet Spark LXI,Chevrolet,2020.0,128230,39836,Petrol
+Fiat Punto ZXI,Fiat,2019.0,152225,78802,Diesel
+Ford Endeavour VXI,Ford,2016.0,76681,76883,LPG
+Ford Aspire VXI,Ford,2017.0,125866,73732,Diesel
+Volkswagen Vento VXI,Volkswagen,2012.0,36206,152870,Diesel
+Kia Sonet VXI,Kia,2016.0,143303,102459,Diesel
+Volkswagen Tiguan VXI,Volkswagen,2014.0,37411,103424,Petrol
+Nissan Kicks VXI,Nissan,2012.0,39230,145638,Petrol
+Hindustan Ambassador VXI,Hindustan,2011,39396,153258,Diesel
+Nissan Terrano LXI,Nissan,2010,41582,146055,Petrol
+Mahindra Thar ZXI,Mahindra,2017,117668,81047,Diesel
+Volkswagen Tiguan VXI,Volkswagen,2015,134833,96426,Diesel
+Volkswagen Polo ZXI,Volkswagen,2009,38196,211467,Diesel
+Force Gurkha ZXI,Force,2022,284033,11115,Petrol
+Honda WR-V VXI,Honda,2020,356429,43897,Diesel
+Ford Aspire ZXI,Ford,2014,36091,137885,Diesel
+Tata Tigor LXI,Tata,2016,91008,111906,Diesel
+Fiat Punto ZXI,Fiat,2017,88100,70623,Petrol
+Maruti Celerio VXI,Maruti,2014,33670,113859,LPG
+Kia Carnival LXI,Kia,2018,212422,96554,Diesel
+Renault Triber VXI,Renault,2016,97824,93286,Diesel
+Chevrolet Cruze VXI,Chevrolet,2008,38382,182333,Diesel
+Chevrolet Spark LXI,Chevrolet,2011,44355,169577,Petrol
+Renault Triber ZXI,Renault,2014,41264,111347,LPG
+Force Gurkha VXI,Force,2017,135502,101111,Diesel
+Hyundai i10 LXI,Hyundai,2016,107951,88450,Diesel
+Hyundai Creta LXI,Hyundai,2016,54535,89579,LPG
+Hyundai Creta VXI,Hyundai,2021,281145,31394,Diesel
+Force Gurkha VXI,Force,2020,223575,44893,Petrol
+Tata Tigor VXI,Tata,2009,44275,185534,Diesel
+Volkswagen Vento LXI,Volkswagen,2015,41204,122655,LPG
+Skoda Octavia LXI,Skoda,2022,335373,6278,LPG
+Ford Endeavour VXI,Ford,2016,66966,76066,Petrol
+Nissan Micra VXI,Nissan,2008,38841,199956,Petrol
+Hindustan Ambassador VXI,Hindustan,2019,138380,69716,Diesel
+Force Gurkha LXI,Force,2021,301376,26284,LPG
+Force Gurkha VXI,Force,2015,36991,112854,LPG
+Nissan Kicks LXI,Nissan,2009,46326,193328,Diesel
+Fiat Linea LXI,Fiat,2014,41191,85198,Petrol
+Maruti Baleno ZXI,Maruti,2012,43389,142972,Diesel
+Toyota Innova ZXI,Toyota,2010,35220,160156,Diesel
+Tata Harrier ZXI,Tata,2017,100970,67650,LPG
+Datsun Redi-GO VXI,Datsun,2008,39295,173850,Diesel
+Honda Accord LXI,Honda,2020,358429,40329,Diesel
+Fiat Linea ZXI,Fiat,2013,37680,145111,Petrol
+Mahindra KUV100 LXI,Mahindra,2016,64668,93483,Petrol
+Datsun Redi-GO ZXI,Datsun,2008,39456,197200,LPG
+Jaguar XF ZXI,Jaguar,2011,45381,133728,LPG
+Force Gurkha LXI,Force,2009,37264,172099,Petrol
+Hindustan Ambassador VXI,Hindustan,2009,34790,192804,Diesel
+Ford Aspire VXI,Ford,2009,40511,171555,Diesel
+Hindustan Ambassador LXI,Hindustan,2008,41341,192328,Petrol
+Mahindra XUV500 ZXI,Mahindra,2015,33774,108714,Petrol
+Ford Figo LXI,Ford,2017,148462,86520,Diesel
+Mahindra Scorpio LXI,Mahindra,2020,177084,36873,LPG
+Jeep Meridian VXI,Jeep,2010,36520,162914,Diesel
+Tata Safari LXI,Tata,2014,32497,131427,Diesel
+Hindustan Ambassador ZXI,Hindustan,2013,36724,157669,Petrol
+Renault Kwid ZXI,Renault,2008,38342,198788,Diesel
+Ford Figo LXI,Ford,2015,39575,115281,LPG
+Force Gurkha ZXI,Force,2016,144485,82441,Diesel
+Hyundai Creta VXI,Hyundai,2013,34550,139824,Diesel
+Force Gurkha ZXI,Force,2020,234410,66944,Diesel
+Hyundai i10 ZXI,Hyundai,2011,37300,121849,Diesel
+Maruti Ignis VXI,Maruti,2011,41424,132365,Diesel
+Kia Carnival VXI,Kia,2012,38968,115652,Petrol
+Hindustan Ambassador VXI,Hindustan,2015,47585,115812,Diesel
+Ford Figo LXI,Ford,2022,261252,22558,Diesel
+BMW X1 VXI,BMW,2018,261867,83371,Petrol
+Force Gurkha LXI,Force,2017,168718,82361,Diesel
+Hindustan Ambassador VXI,Hindustan,2020,145093,39306,Petrol
+Nissan Kicks VXI,Nissan,2018,129451,59778,Petrol
+Chevrolet Beat ZXI,Chevrolet,2008,35042,218555,Diesel
+Maruti Ignis LXI,Maruti,2010,37259,183576,Petrol
+MG Astor ZXI,MG,2018,210515,83408,Diesel
+Renault Duster VXI,Renault,2018,105257,72290,Petrol
+Ford Figo ZXI,Ford,2010,36951,151662,Diesel
+Hindustan Ambassador ZXI,Hindustan,2022,203670,26606,Diesel
+Mahindra KUV100 VXI,Mahindra,2016,53623,103049,Petrol
+Hyundai Verna VXI,Hyundai,2011,41561,153103,Petrol
+Hindustan Ambassador ZXI,Hindustan,2014,44587,102631,Diesel
+Skoda Rapid ZXI,Skoda,2017,212382,85548,Diesel
+Tata Nexon VXI,Tata,2015,78269,99774,Diesel
+Kia Sonet ZXI,Kia,2018,203897,69943,Petrol
+Tata Harrier VXI,Tata,2015,42372,100187,Petrol
+Hindustan Ambassador VXI,Hindustan,2017,74038,69189,Petrol
+Hyundai Grand i10 VXI,Hyundai,2017,138490,90639,Diesel
+Hyundai Santro VXI,Hyundai,2020,239212,42416,Diesel
+Tata Safari LXI,Tata,2012,38834,159970,Diesel
+Mahindra Scorpio VXI,Mahindra,2018,166270,68179,Diesel
+Maruti Wagon R VXI,Maruti,2008,41528,172779,Diesel
+Renault Triber ZXI,Renault,2023,218542,5000,Petrol
+Datsun Redi-GO VXI,Datsun,2012,37995,124092,Diesel
+Hindustan Ambassador VXI,Hindustan,2012,41481,152652,Diesel
+Mahindra Thar LXI,Mahindra,2009,40664,178120,Petrol
+Hyundai i20 LXI,Hyundai,2016,79271,81498,LPG
+Tata Nexon LXI,Tata,2016,44796,118702,Petrol
+Fiat Punto VXI,Fiat,2015,79427,89089,Diesel
+Renault Duster ZXI,Renault,2018,177367,52563,Diesel
+Mahindra Thar LXI,Mahindra,2013,36985,108222,Petrol
+Tata Harrier ZXI,Tata,2023,275352,24710,Diesel
+Nissan Kicks ZXI,Nissan,2014,34812,129150,Diesel
+Force Gurkha VXI,Force,2015,48009,104747,Petrol
+Ford Aspire VXI,Ford,2018,122583,80370,Petrol
+Renault Duster ZXI,Renault,2008,33368,216523,LPG
+Volkswagen Ameo VXI,Volkswagen,2019,251012,45316,LPG
+Ford EcoSport VXI,Ford,2009,42785,176856,Diesel
+Kia Sonet VXI,Kia,2011,39457,149002,Petrol
+Hyundai Grand i10 VXI,Hyundai,2012,36122,145016,Diesel
+Hindustan Ambassador VXI,Hindustan,2009,53126,163095,LPG
+Maruti Alto LXI,Maruti,2009,45702,186120,Diesel
+Land Defender ZXI,Land,2015,240485,114652,Diesel
+Nissan Micra LXI,Nissan,2016,43921,113229,Petrol
+Volkswagen Ameo VXI,Volkswagen,2020,264495,45594,Petrol
+Chevrolet Beat VXI,Chevrolet,2011,43968,169302,Diesel
+Tata Nexon VXI,Tata,2019,216514,39539,Diesel
+Mahindra Thar ZXI,Mahindra,2008,36041,190014,Diesel
+Fiat Linea ZXI,Fiat,2016,64278,90585,Petrol
+Renault Duster VXI,Renault,2019,116970,80171,LPG
+BMW 5 Series ZXI,BMW,2020,540905,80860,Diesel
+Kia Sonet ZXI,Kia,2014,48381,139922,Diesel
+Mahindra XUV500 VXI,Mahindra,2019,140545,77765,LPG
+BMW X1 VXI,BMW,2022,728216,18111,Diesel
+Tata Altroz VXI,Tata,2017,81713,89973,Petrol
+Nissan Kicks LXI,Nissan,2014,42118,97665,Petrol
+Force Gurkha VXI,Force,2013,41422,136901,Diesel
+Tata Tigor ZXI,Tata,2013,44879,132234,Diesel
+Datsun Redi-GO LXI,Datsun,2020,188396,30206,Diesel
+Hyundai i20 VXI,Hyundai,2009,40056,172666,LPG
+Nissan Micra VXI,Nissan,2021,214459,43302,Diesel
+Tata Altroz ZXI,Tata,2019,177883,65578,Diesel
+Maruti Swift VXI,Maruti,2016,102291,83776,Diesel
+Mahindra Thar LXI,Mahindra,2010,40732,173265,Diesel
+Hindustan Ambassador VXI,Hindustan,2013,43589,126060,Diesel
+Toyota Innova VXI,Toyota,2012,45517,135016,Petrol
+Skoda Octavia VXI,Skoda,2017,248648,58053,Diesel
+Kia Seltos VXI,Kia,2019,284206,60491,Diesel
+Hyundai i20 LXI,Hyundai,2011,40945,142383,LPG
+Fiat Punto ZXI,Fiat,2013,44253,134419,Petrol
+Fiat Punto ZXI,Fiat,2014,48250,136451,Petrol
+Renault Triber VXI,Renault,2017,145139,84364,Diesel
+Hyundai i20 VXI,Hyundai,2012,45872,155637,Petrol
+Hindustan Ambassador VXI,Hindustan,2021,158731,27112,Petrol
+Tata Tiago VXI,Tata,2015,45015,88436,LPG
+Hindustan Ambassador VXI,Hindustan,2015,46777,128365,Petrol
+Maruti Ertiga VXI,Maruti,2008,39940,192773,Diesel
+Fiat Linea LXI,Fiat,2019,93926,99034,Petrol
+Chevrolet Beat ZXI,Chevrolet,2011,36688,151598,Petrol
+Renault Triber LXI,Renault,2012,43690,108473,Diesel
+Hyundai Venue LXI,Hyundai,2010,42609,163043,Petrol
+Hindustan Ambassador VXI,Hindustan,2014,42423,132909,Diesel
+Mahindra KUV100 LXI,Mahindra,2019,166271,59286,Petrol
+Fiat Linea VXI,Fiat,2008,46924,198444,Petrol
+Honda Amaze VXI,Honda,2012,37492,138856,Petrol
+Jaguar XF VXI,Jaguar,2015,108551,113758,Petrol
+Skoda Rapid VXI,Skoda,2020,308520,52858,Petrol
+Renault Duster VXI,Renault,2013,44910,138969,Petrol
+Honda Jazz LXI,Honda,2018,173740,78546,Petrol
+Tata Tigor ZXI,Tata,2016,109042,87975,Diesel
+Nissan Terrano LXI,Nissan,2016,111338,84399,Diesel
+Nissan Kicks VXI,Nissan,2021,250438,10053,Diesel
+Force Gurkha ZXI,Force,2015,62213,134904,Diesel
+Toyota Etios VXI,Toyota,2009,39730,186798,Diesel
+Hyundai Venue VXI,Hyundai,2009,35305,142023,Diesel
+Tata Harrier LXI,Tata,2010,39556,171076,Diesel
+Hindustan Ambassador VXI,Hindustan,2019,104599,51004,Petrol
+Honda Amaze VXI,Honda,2019,261161,93539,Diesel
+Fiat Linea VXI,Fiat,2021,175730,43893,Petrol
+Datsun Redi-GO VXI,Datsun,2021,151113,29773,Petrol
+Tata Tiago ZXI,Tata,2022,256229,18506,Diesel
+Maruti Wagon R LXI,Maruti,2014,39222,115150,Diesel
+Fiat Punto ZXI,Fiat,2009,38701,175504,LPG
+Volkswagen Polo LXI,Volkswagen,2013,35173,141721,Diesel
+Mahindra Scorpio LXI,Mahindra,2013,38888,131129,LPG
+Datsun GO VXI,Datsun,2018,105660,63355,LPG
+Datsun Redi-GO VXI,Datsun,2009,41943,154370,Petrol
+Hyundai Creta ZXI,Hyundai,2018,123441,75145,Petrol
+Tata Safari VXI,Tata,2011,39235,164425,Diesel
+Kia Seltos LXI,Kia,2016,101997,89286,Petrol
+Toyota Glanza VXI,Toyota,2012,42917,133836,Diesel
+Fiat Linea ZXI,Fiat,2016,42661,112816,Petrol
+Hyundai Verna LXI,Hyundai,2018,177487,84423,Diesel
+MG Hector ZXI,MG,2016,101570,88103,Petrol
+Honda Jazz VXI,Honda,2015,154327,80859,Diesel
+Hindustan Ambassador VXI,Hindustan,2016,43699,124481,Petrol
+Ford Endeavour LXI,Ford,2014,38861,146854,Petrol
+Jeep Compass VXI,Jeep,2014,37598,125841,Petrol
+Honda Accord ZXI,Honda,2019,304271,62052,Diesel
+Skoda Octavia LXI,Skoda,2008,37896,209185,Petrol
+Datsun Redi-GO VXI,Datsun,2021,183016,23168,LPG
+Volvo XC60 LXI,Volvo,2011,41823,186558,Diesel
+Chevrolet Beat VXI,Chevrolet,2021,195805,63438,Diesel
+Hyundai Venue LXI,Hyundai,2015,47279,134948,LPG
+Datsun GO+ ZXI,Datsun,2009,42851,149017,Diesel
+Datsun Redi-GO VXI,Datsun,2009,42268,201611,Diesel
+Volkswagen Polo LXI,Volkswagen,2012,43975,144053,Diesel
+Chevrolet Cruze ZXI,Chevrolet,2013,37567,127321,LPG
+Renault Kwid VXI,Renault,2017,153209,68034,Diesel
+Datsun Redi-GO ZXI,Datsun,2015,47134,121500,Diesel
+Hyundai Verna VXI,Hyundai,2019,159468,52113,Petrol
+Nissan Micra LXI,Nissan,2021,244500,23059,Diesel
+Mahindra Bolero LXI,Mahindra,2011,39778,154429,Diesel
+Renault Triber VXI,Renault,2013,40373,118507,Diesel
+Nissan Terrano LXI,Nissan,2021,241091,42837,Diesel
+Force Gurkha VXI,Force,2008,29686,162952,Diesel
+Force Gurkha ZXI,Force,2009,44743,166898,LPG
+Force Gurkha VXI,Force,2009,43908,175403,Diesel
+Chevrolet Spark VXI,Chevrolet,2017,113149,77990,Diesel
+Datsun GO+ LXI,Datsun,2016,58919,88684,Petrol
+Land Rover Discovery ZXI,Land,2018,509944,56785,Petrol
+Volkswagen Vento LXI,Volkswagen,2022,382834,42572,Petrol
+Datsun GO+ LXI,Datsun,2012,40085,155986,Petrol
+Renault Kwid LXI,Renault,2018,103997,61809,LPG
+Tata Nexon VXI,Tata,2008,36200,211637,Diesel
+Mercedes C-Class VXI,Mercedes,2017,431647,81344,Diesel
+Kia Seltos ZXI,Kia,2010,42220,147100,Petrol
+Tata Tigor ZXI,Tata,2022,218243,34614,Petrol
+Maruti Swift VXI,Maruti,2017,112471,77567,Diesel
+Force Gurkha VXI,Force,2008,35539,180526,Petrol
+Jeep Compass ZXI,Jeep,2019,303676,56969,Petrol
+Hyundai Santro LXI,Hyundai,2009,43760,151990,Petrol
+Hyundai Venue ZXI,Hyundai,2016,69257,115766,Diesel
+Chevrolet Cruze LXI,Chevrolet,2022,204638,23461,Petrol
+Force Gurkha ZXI,Force,2013,37084,149822,LPG
+Hindustan Ambassador ZXI,Hindustan,2008,37275,200494,Diesel
+Mahindra XUV500 LXI,Mahindra,2014,52450,115249,Diesel
+Force Gurkha VXI,Force,2017,99192,90214,LPG
+Hyundai Verna VXI,Hyundai,2018,119135,56100,Petrol
+Volkswagen Polo VXI,Volkswagen,2008,42422,174675,LPG
+MG Astor VXI,MG,2009,40442,162738,Diesel
+Mahindra XUV500 ZXI,Mahindra,2009,39258,202116,Diesel
+Ford EcoSport LXI,Ford,2018,116508,88691,Petrol
+BMW 5 Series VXI,BMW,2019,387384,64034,LPG
+Hyundai Creta VXI,Hyundai,2015,86823,94097,Diesel
+Honda WR-V VXI,Honda,2019,245067,52872,LPG
+Datsun GO ZXI,Datsun,2012,34334,156198,Diesel
+Force Gurkha VXI,Force,2017,160021,80725,Diesel
+Fiat Linea VXI,Fiat,2011,36654,153035,LPG
+Skoda Octavia ZXI,Skoda,2010,38971,154131,Petrol
+Jeep Compass LXI,Jeep,2011,43079,172126,Diesel
+Skoda Kushaq LXI,Skoda,2017,142709,96095,Petrol
+Datsun GO+ LXI,Datsun,2019,137562,84479,Diesel
+Fiat Linea VXI,Fiat,2009,37923,176688,Petrol
+Skoda Superb VXI,Skoda,2015,163083,102296,Diesel
+Mahindra Bolero LXI,Mahindra,2023,369966,5000,Diesel
+Chevrolet Spark VXI,Chevrolet,2016,53814,82886,Petrol
+Hindustan Ambassador VXI,Hindustan,2010,34099,161745,LPG
+Renault Triber VXI,Renault,2010,37374,179284,Petrol
+Ford EcoSport ZXI,Ford,2016,95039,96010,Diesel
+Chevrolet Beat VXI,Chevrolet,2010,44307,173336,Diesel
+Fiat Punto VXI,Fiat,2009,35384,179082,Diesel
+Ford Figo VXI,Ford,2018,205324,43409,Diesel
+Hindustan Ambassador ZXI,Hindustan,2011,33052,171909,Diesel
+Datsun Redi-GO VXI,Datsun,2015,42163,105430,Petrol
+MG Hector VXI,MG,2012,41993,126767,Petrol
+Kia Sonet ZXI,Kia,2019,234543,67530,Petrol
+Datsun Redi-GO VXI,Datsun,2011,35591,160704,Petrol
+Datsun GO+ VXI,Datsun,2023,245929,28184,Diesel
+Renault Duster ZXI,Renault,2017,87844,77902,LPG
+Hindustan Ambassador ZXI,Hindustan,2015,38607,129969,Diesel
+Tata Nexon LXI,Tata,2017,95808,66187,LPG
+Jeep Compass ZXI,Jeep,2012,38227,136791,Diesel
+Land Defender VXI,Land,2018,448581,50484,Petrol
+Mercedes GLA ZXI,Mercedes,2016,355542,77670,Diesel
+Force Gurkha LXI,Force,2012,41155,138215,Petrol
+Nissan Kicks LXI,Nissan,2013,43318,120894,Diesel
+Datsun GO+ VXI,Datsun,2019,152762,39511,Petrol
+Ford Endeavour ZXI,Ford,2010,39502,176105,Diesel
+Hindustan Ambassador VXI,Hindustan,2013,41218,150891,Diesel
+Renault Kwid LXI,Renault,2021,216821,43760,Petrol
+Kia Seltos VXI,Kia,2013,45864,143244,Petrol
+Fiat Linea VXI,Fiat,2013,42387,131957,LPG
+Hindustan Ambassador LXI,Hindustan,2013,38151,142618,LPG
+Hyundai Santro LXI,Hyundai,2017,64657,97428,Petrol
+Audi A6 VXI,Audi,2011,43350,153637,Diesel
+Force Gurkha LXI,Force,2013,44392,141213,Diesel
+Fiat Punto VXI,Fiat,2013,32479,127525,Petrol
+Fiat Linea VXI,Fiat,2012,38564,126194,LPG
+Nissan Micra ZXI,Nissan,2010,43164,179791,Petrol
+Mahindra KUV100 ZXI,Mahindra,2023,245159,5000,Petrol
+Mahindra Bolero VXI,Mahindra,2014,46663,118476,Diesel
+Volvo XC60 ZXI,Volvo,2015,262990,81607,Diesel
+Ford Aspire VXI,Ford,2017,115306,115427,Diesel
+Fiat Linea VXI,Fiat,2018,103487,63862,Petrol
+Ford Aspire VXI,Ford,2018,142202,53824,LPG
+Datsun Redi-GO LXI,Datsun,2015,51361,127065,Diesel
+Kia Seltos LXI,Kia,2015,74986,96456,Petrol
+Ford Aspire LXI,Ford,2011,40150,160410,Petrol
+Volkswagen Polo VXI,Volkswagen,2014,78473,119509,Diesel
+Nissan Kicks VXI,Nissan,2021,169340,45910,LPG
+Land Rover Discovery ZXI,Land,2014,69919,107174,Petrol
+Chevrolet Cruze VXI,Chevrolet,2013,43523,133872,Petrol
+Mercedes GLC VXI,Mercedes,2009,40751,159519,Petrol
+Force Gurkha LXI,Force,2023,277109,26968,Diesel
+Ford Figo VXI,Ford,2011,46428,159471,Diesel
+Tata Altroz VXI,Tata,2008,41245,181740,Diesel
+Force Gurkha LXI,Force,2015,40204,132734,Petrol
+Renault Kwid VXI,Renault,2015,68229,103018,Diesel
+Skoda Kushaq VXI,Skoda,2018,276332,53043,Diesel
+Datsun GO+ VXI,Datsun,2014,52601,106916,Diesel
+Hindustan Ambassador VXI,Hindustan,2014,35825,133491,Diesel
+Mahindra Bolero LXI,Mahindra,2008,47879,212621,Petrol
+Fiat Punto LXI,Fiat,2016,57335,97081,Petrol
+Chevrolet Cruze VXI,Chevrolet,2012,37769,170188,LPG
+Mahindra Bolero VXI,Mahindra,2023,328057,11120,Diesel
+Nissan Kicks ZXI,Nissan,2014,41501,130303,Diesel
+Tata Tigor ZXI,Tata,2013,37788,148554,Diesel
+Tata Tiago LXI,Tata,2018,158445,61599,Diesel
+Ford EcoSport VXI,Ford,2013,31473,144274,Diesel
+Chevrolet Cruze VXI,Chevrolet,2010,39037,184132,LPG
+Force Gurkha ZXI,Force,2015,87334,103193,Diesel
+Mahindra Scorpio VXI,Mahindra,2016,114761,96072,Diesel
+Honda Amaze ZXI,Honda,2021,439799,46181,Diesel
+Ford Endeavour ZXI,Ford,2015,74965,111324,Diesel
+Kia Seltos ZXI,Kia,2022,347992,5000,Petrol
+Fiat Linea VXI,Fiat,2016,125254,52804,Diesel
+Mahindra KUV100 LXI,Mahindra,2012,39943,128995,Petrol
+Mahindra XUV500 VXI,Mahindra,2012,40183,154291,Petrol
+Hyundai Grand i10 VXI,Hyundai,2016,114753,97367,Diesel
+Tata Tigor ZXI,Tata,2010,37688,175405,Petrol
+Renault Triber VXI,Renault,2010,35678,174365,Diesel
+MG ZS EV LXI,MG,2019,281195,81062,Diesel
+Datsun GO+ LXI,Datsun,2013,38820,130073,Diesel
+Ford EcoSport ZXI,Ford,2016,116015,87383,Diesel
+Land Rover Discovery VXI,Land,2009,39619,192173,Diesel
+Chevrolet Cruze VXI,Chevrolet,2013,42010,122958,Petrol
+Force Gurkha LXI,Force,2013,41575,144098,Diesel
+Hyundai Creta VXI,Hyundai,2011,43871,153833,Diesel
+Datsun Redi-GO VXI,Datsun,2014,38524,124721,Diesel
+Chevrolet Spark VXI,Chevrolet,2014,40972,114635,LPG
+Renault Kwid VXI,Renault,2013,43034,148530,Petrol
+Nissan Terrano ZXI,Nissan,2014,45049,139440,Petrol
+Volvo XC60 VXI,Volvo,2019,601939,30290,Diesel
+Renault Kwid VXI,Renault,2009,37852,166059,Diesel
+Ford Figo VXI,Ford,2015,62285,113459,Diesel
+Mahindra Bolero ZXI,Mahindra,2009,43367,170608,Petrol
+Chevrolet Cruze VXI,Chevrolet,2012,33593,146670,Diesel
+Fiat Linea LXI,Fiat,2015,63221,120710,Diesel
+Fiat Punto ZXI,Fiat,2016,108128,90655,Diesel
+Mahindra XUV500 ZXI,Mahindra,2011,44978,153096,Diesel
+Hyundai i10 LXI,Hyundai,2013,41822,130446,LPG
+Chevrolet Beat ZXI,Chevrolet,2018,169057,61854,Diesel
+Ford EcoSport LXI,Ford,2019,149588,58450,LPG
+MG Astor VXI,MG,2008,39093,215454,Diesel
+Datsun GO+ LXI,Datsun,2013,38647,89822,LPG
+Tata Tiago VXI,Tata,2012,35455,143372,Petrol
+Maruti Dzire LXI,Maruti,2020,197770,58850,Diesel
+Hyundai i10 VXI,Hyundai,2018,120774,72489,Petrol
+Renault Triber LXI,Renault,2013,44238,132141,Diesel
+Force Gurkha LXI,Force,2008,41862,199679,Diesel
+Fiat Linea VXI,Fiat,2018,113105,66928,Petrol
+Ford Aspire VXI,Ford,2019,188593,63561,Diesel
+Hyundai Verna LXI,Hyundai,2023,271491,21858,LPG
+Hyundai Creta VXI,Hyundai,2018,134715,68815,Diesel
+Datsun GO ZXI,Datsun,2022,209252,32390,Petrol
+Nissan Terrano ZXI,Nissan,2013,42304,166023,Petrol
+Force Gurkha ZXI,Force,2018,177939,61980,Diesel
+Jeep Compass VXI,Jeep,2015,93950,88772,Petrol
+Ford EcoSport LXI,Ford,2021,228133,37426,Diesel
+Renault Triber ZXI,Renault,2023,281883,31757,Diesel
+MG ZS EV VXI,MG,2014,38348,102105,Petrol
+Datsun Redi-GO ZXI,Datsun,2008,41967,196723,Diesel
+Ford Endeavour VXI,Ford,2017,106932,99509,Diesel
+Fiat Linea VXI,Fiat,2017,117099,69003,Diesel
+Tata Safari VXI,Tata,2019,160714,45723,Petrol
+Hindustan Ambassador VXI,Hindustan,2021,141255,79230,Diesel
+Fiat Punto VXI,Fiat,2021,157835,51680,Petrol
+Honda WR-V ZXI,Honda,2015,64707,110920,Petrol
+Renault Triber VXI,Renault,2010,37861,170461,Petrol
+Nissan Terrano LXI,Nissan,2012,38468,155935,Diesel
+Mahindra XUV500 VXI,Mahindra,2012,36204,129859,Petrol
+Hyundai i20 LXI,Hyundai,2015,72642,120826,Diesel
+Hindustan Ambassador ZXI,Hindustan,2014,43506,111213,Petrol
+Renault Duster LXI,Renault,2009,35889,181297,Diesel
+Ford Endeavour VXI,Ford,2023,300769,12136,Diesel
+Hyundai Grand i10 LXI,Hyundai,2017,96484,89035,Petrol
+Datsun GO VXI,Datsun,2011,37288,144440,Diesel
+Maruti Ertiga LXI,Maruti,2012,45010,144912,Petrol
+Force Gurkha LXI,Force,2019,235291,46748,Diesel
+Maruti Dzire VXI,Maruti,2009,34967,172461,Diesel
+Renault Triber VXI,Renault,2012,46207,138386,Diesel
+Toyota Innova LXI,Toyota,2010,39467,169937,Diesel
+Maruti Celerio VXI,Maruti,2010,40467,147867,Petrol
+MG ZS EV VXI,MG,2012,42011,176852,Diesel
+Tata Tigor VXI,Tata,2017,142337,76175,Diesel
+Fiat Linea VXI,Fiat,2019,127117,94376,Diesel
+Kia Sonet VXI,Kia,2018,273240,49609,Diesel
+Mahindra KUV100 LXI,Mahindra,2021,228703,28429,Petrol
+Renault Triber VXI,Renault,2021,162878,23910,Petrol
+Mahindra Bolero VXI,Mahindra,2014,44188,112119,Petrol
+MG Hector VXI,MG,2011,39261,168376,Diesel
+Kia Seltos ZXI,Kia,2010,36947,151730,Diesel
+Maruti Swift LXI,Maruti,2019,169266,56568,Diesel
+Ford Endeavour ZXI,Ford,2012,36018,176781,Diesel
+Datsun GO VXI,Datsun,2019,134937,71684,Diesel
+Land Rover Discovery LXI,Land,2011,36458,153204,Petrol
+Ford Aspire LXI,Ford,2020,181960,33050,Petrol
+Renault Triber VXI,Renault,2020,219557,44133,Diesel
+Datsun GO+ ZXI,Datsun,2008,32759,180045,LPG
+Fiat Linea LXI,Fiat,2014,41981,109621,Petrol
+MG ZS EV VXI,MG,2022,337977,35201,Petrol
+Chevrolet Beat LXI,Chevrolet,2008,39471,177397,Petrol
+Tata Tigor ZXI,Tata,2014,41713,124397,Petrol
+Mahindra Scorpio VXI,Mahindra,2021,215987,30744,Petrol
+Hindustan Ambassador VXI,Hindustan,2019,111462,42375,Petrol
+Nissan Terrano LXI,Nissan,2018,131806,53001,Petrol
+Maruti Dzire VXI,Maruti,2015,67338,116099,Diesel
+Volvo XC40 VXI,Volvo,2010,41346,164864,Petrol
+Mahindra Bolero ZXI,Mahindra,2009,38741,204395,Diesel
+Force Gurkha VXI,Force,2018,111428,82803,Petrol
+Hyundai i10 LXI,Hyundai,2018,139984,49134,Petrol
+Skoda Rapid LXI,Skoda,2021,473564,9898,Diesel
+Ford Figo VXI,Ford,2011,39371,134956,LPG
+Fiat Punto VXI,Fiat,2019,128325,72356,Petrol
+Datsun GO VXI,Datsun,2022,219462,37349,Diesel
+BMW 5 Series VXI,BMW,2013,79802,125668,Diesel
+Datsun GO VXI,Datsun,2012,37942,148856,Diesel
+Force Gurkha VXI,Force,2009,40586,159070,Diesel
+Mahindra Thar VXI,Mahindra,2016,83292,75266,Petrol
+Maruti Ertiga VXI,Maruti,2021,195734,43802,Petrol
+Tata Tigor VXI,Tata,2011,41657,158866,Diesel
+Chevrolet Cruze VXI,Chevrolet,2013,40049,120951,LPG
+Fiat Linea ZXI,Fiat,2012,32158,149763,LPG
+Ford Aspire VXI,Ford,2017,101864,105607,Diesel
+Datsun GO VXI,Datsun,2014,40943,121137,Diesel
+Chevrolet Spark ZXI,Chevrolet,2013,46540,116275,Petrol
+Ford Figo LXI,Ford,2009,42124,175773,Diesel
+Renault Duster VXI,Renault,2014,40624,119610,Petrol
+Maruti Ertiga VXI,Maruti,2016,104725,87783,Diesel
+Nissan Terrano VXI,Nissan,2012,40987,121874,Petrol
+Tata Nexon ZXI,Tata,2019,180326,50332,Diesel
+Chevrolet Spark VXI,Chevrolet,2019,124929,53967,LPG
+Honda Jazz VXI,Honda,2011,41607,120211,Petrol
+Land Defender VXI,Land,2017,246559,91487,LPG
+Ford EcoSport ZXI,Ford,2014,43265,117204,Petrol
+Ford Aspire VXI,Ford,2010,39522,162600,Diesel
+Renault Duster VXI,Renault,2015,93506,69321,Diesel
+Toyota Fortuner VXI,Toyota,2018,287745,59477,Diesel
+Kia Carnival LXI,Kia,2019,292093,75207,Diesel
+Renault Duster LXI,Renault,2013,35543,124034,Diesel
+Hyundai Santro VXI,Hyundai,2014,34937,144620,Petrol
+Datsun Redi-GO LXI,Datsun,2019,168354,67596,Diesel
+Hyundai Venue VXI,Hyundai,2018,103432,65303,Petrol
+Renault Triber VXI,Renault,2014,38966,123233,Petrol
+Audi Q7 VXI,Audi,2016,268665,103300,Diesel
+Nissan Kicks ZXI,Nissan,2014,51895,110433,Diesel
+Fiat Linea VXI,Fiat,2014,41037,123847,Petrol
+Volkswagen Ameo VXI,Volkswagen,2020,329770,66535,Diesel
+Land Defender VXI,Land,2018,650768,56466,Diesel
+Maruti Celerio VXI,Maruti,2015,70344,105199,Diesel
+Volvo XC40 VXI,Volvo,2008,35555,158450,Petrol
+Volkswagen Tiguan ZXI,Volkswagen,2019,258682,60634,Petrol
+Chevrolet Spark VXI,Chevrolet,2012,37463,159260,Petrol
+Ford Aspire VXI,Ford,2017,101320,110018,Diesel
+Kia Carnival VXI,Kia,2010,41534,183733,Petrol
+Renault Triber VXI,Renault,2008,41454,190572,Petrol
+Fiat Linea LXI,Fiat,2016,50798,103266,Petrol
+Force Gurkha VXI,Force,2014,45578,118353,LPG
+MG ZS EV VXI,MG,2013,39013,151759,Petrol
+Fiat Linea VXI,Fiat,2019,155968,58636,Diesel
+Toyota Corolla Altis VXI,Toyota,2014,40917,103374,LPG
+Datsun Redi-GO LXI,Datsun,2016,45753,114558,Petrol
+Hyundai Venue LXI,Hyundai,2019,188909,75117,Diesel
+Hindustan Ambassador VXI,Hindustan,2010,42443,161982,Petrol
+Maruti Celerio LXI,Maruti,2015,53318,85603,Petrol
+Hyundai i20 VXI,Hyundai,2008,42325,176464,LPG
+Tata Altroz ZXI,Tata,2013,41691,150871,Diesel
+Hindustan Ambassador VXI,Hindustan,2014,44298,101871,Petrol
+Force Gurkha ZXI,Force,2022,295115,34669,Diesel
+Chevrolet Spark VXI,Chevrolet,2014,37152,122319,Petrol
+Tata Tiago VXI,Tata,2016,101301,98489,Diesel
+Nissan Micra VXI,Nissan,2018,112588,76250,LPG
+Chevrolet Beat ZXI,Chevrolet,2011,40496,173480,Petrol
+Force Gurkha LXI,Force,2023,270659,35516,LPG
+Ford Aspire VXI,Ford,2008,39926,190817,LPG
+Skoda Superb ZXI,Skoda,2013,68053,112514,Diesel
+Honda WR-V VXI,Honda,2015,124487,109890,Diesel
+Nissan Terrano VXI,Nissan,2021,209178,5000,LPG
+Datsun GO ZXI,Datsun,2020,182119,42601,Diesel
+Ford Aspire VXI,Ford,2017,72274,108790,Petrol
+Mahindra Bolero VXI,Mahindra,2011,37325,184189,Petrol
+Datsun GO VXI,Datsun,2014,40049,117064,Petrol
+Maruti Wagon R LXI,Maruti,2019,153775,51168,Petrol
+Fiat Punto LXI,Fiat,2008,36425,197304,Diesel
+Hyundai Santro VXI,Hyundai,2015,66211,109795,Diesel
+Toyota Corolla Altis ZXI,Toyota,2009,43085,148307,Petrol
+Volkswagen Ameo VXI,Volkswagen,2019,229455,61578,Petrol
+Chevrolet Spark VXI,Chevrolet,2019,157037,56388,Diesel
+Ford Aspire ZXI,Ford,2009,35150,175775,Petrol
+Nissan Terrano ZXI,Nissan,2013,39169,173005,Diesel
+Land Rover Discovery LXI,Land,2012,46027,153270,LPG
+Ford Endeavour VXI,Ford,2017,142824,80498,Diesel
+Nissan Terrano LXI,Nissan,2020,163982,49989,Petrol
+Toyota Fortuner VXI,Toyota,2017,282022,62275,Diesel
+Maruti Alto ZXI,Maruti,2009,41791,172485,LPG
+Renault Kwid VXI,Renault,2019,133799,66335,LPG
+Chevrolet Spark ZXI,Chevrolet,2012,38819,142131,Petrol
+Skoda Kushaq ZXI,Skoda,2016,123369,74936,Petrol
+Renault Triber VXI,Renault,2019,117795,66788,LPG
+Fiat Linea ZXI,Fiat,2020,178011,38783,Petrol
+Force Gurkha ZXI,Force,2023,281743,30051,LPG
+Fiat Punto ZXI,Fiat,2012,36554,138642,Diesel
+Volkswagen Tiguan LXI,Volkswagen,2016,95398,104753,Petrol
+Hindustan Ambassador VXI,Hindustan,2022,169416,36078,LPG
+Chevrolet Beat VXI,Chevrolet,2017,122473,71654,Diesel
+Chevrolet Spark VXI,Chevrolet,2008,37764,182136,Petrol
+Ford Figo VXI,Ford,2017,131933,79768,Diesel
+MG ZS EV VXI,MG,2015,44245,116739,Petrol
+Nissan Kicks VXI,Nissan,2015,58609,108505,Diesel
+Tata Tiago VXI,Tata,2012,41284,156724,LPG
+Ford EcoSport LXI,Ford,2010,41025,154275,Petrol
+MG Astor ZXI,MG,2013,41835,141318,Petrol
+Ford Endeavour VXI,Ford,2010,42730,148334,Petrol
+Ford Aspire LXI,Ford,2013,40894,158736,Diesel
+Mahindra Scorpio VXI,Mahindra,2011,36921,136698,LPG
+Mahindra KUV100 LXI,Mahindra,2016,117790,98102,Diesel
+Datsun GO ZXI,Datsun,2023,216878,33023,Diesel
+MG Hector VXI,MG,2009,41523,183958,Diesel
+Renault Duster ZXI,Renault,2012,31420,123025,Petrol
+Tata Safari VXI,Tata,2013,38242,145405,LPG
+Datsun GO+ VXI,Datsun,2017,107064,76444,Diesel
+Hindustan Ambassador VXI,Hindustan,2011,41491,152127,LPG
+Force Gurkha VXI,Force,2012,43999,120560,LPG
+Tata Tiago LXI,Tata,2015,58560,113000,Diesel
+Mercedes GLC VXI,Mercedes,2023,881286,5000,Petrol
+Force Gurkha LXI,Force,2018,204762,63437,Diesel
+Hyundai Verna VXI,Hyundai,2019,130167,59172,LPG
+Hyundai Venue VXI,Hyundai,2022,246245,36760,Petrol
+Volkswagen Tiguan LXI,Volkswagen,2019,253240,78306,Diesel
+Honda WR-V VXI,Honda,2014,43418,97827,Petrol
+Maruti Celerio ZXI,Maruti,2010,37358,174470,LPG
+Maruti Swift ZXI,Maruti,2011,43749,171787,Diesel
+Mahindra Thar VXI,Mahindra,2008,41977,200844,Petrol
+Nissan Terrano VXI,Nissan,2016,63760,84169,Petrol
+Tata Altroz VXI,Tata,2009,39006,172653,LPG
+Force Gurkha ZXI,Force,2017,97554,95877,Petrol
+Ford Endeavour VXI,Ford,2014,67392,90700,Diesel
+Hyundai Santro VXI,Hyundai,2017,131293,85074,Diesel
+Tata Tigor LXI,Tata,2015,71691,113984,Diesel
+Fiat Punto LXI,Fiat,2014,38095,135195,Diesel
+Chevrolet Beat VXI,Chevrolet,2023,224835,5000,Petrol
+Chevrolet Beat VXI,Chevrolet,2014,38437,125169,Diesel
+Hyundai i10 ZXI,Hyundai,2008,42916,214868,Diesel
+Jeep Compass LXI,Jeep,2019,315150,68404,Petrol
+Hyundai i20 VXI,Hyundai,2009,38741,171458,Diesel
+Jaguar XE VXI,Jaguar,2023,1077965,6881,Diesel
+Ford EcoSport LXI,Ford,2015,32633,99746,Petrol
+Force Gurkha VXI,Force,2015,36632,133704,LPG
+Tata Safari LXI,Tata,2017,113031,99649,Diesel
+Mahindra Scorpio ZXI,Mahindra,2017,92163,78627,Petrol
+Honda WR-V ZXI,Honda,2010,33628,156914,Diesel
+Renault Duster VXI,Renault,2013,36018,153319,Diesel
+MG ZS EV ZXI,MG,2013,42456,143009,Petrol
+Datsun GO LXI,Datsun,2018,86949,92523,LPG
+Hyundai Santro VXI,Hyundai,2018,193139,58251,Diesel
+Hindustan Ambassador ZXI,Hindustan,2019,113602,38897,Petrol
+Jaguar F-Pace ZXI,Jaguar,2009,43650,163257,Petrol
+Hyundai Grand i10 ZXI,Hyundai,2011,37668,158672,LPG
+Ford Figo VXI,Ford,2008,39732,195633,Diesel
+Force Gurkha ZXI,Force,2019,211729,69120,Diesel
+Force Gurkha ZXI,Force,2011,35348,157710,LPG
+Nissan Kicks VXI,Nissan,2014,39849,105064,LPG
+Renault Duster VXI,Renault,2016,61696,94464,Petrol
+Volkswagen Tiguan LXI,Volkswagen,2017,234206,72400,Diesel
+Mahindra XUV500 VXI,Mahindra,2016,84137,68466,Petrol
+Force Gurkha ZXI,Force,2019,209253,51392,Diesel
+Hyundai Santro ZXI,Hyundai,2018,121194,69010,LPG
+Skoda Octavia LXI,Skoda,2010,42630,174331,Diesel
+Maruti Alto VXI,Maruti,2016,109052,94801,Diesel
+Fiat Punto VXI,Fiat,2017,84313,81163,LPG
+Mahindra Scorpio VXI,Mahindra,2010,39911,155338,Diesel
+Maruti Celerio LXI,Maruti,2009,36555,195455,Petrol
+Renault Kwid VXI,Renault,2011,45098,153595,Diesel
+Hindustan Ambassador VXI,Hindustan,2014,45952,121501,Diesel
+Fiat Linea LXI,Fiat,2015,57203,114703,Diesel
+Nissan Terrano VXI,Nissan,2015,66006,115403,Diesel
+Fiat Linea LXI,Fiat,2012,42743,147556,Petrol
+Maruti Dzire VXI,Maruti,2012,39063,160855,Petrol
+Toyota Innova ZXI,Toyota,2018,168099,89841,Petrol
+Mahindra Bolero LXI,Mahindra,2013,45699,104077,Diesel
+Ford EcoSport ZXI,Ford,2010,34884,180128,Diesel
+Hindustan Ambassador ZXI,Hindustan,2022,185754,5000,Petrol
+Ford Figo VXI,Ford,2018,166019,60859,Diesel
+Force Gurkha LXI,Force,2008,33812,172106,Petrol
+Fiat Punto VXI,Fiat,2009,43547,179722,Diesel
+Force Gurkha VXI,Force,2019,275117,34851,Diesel
+Force Gurkha LXI,Force,2010,47334,175767,LPG
+Nissan Kicks ZXI,Nissan,2022,267125,8772,Diesel
+Chevrolet Beat VXI,Chevrolet,2008,43920,179838,Diesel
+Mahindra XUV500 VXI,Mahindra,2009,35352,161849,Petrol
+Audi A6 VXI,Audi,2013,41749,140720,Petrol
+Fiat Linea VXI,Fiat,2019,120988,65624,Petrol
+Chevrolet Cruze VXI,Chevrolet,2018,156832,61897,Diesel
+Hindustan Ambassador ZXI,Hindustan,2015,34623,141802,Diesel
+Maruti Wagon R LXI,Maruti,2009,41830,192176,Petrol
+BMW X3 VXI,BMW,2022,818307,41441,Diesel
+Hindustan Ambassador ZXI,Hindustan,2015,61882,68354,Diesel
+Chevrolet Beat ZXI,Chevrolet,2016,40245,106868,LPG
+Force Gurkha VXI,Force,2008,40124,200003,Diesel
+Hindustan Ambassador VXI,Hindustan,2011,37240,154993,Petrol
+Renault Kwid ZXI,Renault,2023,192314,48400,Petrol
+Audi Q7 VXI,Audi,2018,344883,68206,Petrol
+Renault Duster ZXI,Renault,2019,175357,68856,Diesel
+Volkswagen Polo LXI,Volkswagen,2016,128137,95531,Diesel
+Force Gurkha VXI,Force,2010,39590,152043,Petrol
+Hyundai Verna VXI,Hyundai,2019,187008,68037,Diesel
+MG Astor LXI,MG,2019,190627,73624,LPG
+Mahindra XUV500 VXI,Mahindra,2019,215876,54068,Diesel
+MG Hector VXI,MG,2009,35184,145352,Petrol
+Mahindra XUV500 ZXI,Mahindra,2017,79347,106383,Petrol
+Tata Safari VXI,Tata,2017,81014,87505,LPG
+Mahindra Scorpio VXI,Mahindra,2012,32653,123525,Diesel
+Hindustan Ambassador ZXI,Hindustan,2010,34328,175375,Diesel
+Honda Jazz LXI,Honda,2019,297041,70165,Diesel
+Datsun GO+ VXI,Datsun,2020,180796,60659,Diesel
+Datsun GO+ VXI,Datsun,2010,34135,153656,Diesel
+Ford Aspire LXI,Ford,2018,131155,79737,Diesel
+Nissan Micra ZXI,Nissan,2015,35444,93770,LPG
+Ford EcoSport ZXI,Ford,2022,342775,10549,Diesel
+Fiat Linea ZXI,Fiat,2012,39637,126130,Diesel
+Honda Accord VXI,Honda,2013,39352,132317,LPG
+MG Hector VXI,MG,2018,143682,81013,LPG
+Datsun GO+ VXI,Datsun,2014,41409,121466,Diesel
+Force Gurkha ZXI,Force,2012,43613,152065,Diesel
+Force Gurkha LXI,Force,2011,38548,158162,Petrol
+BMW 3 Series VXI,BMW,2009,38089,186502,Petrol
+Nissan Terrano VXI,Nissan,2023,245082,16604,LPG
+Volkswagen Ameo ZXI,Volkswagen,2019,190688,76505,LPG
+Renault Kwid LXI,Renault,2017,104805,105138,Diesel
+Hindustan Ambassador VXI,Hindustan,2016,40838,110745,LPG
+Maruti Swift VXI,Maruti,2017,133909,72812,Diesel
+Force Gurkha LXI,Force,2018,174932,84258,Diesel
+Ford Aspire ZXI,Ford,2021,154351,61913,LPG
+Volkswagen Tiguan VXI,Volkswagen,2018,205349,83184,Diesel
+Fiat Punto VXI,Fiat,2013,38358,128073,Diesel
+Kia Sonet ZXI,Kia,2021,350941,37834,Petrol
+Tata Tiago ZXI,Tata,2008,36937,196758,Petrol
+Nissan Micra VXI,Nissan,2017,99148,89586,Diesel
+Force Gurkha VXI,Force,2022,201910,35652,Petrol
+Hindustan Ambassador VXI,Hindustan,2013,41564,135743,Diesel
+Force Gurkha VXI,Force,2011,38363,155249,Diesel
+Tata Harrier ZXI,Tata,2019,211004,60803,Diesel
+Hyundai i10 ZXI,Hyundai,2010,38036,160264,Diesel
+Datsun GO VXI,Datsun,2018,95582,101623,Diesel
+Hindustan Ambassador ZXI,Hindustan,2008,41589,203236,Petrol
+Mahindra Thar VXI,Mahindra,2009,39285,184235,Diesel
+Mahindra KUV100 VXI,Mahindra,2010,39755,169590,Diesel
+Force Gurkha VXI,Force,2015,36730,123968,LPG
+Chevrolet Spark ZXI,Chevrolet,2012,39165,129496,Petrol
+Ford Figo LXI,Ford,2017,84526,84392,Petrol
+Force Gurkha LXI,Force,2008,33133,188747,Diesel
+Nissan Terrano LXI,Nissan,2022,242451,16724,LPG
+Tata Harrier VXI,Tata,2023,235396,5000,Diesel
+Tata Tiago VXI,Tata,2009,35749,175965,Diesel
+Skoda Octavia VXI,Skoda,2013,43018,141560,Diesel
+Honda City ZXI,Honda,2013,54039,119507,Diesel
+Force Gurkha VXI,Force,2022,247231,22214,Petrol
+Volkswagen Vento ZXI,Volkswagen,2023,442935,16910,Diesel
+Mahindra XUV500 VXI,Mahindra,2021,248397,42648,Diesel
+Skoda Superb VXI,Skoda,2014,67886,129449,Diesel
+Hyundai Verna ZXI,Hyundai,2011,42296,186322,Diesel
+Maruti Ignis LXI,Maruti,2012,42325,126995,LPG
+Force Gurkha LXI,Force,2009,39880,163332,LPG
+Chevrolet Beat VXI,Chevrolet,2018,177899,47544,Diesel
+Renault Triber VXI,Renault,2008,35789,207653,Diesel
+Renault Kwid VXI,Renault,2012,38840,161567,LPG
+Ford EcoSport LXI,Ford,2012,42413,142409,LPG
+Honda Accord VXI,Honda,2012,40449,109091,Diesel
+Mahindra Thar LXI,Mahindra,2013,41086,137156,Petrol
+Hyundai i10 ZXI,Hyundai,2018,159912,69733,Diesel
+MG ZS EV ZXI,MG,2018,156557,81065,Petrol
+Toyota Fortuner VXI,Toyota,2019,284701,42252,Petrol
+Hyundai Creta ZXI,Hyundai,2018,121327,49812,Petrol
+Hyundai Grand i10 VXI,Hyundai,2014,43464,114842,Petrol
+Fiat Punto VXI,Fiat,2014,35619,123723,Diesel
+Hindustan Ambassador LXI,Hindustan,2023,223415,5000,Petrol
+Toyota Etios ZXI,Toyota,2010,37918,173692,Diesel
+Jeep Compass ZXI,Jeep,2014,78983,111407,Diesel
+Maruti Ertiga VXI,Maruti,2021,212665,59335,Diesel
+Maruti Ertiga ZXI,Maruti,2012,39007,150892,Petrol
+Nissan Micra VXI,Nissan,2011,38090,134245,LPG
+Datsun Redi-GO LXI,Datsun,2008,35860,213549,LPG
+Chevrolet Cruze VXI,Chevrolet,2017,108180,62283,Petrol
+Volkswagen Tiguan VXI,Volkswagen,2015,100625,106911,Diesel
+MG ZS EV VXI,MG,2009,44180,181728,Diesel
+Volvo XC60 VXI,Volvo,2009,40464,223180,Diesel
+Skoda Superb VXI,Skoda,2015,67522,97602,Petrol
+Toyota Fortuner VXI,Toyota,2015,94231,125771,Diesel
+MG ZS EV LXI,MG,2010,33237,154887,Petrol
+Hindustan Ambassador VXI,Hindustan,2018,88692,68592,LPG
+Ford EcoSport VXI,Ford,2016,81981,112116,Diesel
+Audi A6 LXI,Audi,2009,39481,195602,Petrol
+Force Gurkha ZXI,Force,2008,40667,207708,Petrol
+Renault Triber VXI,Renault,2009,41665,188623,Diesel
+Fiat Linea VXI,Fiat,2013,35060,135359,Petrol
+Nissan Kicks LXI,Nissan,2022,259385,12732,Petrol
+Datsun GO VXI,Datsun,2016,58089,83757,Petrol
+Chevrolet Spark LXI,Chevrolet,2018,116004,74149,Petrol
+Mahindra Thar VXI,Mahindra,2023,282023,29502,Petrol
+Mahindra Scorpio VXI,Mahindra,2012,39242,139363,Diesel
+Force Gurkha VXI,Force,2018,163681,51251,Petrol
+Maruti Swift ZXI,Maruti,2017,116831,72294,Petrol
+Volkswagen Tiguan VXI,Volkswagen,2012,39415,122171,Petrol
+Toyota Glanza VXI,Toyota,2012,41116,135271,Diesel
+Nissan Micra VXI,Nissan,2019,140311,45550,Diesel
+Fiat Linea VXI,Fiat,2014,44503,144240,Petrol
+Ford EcoSport VXI,Ford,2011,38131,148107,Diesel
+Fiat Linea ZXI,Fiat,2021,168663,50091,Petrol
+Volkswagen Ameo LXI,Volkswagen,2008,39629,201876,Diesel
+MG Astor VXI,MG,2015,109896,109357,Diesel
+Force Gurkha VXI,Force,2013,42101,126566,LPG
+Maruti Ertiga VXI,Maruti,2023,204330,34665,Petrol
+Skoda Octavia VXI,Skoda,2018,249710,67504,Diesel
+Hindustan Ambassador VXI,Hindustan,2009,37619,187639,Petrol
+Hyundai i20 VXI,Hyundai,2014,32397,143473,LPG
+Maruti Alto VXI,Maruti,2008,43098,199371,Diesel
+Ford Aspire LXI,Ford,2019,166165,56246,Diesel
+Renault Triber VXI,Renault,2012,47366,152459,LPG
+Land Defender ZXI,Land,2014,38625,133344,Petrol
+Volkswagen Polo LXI,Volkswagen,2012,41086,123597,Diesel
+Mahindra Thar LXI,Mahindra,2018,157654,88000,Diesel
+Nissan Terrano VXI,Nissan,2013,31980,139662,Petrol
+Skoda Superb ZXI,Skoda,2017,249211,83996,Diesel
+MG ZS EV VXI,MG,2023,431391,13673,Diesel
+Hyundai Creta VXI,Hyundai,2018,97419,83022,Petrol
+Ford Endeavour VXI,Ford,2015,43093,90166,LPG
+Chevrolet Cruze ZXI,Chevrolet,2011,34474,158927,Diesel
+Mahindra KUV100 ZXI,Mahindra,2021,257076,37961,Diesel
+Tata Tigor LXI,Tata,2010,40693,166503,Petrol
+Force Gurkha VXI,Force,2023,324373,5000,Diesel
+Hindustan Ambassador VXI,Hindustan,2018,77522,74717,LPG
+Nissan Terrano ZXI,Nissan,2012,35658,153429,Petrol
+MG Hector VXI,MG,2015,56358,110342,Petrol
+Mahindra Scorpio VXI,Mahindra,2018,189051,36875,Petrol
+Renault Duster VXI,Renault,2015,66755,114971,Diesel
+Fiat Linea LXI,Fiat,2015,83138,85208,Diesel
+Maruti Wagon R LXI,Maruti,2009,38721,147493,LPG
+Mahindra KUV100 ZXI,Mahindra,2011,45682,139519,Diesel
+Tata Harrier ZXI,Tata,2011,42072,124169,Petrol
+Chevrolet Beat LXI,Chevrolet,2014,49285,116859,Diesel
+Chevrolet Beat VXI,Chevrolet,2009,37989,192970,Petrol
+Hindustan Ambassador VXI,Hindustan,2017,96558,76395,Diesel
+Ford Aspire LXI,Ford,2011,44047,137775,Diesel
+Tata Nexon LXI,Tata,2019,187376,54386,Diesel
+Chevrolet Cruze LXI,Chevrolet,2009,35821,190820,Petrol
+Hyundai Grand i10 VXI,Hyundai,2012,38134,140184,Diesel
+MG ZS EV LXI,MG,2012,34370,158171,Petrol
+Tata Tiago LXI,Tata,2018,120458,75700,Diesel
+Force Gurkha ZXI,Force,2021,200172,45708,Petrol
+Maruti Alto VXI,Maruti,2009,38934,179268,Petrol
+Fiat Linea VXI,Fiat,2015,53337,121777,Diesel
+Skoda Octavia ZXI,Skoda,2017,202915,94346,Diesel
+Toyota Corolla Altis VXI,Toyota,2013,37558,143608,LPG
+Hindustan Ambassador VXI,Hindustan,2009,41606,179918,Diesel
+Hindustan Ambassador VXI,Hindustan,2020,169672,37496,Diesel
+Hindustan Ambassador ZXI,Hindustan,2022,210778,8140,Diesel
+Ford EcoSport LXI,Ford,2021,257563,37354,Diesel
+Nissan Micra ZXI,Nissan,2018,104866,73178,LPG
+Datsun GO+ ZXI,Datsun,2008,38702,151017,Diesel
+Datsun GO VXI,Datsun,2015,62997,109370,Diesel
+Fiat Punto VXI,Fiat,2017,82671,92575,Petrol
+Force Gurkha VXI,Force,2014,39294,127193,Petrol
+Renault Kwid ZXI,Renault,2010,42049,173110,Diesel
+MG Hector LXI,MG,2020,301994,44418,Petrol
+Hindustan Ambassador ZXI,Hindustan,2018,62608,73799,LPG
+Mercedes GLC ZXI,Mercedes,2021,635204,28861,Petrol
+Maruti Ignis ZXI,Maruti,2019,132547,67315,LPG
+MG Hector LXI,MG,2010,40440,133847,Diesel
+Hindustan Ambassador ZXI,Hindustan,2019,104323,56453,Petrol
+Tata Safari LXI,Tata,2021,249560,18659,Diesel
+Chevrolet Spark ZXI,Chevrolet,2019,112942,86830,Petrol
+Chevrolet Spark LXI,Chevrolet,2020,173371,47451,Petrol
+BMW 3 Series VXI,BMW,2022,539928,12946,Petrol
+Ford Endeavour VXI,Ford,2018,166827,71770,Diesel
+Renault Triber LXI,Renault,2008,42975,207126,Diesel
+Fiat Linea VXI,Fiat,2022,201478,23463,Petrol
+Fiat Punto LXI,Fiat,2018,101687,58236,Petrol
+MG Hector VXI,MG,2014,78186,112751,Diesel
+MG Hector VXI,MG,2009,47750,178100,Diesel
+Mahindra KUV100 LXI,Mahindra,2013,42013,123316,Diesel
+Jaguar XE LXI,Jaguar,2012,48926,140229,Petrol
+Honda Accord VXI,Honda,2016,142084,111462,Diesel
+Nissan Terrano LXI,Nissan,2020,173262,68678,Diesel
+Nissan Terrano VXI,Nissan,2008,41490,169623,Petrol
+Jaguar XE VXI,Jaguar,2015,149758,93898,LPG
+Ford Endeavour LXI,Ford,2021,188069,50099,Petrol
+Hindustan Ambassador VXI,Hindustan,2019,118808,43275,Petrol
+Tata Tigor VXI,Tata,2019,169373,58765,Diesel
+Chevrolet Spark VXI,Chevrolet,2008,44625,210592,Diesel
+Fiat Linea ZXI,Fiat,2015,42198,108382,Petrol
+Skoda Rapid LXI,Skoda,2021,342471,38142,LPG
+Hindustan Ambassador VXI,Hindustan,2022,185833,43396,Diesel
+Force Gurkha VXI,Force,2018,174877,57067,Diesel
+Fiat Punto ZXI,Fiat,2017,64853,81912,Petrol
+Renault Kwid VXI,Renault,2023,255671,10937,Diesel
+Fiat Linea ZXI,Fiat,2009,39395,159805,Diesel
+Skoda Rapid VXI,Skoda,2014,65960,125082,Diesel
+Ford Aspire ZXI,Ford,2008,38198,181515,Petrol
+Hyundai Venue VXI,Hyundai,2015,98172,84601,Diesel
+Toyota Corolla Altis LXI,Toyota,2009,38873,178488,Petrol
+Fiat Linea LXI,Fiat,2020,172737,66871,Diesel
+Mahindra Thar VXI,Mahindra,2011,42529,177743,Diesel
+Chevrolet Beat VXI,Chevrolet,2013,44407,149050,Petrol
+Fiat Linea ZXI,Fiat,2019,173491,57858,Diesel
+Fiat Punto VXI,Fiat,2013,30315,112489,Petrol
+Tata Tigor VXI,Tata,2012,45524,177395,Petrol
+Hindustan Ambassador VXI,Hindustan,2011,39044,176685,Diesel
+Maruti Alto ZXI,Maruti,2009,37138,171654,Petrol
+Datsun Redi-GO LXI,Datsun,2012,41023,148541,LPG
+Nissan Kicks LXI,Nissan,2022,249284,20315,Petrol
+Tata Altroz VXI,Tata,2014,40762,124406,Petrol
+Mahindra XUV500 LXI,Mahindra,2011,42681,182303,Petrol
+Datsun GO VXI,Datsun,2020,120460,62962,Petrol
+Renault Duster ZXI,Renault,2014,41453,129840,Petrol
+Honda City VXI,Honda,2014,65890,87990,Petrol
+Maruti Swift VXI,Maruti,2016,56790,87206,LPG
+Chevrolet Spark VXI,Chevrolet,2023,229454,5000,Petrol
+Chevrolet Beat ZXI,Chevrolet,2015,49212,127640,Diesel
+Renault Duster LXI,Renault,2016,68320,94543,Petrol
+Mahindra XUV500 VXI,Mahindra,2009,39691,174407,Diesel
+Hindustan Ambassador VXI,Hindustan,2014,41004,112419,Diesel
+Tata Safari ZXI,Tata,2018,145270,91631,Diesel
+Force Gurkha LXI,Force,2013,59930,103696,Diesel
+Hindustan Ambassador LXI,Hindustan,2019,126256,71466,Diesel
+Renault Triber ZXI,Renault,2018,158169,83463,Diesel
+Ford Endeavour LXI,Ford,2009,43641,192127,Diesel
+Toyota Corolla Altis VXI,Toyota,2018,266974,69441,Diesel
+Fiat Linea ZXI,Fiat,2020,228756,37929,Diesel
+Mahindra Scorpio VXI,Mahindra,2008,31401,187463,Petrol
+Renault Kwid VXI,Renault,2019,170141,60788,Diesel
+Chevrolet Spark ZXI,Chevrolet,2008,42788,174794,Petrol
+Chevrolet Spark VXI,Chevrolet,2012,34186,113713,Diesel
+MG Astor VXI,MG,2012,41640,131048,Diesel
+Hindustan Ambassador VXI,Hindustan,2013,44005,127707,Diesel
+Maruti Celerio ZXI,Maruti,2023,238005,13845,LPG
+Force Gurkha ZXI,Force,2016,76376,95073,Petrol
+Mahindra XUV500 ZXI,Mahindra,2014,44233,91924,Petrol
+Kia Carnival ZXI,Kia,2017,221170,75434,Diesel
+Skoda Kushaq VXI,Skoda,2014,99268,110292,Diesel
+Force Gurkha ZXI,Force,2018,114064,70768,Petrol
+Chevrolet Cruze VXI,Chevrolet,2019,150061,43323,Petrol
+Hyundai Venue VXI,Hyundai,2018,116418,97577,Petrol
+Volkswagen Tiguan VXI,Volkswagen,2009,42176,206734,Diesel
+Hindustan Ambassador ZXI,Hindustan,2018,85916,72122,Petrol
+Maruti Alto VXI,Maruti,2020,155963,40029,LPG
+Chevrolet Beat VXI,Chevrolet,2014,46554,131077,Petrol
+Maruti Wagon R ZXI,Maruti,2014,42226,101420,Petrol
+Land Defender ZXI,Land,2009,43734,182788,Petrol
+Ford EcoSport ZXI,Ford,2017,85847,81299,Petrol
+MG Hector LXI,MG,2019,311473,56140,Diesel
+MG Astor ZXI,MG,2012,34363,133477,Petrol
+Tata Altroz VXI,Tata,2010,42885,168888,Diesel
+Honda City LXI,Honda,2015,56298,113719,Petrol
+Honda Accord VXI,Honda,2019,229365,70055,Petrol
+Jeep Compass LXI,Jeep,2023,465478,43452,LPG
+Nissan Micra VXI,Nissan,2018,135880,35389,Petrol
+Kia Sonet VXI,Kia,2012,39650,149109,Diesel
+Datsun GO+ LXI,Datsun,2013,45174,144657,Diesel
+Renault Duster ZXI,Renault,2014,37895,101926,Petrol
+Force Gurkha VXI,Force,2010,42398,164514,Diesel
+Renault Kwid LXI,Renault,2014,38965,131307,Petrol
+Hyundai Venue LXI,Hyundai,2020,220126,47224,Diesel
+Nissan Terrano LXI,Nissan,2021,206159,33317,Diesel
+Hyundai i20 VXI,Hyundai,2017,107439,91457,Petrol
+Maruti Swift VXI,Maruti,2023,299573,31476,Diesel
+Hindustan Ambassador VXI,Hindustan,2009,37679,184318,Diesel
+Maruti Celerio ZXI,Maruti,2010,43300,178212,LPG
+MG Hector VXI,MG,2019,256516,68868,Diesel
+Mercedes E-Class VXI,Mercedes,2009,40588,185257,Diesel
+Mahindra Thar LXI,Mahindra,2008,37880,180357,Petrol
+Skoda Rapid VXI,Skoda,2008,44557,209349,Diesel
+Volkswagen Polo VXI,Volkswagen,2013,38250,105275,Petrol
+Maruti Ignis VXI,Maruti,2020,234945,41957,Diesel
