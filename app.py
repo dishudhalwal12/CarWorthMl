@@ -775,24 +775,24 @@ with tab3:
             .sort_values(ascending=False)
             .reset_index()
         )
-        avg_co.columns = ["Manufacturer", "Avg Price (₹)"]
-        avg_co["Avg Price (₹)"] = avg_co["Avg Price (₹)"].astype(int)
+        avg_co.columns = ["Manufacturer", "Average Price"]
+        avg_co["Average Price"] = avg_co["Average Price"].astype(int)
 
         c_lux, c_mass = st.columns(2, gap="large")
 
-        lux = avg_co[avg_co["Avg Price (₹)"] >= 600_000]
-        mass = avg_co[avg_co["Avg Price (₹)"] < 600_000]
+        lux = avg_co[avg_co["Average Price"] >= 600_000]
+        mass = avg_co[avg_co["Average Price"] < 600_000]
 
         with c_lux:
             st.caption("Luxury & Premium segment")
             if not lux.empty:
-                st.bar_chart(lux.set_index("Manufacturer"),
+                st.bar_chart(lux, x="Manufacturer", y="Average Price",
                              use_container_width=True, height=300, color="#FF6B35")
 
         with c_mass:
             st.caption("Mass market segment")
             if not mass.empty:
-                st.bar_chart(mass.set_index("Manufacturer"),
+                st.bar_chart(mass, x="Manufacturer", y="Average Price",
                              use_container_width=True, height=300, color="#6C63FF")
 
         st.markdown("<div style='height:8px;'></div>", unsafe_allow_html=True)
@@ -818,11 +818,12 @@ with tab3:
                 .agg(["mean", "median"])
                 .reset_index()
             )
-            avg_fuel.columns = ["Fuel Type", "Avg Price (₹)", "Median Price (₹)"]
-            avg_fuel["Avg Price (₹)"]    = avg_fuel["Avg Price (₹)"].astype(int)
-            avg_fuel["Median Price (₹)"] = avg_fuel["Median Price (₹)"].astype(int)
+            avg_fuel.columns = ["Fuel Type", "Average Price", "Median Price"]
+            avg_fuel["Average Price"]    = avg_fuel["Average Price"].astype(int)
+            avg_fuel["Median Price"] = avg_fuel["Median Price"].astype(int)
             st.bar_chart(
-                avg_fuel.set_index("Fuel Type")[["Avg Price (₹)", "Median Price (₹)"]],
+                avg_fuel,
+                x="Fuel Type", y=["Average Price", "Median Price"],
                 use_container_width=True, height=280,
                 color=["#FF6B35", "#6C63FF"],
             )
@@ -876,9 +877,9 @@ with tab3:
             .reset_index()
             .sort_values("year")
         )
-        price_yr.columns = ["Year", "Avg Price (₹)"]
-        price_yr["Avg Price (₹)"] = price_yr["Avg Price (₹)"].astype(int)
-        st.line_chart(price_yr.set_index("Year"),
+        price_yr.columns = ["Year", "Average Price"]
+        price_yr["Average Price"] = price_yr["Average Price"].astype(int)
+        st.line_chart(price_yr, x="Year", y="Average Price",
                       use_container_width=True, height=300, color="#FF6B35")
 
         st.markdown("<div style='height:8px;'></div>", unsafe_allow_html=True)
@@ -898,7 +899,7 @@ with tab3:
 
         top10 = df3["company"].value_counts().head(10).reset_index()
         top10.columns = ["Manufacturer", "Listings"]
-        st.bar_chart(top10.set_index("Manufacturer"),
+        st.bar_chart(top10, x="Manufacturer", y="Listings",
                      use_container_width=True, height=300, color="#4ECDC4")
 
         # ── RAW DATA EXPANDER ───────────────────────────────────────────────
