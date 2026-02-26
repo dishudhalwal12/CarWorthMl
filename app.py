@@ -1,722 +1,511 @@
 import streamlit as st
-import requests
-
-
-import base64
+import pandas as pd
+import numpy as np
+import pickle
 import os
 
-def get_base64_image(image_path: str) -> str:
-    """Convert local image to base64 string for embedding in HTML."""
-    if not os.path.exists(image_path):
-        return ""
-    with open(image_path, "rb") as f:
-        data = f.read()
-    return base64.b64encode(data).decode("utf-8")
-
-CAR_B64 = get_base64_image("car.png")
-CAR_IMG_TAG = f'<img src="data:image/png;base64,{CAR_B64}" style="width:100%; max-width:720px; filter: drop-shadow(0 20px 60px rgba(230,57,70,0.18)) drop-shadow(0 0 120px rgba(255,255,255,0.04));" alt="Car">' if CAR_B64 else '<div style="font-size:8rem; text-align:center; opacity:0.15;">🚗</div>'
-
-# ─────────────────────────────────────────────
-# PAGE CONFIG — Must be first Streamlit command
-# ─────────────────────────────────────────────
+# ─── PAGE CONFIG ────────────────────────────────────────────────────────────
 st.set_page_config(
-    page_title="CarWorthML | Used Car Price Predictor",
-    page_icon="⚡",
+    page_title="CarWorthML | Smart Car Valuation",
+    page_icon="🚗",
     layout="wide",
-    initial_sidebar_state="collapsed"
+    initial_sidebar_state="collapsed",
 )
 
-# ─────────────────────────────────────────────
-# INJECT GLOBAL CSS (paste full GLOBAL_CSS here)
-# ─────────────────────────────────────────────
-GLOBAL_CSS = """
+# ─── GLOBAL CSS — Corporate Memphis 3D Claymorphic ──────────────────────────
+CLAY_CSS = """
 <style>
-/* ============================================
-   BASE — Premium Light Theme
-   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
 html, body, [class*="css"] {
-    font-family: -apple-system, 'SF Pro Display', 'Inter', BlinkMacSystemFont, 
-                 'Segoe UI', sans-serif !important;
+    font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
 
+/* ── App Background ─────────────────────────── */
 .stApp {
-    background-color: #F9FAFB !important;
+    background: #F2EDE4 !important;
 }
 
-/* Hide Streamlit default header */
-header[data-testid="stHeader"] {
-    background: transparent !important;
-    border-bottom: 1px solid #E5E7EB;
+/* ── Hide Streamlit Chrome ──────────────────── */
+header[data-testid="stHeader"],
+footer,
+[data-testid="stDecoration"],
+[data-testid="collapsedControl"],
+[data-testid="stSidebar"],
+section[data-testid="stSidebarContent"] {
+    display: none !important;
 }
 
-/* ============================================
-   TAB NAVIGATION — Minimal pill style
-   ============================================ */
+/* ── TABS ───────────────────────────────────── */
 .stTabs [data-baseweb="tab-list"] {
-    background-color: #FFFFFF !important;
-    border: 1px solid #E5E7EB !important;
-    border-radius: 12px !important;
-    padding: 5px !important;
+    background: #FFFFFF !important;
+    border-radius: 100px !important;
+    padding: 6px !important;
     gap: 2px !important;
+    border: 2.5px solid #E0D8CE !important;
+    box-shadow: 5px 5px 0px #CFC8BC !important;
     width: fit-content !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+    margin: 20px auto 36px !important;
 }
 
 .stTabs [data-baseweb="tab"] {
+    border-radius: 100px !important;
+    padding: 10px 24px !important;
+    font-weight: 700 !important;
+    font-size: 0.85rem !important;
+    color: #7A6B5C !important;
     background: transparent !important;
-    color: #6B7280 !important;
-    border-radius: 9px !important;
-    font-size: 0.875rem !important;
-    font-weight: 500 !important;
-    padding: 8px 24px !important;
     border: none !important;
-    transition: all 0.2s ease !important;
-    letter-spacing: 0.01em !important;
-}
-
-.stTabs [data-baseweb="tab"]:hover {
-    color: #111827 !important;
-    background: #F3F4F6 !important;
+    transition: all 0.18s ease !important;
 }
 
 .stTabs [aria-selected="true"] {
-    background: #FF6B4A !important;
+    background: #FF6B35 !important;
     color: #FFFFFF !important;
-    font-weight: 600 !important;
-    box-shadow: 0 4px 14px rgba(255, 107, 74, 0.3) !important;
+    box-shadow: 0 4px 14px rgba(255,107,53,0.35) !important;
 }
 
-/* ============================================
-   SIDEBAR
-   ============================================ */
-[data-testid="stSidebar"] {
-    background-color: #FFFFFF !important;
-    border-right: 1px solid #E5E7EB !important;
+.stTabs [data-baseweb="tab-highlight"],
+.stTabs [data-baseweb="tab-border"] {
+    display: none !important;
 }
 
-[data-testid="stSidebar"] .stMarkdown {
-    color: #4B5563;
+/* ── FORM container ─────────────────────────── */
+[data-testid="stForm"] {
+    background: #FFFFFF !important;
+    border-radius: 28px !important;
+    border: 2.5px solid #E0D8CE !important;
+    box-shadow: 8px 8px 0px #CFC8BC, 0 24px 60px rgba(60,40,20,0.07) !important;
+    padding: 36px 40px !important;
 }
 
-/* ============================================
-   INPUTS
-   ============================================ */
-.stSelectbox > div > div,
-.stNumberInput > div > div > input,
-.stSlider {
-    background-color: #FFFFFF !important;
-    border: 1px solid #D1D5DB !important;
-    border-radius: 8px !important;
-    color: #111827 !important;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03) !important;
+/* ── SELECTBOX ──────────────────────────────── */
+div[data-baseweb="select"] > div:first-child {
+    background: #F8F3EC !important;
+    border: 2.5px solid #E0D8CE !important;
+    border-radius: 16px !important;
+    min-height: 56px !important;
+    padding: 0 16px !important;
+    transition: border-color 0.15s !important;
 }
 
-.stSelectbox > div > div:focus-within,
-.stNumberInput > div > div > input:focus {
-    border-color: #FF6B4A !important;
-    box-shadow: 0 0 0 3px rgba(255, 107, 74, 0.15) !important;
+div[data-baseweb="select"] > div:first-child:hover {
+    border-color: #FF6B35 !important;
 }
 
-/* Input labels */
-.stSelectbox label, 
-.stNumberInput label,
-.stSlider label {
-    color: #4B5563 !important;
-    font-size: 0.8rem !important;
-    font-weight: 600 !important;
-    letter-spacing: 0.04em !important;
+/* ── INPUT LABELS ───────────────────────────── */
+[data-testid="stSelectbox"] label,
+[data-testid="stNumberInput"] label,
+[data-testid="stSlider"] label {
+    color: #5C4E3E !important;
+    font-size: 0.78rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.07em !important;
     text-transform: uppercase !important;
 }
 
-/* ============================================
-   BUTTONS
-   ============================================ */
+/* ── NUMBER INPUT ───────────────────────────── */
+[data-testid="stNumberInput"] > div {
+    background: #F8F3EC !important;
+    border: 2.5px solid #E0D8CE !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+}
+
+[data-testid="stNumberInput"] input {
+    background: transparent !important;
+    border: none !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    color: #1A1210 !important;
+    padding: 16px !important;
+    height: 56px !important;
+}
+
+/* ── SLIDER ─────────────────────────────────── */
+[data-testid="stSlider"] > div > div > div > div {
+    background: linear-gradient(90deg, #FF6B35, #FF8C5A) !important;
+}
+
+/* ── SUBMIT / BUTTONS ───────────────────────── */
+[data-testid="stFormSubmitButton"] > button,
 .stButton > button {
-    background: #FF6B4A !important;
+    background: linear-gradient(145deg, #FF7A45, #FF6B35) !important;
     color: #FFFFFF !important;
     border: none !important;
-    border-radius: 10px !important;
-    font-size: 0.95rem !important;
-    font-weight: 600 !important;
-    padding: 12px 32px !important;
-    letter-spacing: 0.01em !important;
-    transition: all 0.2s ease !important;
-    box-shadow: 0 4px 15px rgba(255, 107, 74, 0.2) !important;
-}
-
-.stButton > button:hover {
-    background: #FF5A36 !important;
-    box-shadow: 0 6px 20px rgba(255, 107, 74, 0.3) !important;
-    transform: translateY(-1px) !important;
-}
-
-.stButton > button:active {
+    border-radius: 100px !important;
+    padding: 20px 48px !important;
+    font-size: 1.05rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.02em !important;
+    box-shadow: 0 8px 0px #C84A10, 0 16px 40px rgba(255,107,53,0.28) !important;
     transform: translateY(0px) !important;
+    transition: all 0.12s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    width: 100% !important;
+    cursor: pointer !important;
 }
 
-/* ============================================
-   METRICS
-   ============================================ */
+[data-testid="stFormSubmitButton"] > button:hover,
+.stButton > button:hover {
+    box-shadow: 0 5px 0px #C84A10, 0 10px 25px rgba(255,107,53,0.22) !important;
+    transform: translateY(3px) !important;
+}
+
+[data-testid="stFormSubmitButton"] > button:active,
+.stButton > button:active {
+    box-shadow: 0 1px 0px #C84A10, 0 4px 12px rgba(255,107,53,0.18) !important;
+    transform: translateY(7px) !important;
+}
+
+/* ── METRICS ────────────────────────────────── */
 [data-testid="stMetric"] {
     background: #FFFFFF !important;
-    border: 1px solid #E5E7EB !important;
-    border-radius: 12px !important;
-    padding: 18px 20px !important;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03) !important;
+    border-radius: 22px !important;
+    border: 2.5px solid #E0D8CE !important;
+    box-shadow: 5px 5px 0px #CFC8BC !important;
+    padding: 22px 26px !important;
 }
 
-[data-testid="stMetricLabel"] {
-    color: #6B7280 !important;
-    font-size: 0.78rem !important;
-    font-weight: 600 !important;
-    letter-spacing: 0.05em !important;
-    text-transform: uppercase !important;
-}
-
-[data-testid="stMetricValue"] {
-    color: #111827 !important;
-    font-size: 1.6rem !important;
+[data-testid="stMetricLabel"] > div {
+    color: #7A6B5C !important;
+    font-size: 0.73rem !important;
     font-weight: 700 !important;
-    letter-spacing: -0.02em !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.07em !important;
 }
 
-/* ============================================
-   DIVIDERS
-   ============================================ */
-hr {
-    border: none !important;
-    border-top: 1px solid #E5E7EB !important;
-    margin: 28px 0 !important;
+[data-testid="stMetricValue"] > div {
+    color: #1A1210 !important;
+    font-size: 1.45rem !important;
+    font-weight: 800 !important;
 }
 
-/* ============================================
-   CHARTS
-   ============================================ */
+/* ── CHARTS ─────────────────────────────────── */
 [data-testid="stArrowVegaLiteChart"] {
-    background: transparent !important;
-    border-radius: 12px !important;
-}
-
-/* ============================================
-   DATAFRAMES
-   ============================================ */
-.stDataFrame {
-    border: 1px solid #E5E7EB !important;
-    border-radius: 10px !important;
+    border-radius: 20px !important;
     overflow: hidden !important;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.03) !important;
+    border: 2.5px solid #E0D8CE !important;
+    box-shadow: 5px 5px 0px #CFC8BC !important;
+    background: #FFFFFF !important;
+    padding: 8px !important;
 }
 
-/* ============================================
-   SCROLLBAR
-   ============================================ */
+/* ── DATAFRAME ──────────────────────────────── */
+[data-testid="stDataFrame"] {
+    border-radius: 18px !important;
+    border: 2.5px solid #E0D8CE !important;
+    overflow: hidden !important;
+    box-shadow: 4px 4px 0px #CFC8BC !important;
+}
+
+/* ── EXPANDER ───────────────────────────────── */
+[data-testid="stExpander"] {
+    border-radius: 16px !important;
+    border: 2px solid #E0D8CE !important;
+    background: #FFFFFF !important;
+    box-shadow: 4px 4px 0px #CFC8BC !important;
+    overflow: hidden !important;
+}
+
+/* ── CAPTION ────────────────────────────────── */
+[data-testid="stCaptionContainer"] {
+    color: #9A8B7C !important;
+    font-size: 0.78rem !important;
+}
+
+/* ── SCROLLBAR ──────────────────────────────── */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: #F9FAFB; }
-::-webkit-scrollbar-thumb { background: #E5E7EB; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #D1D5DB; }
+::-webkit-scrollbar-track { background: #F2EDE4; }
+::-webkit-scrollbar-thumb { background: #D4CBBF; border-radius: 4px; }
+
+/* ── GENERAL TEXT ───────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+    color: #1A1210 !important;
+}
 </style>
 """
-st.markdown(GLOBAL_CSS, unsafe_allow_html=True)
+st.markdown(CLAY_CSS, unsafe_allow_html=True)
 
-st.markdown("""
-<style>
-/* ── Final polish ── */
-.stTabs [aria-selected="true"] { text-decoration: none !important; border-bottom: none !important; }
-.stTabs { margin-top: -12px !important; }
-[data-testid="stFormSubmitButton"] > button { width: 100% !important; margin-top: 8px !important; }
-[data-testid="stDataFrame"] th {
-    background-color: #F3F4F6 !important; color: #4B5563 !important;
-    font-size: 0.78rem !important; font-weight: 600 !important;
-    letter-spacing: 0.04em !important; text-transform: uppercase !important;
-    border-bottom: 1px solid #E5E7EB !important;
-}
-[data-testid="stDataFrame"] td {
-    background-color: #FFFFFF !important; color: #111827 !important;
-    font-size: 0.875rem !important; border-bottom: 1px solid #F9FAFB !important;
-}
-[data-testid="stMetricDelta"] { color: #10B981 !important; }
-.streamlit-expanderHeader {
-    background-color: #FFFFFF !important; border: 1px solid #E5E7EB !important;
-    border-radius: 10px !important; color: #4B5563 !important; font-size: 0.88rem !important;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.03) !important;
-}
-.stCaption { color: #6B7280 !important; font-size: 0.78rem !important; }
-</style>
-""", unsafe_allow_html=True)
 
-# ─────────────────────────────────────────────
-# LOTTIE LOADER
-# ─────────────────────────────────────────────
-def load_lottie_url(url: str):
-    try:
-        r = requests.get(url, timeout=5)
-        if r.status_code == 200:
-            return r.json()
-    except Exception:
-        pass
-    return None
+# ─── HELPER FUNCTIONS ───────────────────────────────────────────────────────
 
-# Lottie URLs — using reliable LottieFiles CDN animations
-LOTTIE_CAR_URL = "https://assets3.lottiefiles.com/packages/lf20_qjfw0xv.json"
-LOTTIE_CHART_URL = "https://assets5.lottiefiles.com/packages/lf20_qp1q7mct.json"
-
-try:
-    from streamlit_lottie import st_lottie
-    lottie_car = load_lottie_url(LOTTIE_CAR_URL)
-    lottie_chart = load_lottie_url(LOTTIE_CHART_URL)
-    LOTTIE_AVAILABLE = lottie_car is not None
-except ImportError:
-    LOTTIE_AVAILABLE = False
-    lottie_car = None
-
-# ─────────────────────────────────────────────
-# REUSABLE COMPONENT FUNCTIONS
-# ─────────────────────────────────────────────
-def card(content_html: str, padding: str = "28px 32px") -> str:
-    """Returns a premium dark card HTML block."""
+def clay_card(content: str, shadow_color: str = "#CFC8BC", bg: str = "#FFFFFF") -> str:
     return f"""
     <div style="
-        background: #FFFFFF;
-        border: 1px solid #E5E7EB; box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-        border-radius: 16px;
-        padding: {padding};
-        margin-bottom: 16px;
-    ">{content_html}</div>
-    """
+        background: {bg};
+        border-radius: 28px;
+        border: 2.5px solid #E0D8CE;
+        box-shadow: 7px 7px 0px {shadow_color}, 0 20px 50px rgba(60,40,20,0.06);
+        padding: 32px;
+        margin-bottom: 20px;
+    ">{content}</div>"""
 
-def badge(text: str, color: str = "#E63946") -> str:
-    """Returns a small pill badge HTML."""
-    return f"""
-    <span style="
-        background: rgba(255,107,74,0.1);
-        color: {color};
-        border: 1px solid rgba(255,107,74,0.2);
-        padding: 3px 10px;
-        border-radius: 20px;
-        font-size: 0.72rem;
-        font-weight: 600;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-    ">{text}</span>
-    """
 
-def section_header(title: str, subtitle: str = "") -> str:
-    """Returns a premium section heading HTML."""
-    sub = f'<p style="color:#6B7280; font-size:0.95rem; margin:8px 0 0; font-weight:400;">{subtitle}</p>' if subtitle else ""
-    return f"""
-    <div style="margin-bottom: 32px;">
-        <h2 style="
-            color: #111827;
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            margin: 0;
-            line-height: 1.2;
-        ">{title}</h2>
-        {sub}
-    </div>
-    """
-
-def stat_card(icon: str, value: str, label: str, sublabel: str = "") -> str:
-    """Returns a premium stat card HTML."""
-    sub = f'<p style="color:#9CA3AF; font-size:0.75rem; margin:4px 0 0;">{sublabel}</p>' if sublabel else ""
+def stat_card(icon: str, value: str, label: str, sublabel: str = "",
+              bg: str = "#FFFFFF", shadow: str = "#CFC8BC",
+              val_color: str = "#1A1210") -> str:
     return f"""
     <div style="
-        background: #FFFFFF;
-        border: 1px solid #E5E7EB; box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-        border-radius: 16px;
-        padding: 24px;
-        transition: border-color 0.2s;
-    ">
-        <div style="font-size: 1.5rem; margin-bottom: 12px;">{icon}</div>
-        <div style="
-            color: #111827;
-            font-size: 1.9rem;
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            line-height: 1;
-            margin-bottom: 6px;
-        ">{value}</div>
-        <div style="
-            color: #6B7280;
-            font-size: 0.8rem;
-            font-weight: 500;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-        ">{label}</div>
-        {sub}
-    </div>
-    """
-
-def price_result_card(price: float) -> str:
-    """Returns the premium price display card HTML."""
-    lakhs = price / 100000
-    return f"""
-    <div style="
-        background: #FFFFFF;
-        border: 1px solid #FF6B4A;
-        border-radius: 20px;
-        padding: 36px;
+        background: {bg};
+        border-radius: 24px;
+        border: 2.5px solid #E0D8CE;
+        box-shadow: 6px 6px 0px {shadow}, 0 16px 40px rgba(60,40,20,0.06);
+        padding: 28px 24px;
         text-align: center;
-        box-shadow: 0 10px 30px rgba(255, 107, 74, 0.15);
+        height: 100%;
     ">
-        <p style="
-            color: #6B7280;
-            font-size: 0.78rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            margin: 0 0 16px;
-        ">ESTIMATED MARKET VALUE</p>
-        <p style="
-            color: #111827;
-            font-size: 3rem;
-            font-weight: 800;
-            letter-spacing: -0.04em;
-            margin: 0;
-            line-height: 1;
-        ">₹ {price:,.0f}</p>
-        <p style="
-            color: #FF6B4A;
-            font-size: 1rem;
-            font-weight: 500;
-            margin: 12px 0 0;
-        ">≈ ₹ {lakhs:.2f} Lakhs</p>
-        <hr style="border-top: 1px solid #222230; margin: 24px 0;">
-        <p style="
-            color: #22C55E;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin: 0;
-        ">Prediction Successful</p>
-    </div>
-    """
+        <div style="font-size: 2rem; margin-bottom: 10px; line-height:1;">{icon}</div>
+        <div style="color:{val_color}; font-size:1.65rem; font-weight:900;
+                    letter-spacing:-0.03em; line-height:1.1; margin-bottom:6px;">{value}</div>
+        <div style="color:#5C4E3E; font-size:0.8rem; font-weight:700;
+                    text-transform:uppercase; letter-spacing:0.06em;">{label}</div>
+        <div style="color:#9A8B7C; font-size:0.73rem; margin-top:5px;">{sublabel}</div>
+    </div>"""
 
-# ─────────────────────────────────────────────
-# SIDEBAR
-# ─────────────────────────────────────────────
-with st.sidebar:
-    st.markdown(f"""
-<div style="padding: 8px 0 24px;">
-    <p style="color:#FF6B4A; font-size:1.2rem; font-weight:700; 
-              letter-spacing:-0.02em; margin:0;">CarWorthML</p>
-    <p style="color:#9CA3AF; font-size:0.75rem; margin:4px 0 0;">
-        Used Car Price Predictor
-    </p>
-</div>
-""", unsafe_allow_html=True)
 
-    st.markdown("""
+def step_card(num: str, title: str, desc: str,
+              num_bg: str = "#FFF0EA", num_color: str = "#FF6B35") -> str:
+    return f"""
     <div style="
-        background:#FFFFFF; border: 1px solid #E5E7EB; box-shadow: 0 4px 10px rgba(0,0,0,0.03); 
-        border-radius:12px; padding:16px; margin-bottom:16px;
+        background: #FFFFFF;
+        border-radius: 24px;
+        border: 2.5px solid #E0D8CE;
+        box-shadow: 6px 6px 0px #CFC8BC, 0 16px 40px rgba(60,40,20,0.06);
+        padding: 28px;
+        height: 100%;
     ">
-        <p style="color:#6B7280; font-size:0.72rem; font-weight:600; 
-                  letter-spacing:0.06em; text-transform:uppercase; margin:0 0 12px;">
-            PROJECT INFO
-        </p>
-        <p style="color:#111827; font-size:0.85rem; margin:0 0 6px;">
-            <span style="color:#9CA3AF;">Student:</span> Abhishek Gupta
-        </p>
-        <p style="color:#111827; font-size:0.85rem; margin:0 0 6px;">
-            <span style="color:#9CA3AF;">Enroll:</span> 01425502022
-        </p>
-        <p style="color:#111827; font-size:0.85rem; margin:0 0 6px;">
-            <span style="color:#9CA3AF;">Course:</span> BCA VI Sem
-        </p>
-        <p style="color:#111827; font-size:0.85rem; margin:0 0 6px;">
-            <span style="color:#9CA3AF;">Guide:</span> Dr. Ruchi Agarwal
-        </p>
-        <p style="color:#111827; font-size:0.85rem; margin:0;">
-            <span style="color:#9CA3AF;">Session:</span> 2022–2025
-        </p>
-    </div>
-    """, unsafe_allow_html=True)
+        <div style="
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 44px; height: 44px;
+            background: {num_bg}; border: 2px solid rgba(0,0,0,0.06);
+            border-radius: 14px;
+            font-size: 1rem; font-weight: 900; color: {num_color};
+            margin-bottom: 18px;
+        ">{num}</div>
+        <div style="color:#1A1210; font-size:1.05rem; font-weight:800;
+                    margin-bottom:10px;">{title}</div>
+        <div style="color:#7A6B5C; font-size:0.88rem; line-height:1.65;">{desc}</div>
+    </div>"""
 
-    st.markdown("""
+
+def price_card(price: float) -> str:
+    lakhs = price / 100_000
+    if lakhs >= 1:
+        display = f"₹{lakhs:.2f}L"
+    else:
+        display = f"₹{price:,.0f}"
+    return f"""
     <div style="
-        background:#FFFFFF; border: 1px solid #E5E7EB; box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-        border-radius:12px; padding:16px;
+        background: linear-gradient(145deg, #1C1640, #261E5A);
+        border-radius: 28px;
+        border: 2.5px solid #3D3280;
+        box-shadow: 8px 8px 0px #0E0A28, 0 24px 60px rgba(108,99,255,0.22);
+        padding: 44px 36px;
+        text-align: center;
     ">
-        <p style="color:#6B7280; font-size:0.72rem; font-weight:600;
-                  letter-spacing:0.06em; text-transform:uppercase; margin:0 0 12px;">
-            TECH STACK
-        </p>
-        <p style="color:#111827; font-size:0.83rem; margin:0 0 5px;">🐍 Python 3.10+</p>
-        <p style="color:#111827; font-size:0.83rem; margin:0 0 5px;">🤖 Scikit-learn</p>
-        <p style="color:#111827; font-size:0.83rem; margin:0 0 5px;">📊 Pandas / NumPy</p>
-        <p style="color:#111827; font-size:0.83rem; margin:0 0 5px;">🌐 Streamlit</p>
-        <p style="color:#111827; font-size:0.83rem; margin:0;">📦 Pickle (Model)</p>
-    </div>
-    """, unsafe_allow_html=True)
+        <div style="
+            color: rgba(200,190,255,0.7); font-size: 0.72rem; font-weight: 700;
+            letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px;
+        ">✦ Estimated Resale Value · 2026 Market</div>
 
-    st.markdown("""
-    <p style="color:#9CA3AF; font-size:0.72rem; text-align:center; 
-              margin-top:24px; letter-spacing:0.02em;">
-        © 2025 Abhishek Gupta
-    </p>
-    """, unsafe_allow_html=True)
+        <div style="
+            color: #FFFFFF; font-size: clamp(2.6rem, 6vw, 4rem);
+            font-weight: 900; letter-spacing: -0.04em; line-height: 1;
+            margin-bottom: 8px;
+        ">{display}</div>
 
-# ─────────────────────────────────────────────
-# MAIN NAVIGATION — 4 tabs
-# ─────────────────────────────────────────────
-tab1, tab2, tab3, tab4 = st.tabs(["Home", "Predict", "Explainatory", "About"])
+        <div style="
+            color: rgba(200,190,255,0.55); font-size: 0.78rem; margin-bottom: 28px;
+        ">= ₹{price:,.0f}</div>
 
-# ══════════════════════════════════════════════
-# TAB 1 — HOME (Fully designed)
-# ══════════════════════════════════════════════
+        <div style="
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(108,99,255,0.2); border: 1.5px solid rgba(108,99,255,0.35);
+            border-radius: 100px; padding: 8px 18px;
+        ">
+            <span style="color: #A89CFF; font-size: 0.8rem; font-weight: 600;">
+                ⚡ GradientBoosting ML — R² 0.79
+            </span>
+        </div>
+    </div>"""
+
+
+# ─── TABS ───────────────────────────────────────────────────────────────────
+tab1, tab2, tab3, tab4 = st.tabs(["🏠  Home", "🎯  Predict", "📊  Insights", "ℹ️  About"])
+
+
+# ════════════════════════════════════════════════════════════════════════════
+# TAB 1 — HOME
+# ════════════════════════════════════════════════════════════════════════════
 with tab1:
 
-    # ── HERO SECTION ─────────────────────────────────────────────
-    st.markdown(f"""
-<div style="
-    position: relative;
-    width: 100%;
-    min-height: 520px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 60px 20px 20px;
-    overflow: hidden;
-">
-
-    <!-- LAYER 0: Giant ghosted background word -->
+    # ── HERO CARD ──────────────────────────────────────────────────────────
+    st.markdown("""
     <div style="
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -58%);
-        font-size: 22vw;
-        font-weight: 900;
-        color: #F4F4F5;
-        opacity: 0.022;
-        letter-spacing: -0.06em;
-        white-space: nowrap;
-        user-select: none;
-        pointer-events: none;
-        z-index: 0;
-        font-family: -apple-system, 'SF Pro Display', 'Inter', sans-serif;
-    ">CARWORTH</div>
-
-    <!-- LAYER 1: Car image — sits in the middle -->
-    <div style="
+        background: linear-gradient(135deg, #FFFFFF 0%, #FFF6EF 100%);
+        border-radius: 32px;
+        border: 2.5px solid #E0D8CE;
+        box-shadow: 10px 10px 0px #CFC8BC, 0 30px 80px rgba(60,40,20,0.08);
+        padding: 52px 56px;
+        margin-bottom: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 32px;
+        overflow: hidden;
         position: relative;
-        z-index: 1;
-        width: 100%;
-        max-width: 780px;
-        margin: 0 auto;
-        transform: perspective(1000px) rotateY(-4deg);
-        transition: transform 0.3s ease;
+        flex-wrap: wrap;
     ">
-        {CAR_IMG_TAG}
-    </div>
+        <!-- BG blobs -->
+        <div style="position:absolute;top:-60px;right:-40px;width:300px;height:300px;
+            background:radial-gradient(circle,rgba(255,107,53,0.10) 0%,transparent 70%);
+            border-radius:50%;pointer-events:none;"></div>
+        <div style="position:absolute;bottom:-80px;left:260px;width:240px;height:240px;
+            background:radial-gradient(circle,rgba(108,99,255,0.07) 0%,transparent 70%);
+            border-radius:50%;pointer-events:none;"></div>
 
-    <!-- LAYER 2: Headline floats over the car -->
-    <div style="
-        position: relative;
-        z-index: 2;
-        text-align: center;
-        margin-top: -80px;
-        padding: 0 20px;
-    ">
-        <h1 style="
-            color: #F4F4F5;
-            font-size: clamp(2.2rem, 5vw, 3.8rem);
-            font-weight: 800;
-            letter-spacing: -0.05em;
-            line-height: 1.05;
-            margin: 0 0 16px;
-            text-shadow: 0 2px 40px rgba(0,0,0,0.8);
-        ">
-            Know Your Car's<br>
-            <span style="
-                background: linear-gradient(90deg, #E63946 0%, #FF6B6B 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-            ">True Value.</span>
-        </h1>
-
-        <p style="
-            color: #8B8B9A;
-            font-size: 1rem;
-            line-height: 1.7;
-            margin: 0 auto 28px;
-            max-width: 480px;
-            text-shadow: 0 1px 20px rgba(0,0,0,1);
-        ">
-            India's data-driven used car valuation tool.<br>
-            Instant prediction. No guesswork.
-        </p>
-
-        <!-- Feature pills -->
-        <div style="
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
-        ">
-            <div style="
-                background: rgba(14,14,20,0.85);
-                border: 1px solid #222230;
-                backdrop-filter: blur(8px);
-                border-radius: 20px;
-                padding: 8px 16px;
-                display: inline-flex;
-                align-items: center;
-                gap: 7px;
-            ">
-                <span style="color:#22C55E; font-size:0.7rem;">●</span>
-                <span style="color:#8B8B9A; font-size:0.8rem; font-weight:500;">
-                    25+ Manufacturers
-                </span>
+        <!-- Left: text -->
+        <div style="flex:1;min-width:260px;max-width:520px;position:relative;z-index:1;">
+            <div style="display:inline-flex;align-items:center;gap:8px;
+                background:rgba(255,107,53,0.10);border:1.5px solid rgba(255,107,53,0.22);
+                border-radius:100px;padding:6px 16px;margin-bottom:22px;">
+                <div style="width:7px;height:7px;background:#FF6B35;border-radius:50%;"></div>
+                <span style="color:#FF6B35;font-size:0.75rem;font-weight:700;
+                    letter-spacing:0.06em;text-transform:uppercase;">AI-Powered Valuation</span>
             </div>
-            <div style="
-                background: rgba(14,14,20,0.85);
-                border: 1px solid #222230;
-                backdrop-filter: blur(8px);
-                border-radius: 20px;
-                padding: 8px 16px;
-                display: inline-flex;
-                align-items: center;
-                gap: 7px;
-            ">
-                <span style="color:#E63946; font-size:0.7rem;">●</span>
-                <span style="color:#8B8B9A; font-size:0.8rem; font-weight:500;">
-                    ML-Powered Prediction
-                </span>
+
+            <h1 style="font-size:clamp(2rem,4vw,3.2rem);font-weight:900;color:#1A1210;
+                letter-spacing:-0.04em;line-height:1.08;margin-bottom:16px;">
+                Know Your Car's<br>
+                <span style="background:linear-gradient(135deg,#FF6B35,#FF8C5A);
+                    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+                    background-clip:text;">True Worth.</span>
+            </h1>
+
+            <p style="color:#7A6B5C;font-size:1rem;line-height:1.72;
+                margin-bottom:26px;max-width:400px;">
+                India's accurate used car price predictor — trained on <strong style="color:#1A1210;">800+
+                real Quikr listings</strong> with 2026 market price correction.
+            </p>
+
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                <div style="background:#F8F3EC;border:2px solid #E0D8CE;border-radius:100px;
+                    padding:8px 18px;font-size:0.81rem;font-weight:700;color:#5C4E3E;">
+                    ✓ 25+ Brands
+                </div>
+                <div style="background:#EDFBF4;border:2px solid #B8EDD4;border-radius:100px;
+                    padding:8px 18px;font-size:0.81rem;font-weight:700;color:#1A7040;">
+                    ✓ 2026 Prices
+                </div>
+                <div style="background:#EEEEFF;border:2px solid #C4BEFF;border-radius:100px;
+                    padding:8px 18px;font-size:0.81rem;font-weight:700;color:#3A30A0;">
+                    ✓ Instant Result
+                </div>
             </div>
-            <div style="
-                background: rgba(14,14,20,0.85);
-                border: 1px solid #222230;
-                backdrop-filter: blur(8px);
-                border-radius: 20px;
-                padding: 8px 16px;
-                display: inline-flex;
-                align-items: center;
-                gap: 7px;
-            ">
-                <span style="color:#3B82F6; font-size:0.7rem;">⚡</span>
-                <span style="color:#8B8B9A; font-size:0.8rem; font-weight:500;">
-                    Instant Result
-                </span>
+        </div>
+
+        <!-- Right: car SVG + floating badges -->
+        <div style="flex-shrink:0;position:relative;width:280px;height:190px;">
+            <svg viewBox="0 0 280 160" width="280" height="160" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="140" cy="156" rx="112" ry="7" fill="rgba(0,0,0,0.09)"/>
+                <rect x="15" y="86" width="250" height="55" rx="27" fill="#FF6B35"/>
+                <rect x="15" y="86" width="250" height="22" rx="22" fill="#FF8C5A" opacity="0.45"/>
+                <path d="M64,86 Q89,40 120,35 L160,35 Q191,40 216,86 Z" fill="#FF6B35"/>
+                <path d="M74,86 Q97,48 124,43 L156,43 Q183,48 206,86 Z" fill="#FF8C5A" opacity="0.40"/>
+                <path d="M86,86 Q109,57 127,51 L153,51 Q171,57 194,86 Z" fill="#B8DEF0" opacity="0.88"/>
+                <path d="M96,86 Q113,67 127,62 L141,62 Q150,65 160,73"
+                    stroke="white" stroke-width="2.5" fill="none" opacity="0.55" stroke-linecap="round"/>
+                <circle cx="68" cy="140" r="28" fill="#221A18"/>
+                <circle cx="68" cy="140" r="18" fill="#DDD8D0"/>
+                <circle cx="68" cy="140" r="7" fill="#221A18"/>
+                <circle cx="212" cy="140" r="28" fill="#221A18"/>
+                <circle cx="212" cy="140" r="18" fill="#DDD8D0"/>
+                <circle cx="212" cy="140" r="7" fill="#221A18"/>
+                <rect x="248" y="98" width="16" height="10" rx="5" fill="#FFD166" opacity="0.95"/>
+                <rect x="248" y="112" width="11" height="7" rx="3.5" fill="#FFD166" opacity="0.55"/>
+                <rect x="16" y="98" width="16" height="10" rx="5" fill="#FF4444" opacity="0.90"/>
+                <line x1="140" y1="91" x2="140" y2="134" stroke="#E85C28" stroke-width="2" opacity="0.65"/>
+                <rect x="154" y="112" width="17" height="4" rx="2" fill="#D85020" opacity="0.75"/>
+                <rect x="109" y="112" width="17" height="4" rx="2" fill="#D85020" opacity="0.75"/>
+                <rect x="18" y="134" width="24" height="6" rx="3" fill="#D85020" opacity="0.55"/>
+                <rect x="238" y="134" width="24" height="6" rx="3" fill="#D85020" opacity="0.55"/>
+            </svg>
+
+            <!-- Floating price tag -->
+            <div style="position:absolute;top:-8px;right:-14px;
+                background:#FFFFFF;border:2.5px solid #E0D8CE;
+                box-shadow:4px 4px 0px #CFC8BC;border-radius:18px;
+                padding:10px 16px;text-align:center;min-width:90px;">
+                <div style="font-size:0.62rem;font-weight:700;color:#9A8B7C;
+                    text-transform:uppercase;letter-spacing:0.06em;margin-bottom:2px;">Est. Value</div>
+                <div style="font-size:1.1rem;font-weight:900;color:#FF6B35;
+                    letter-spacing:-0.02em;">₹4.8L</div>
+            </div>
+
+            <!-- Floating year badge -->
+            <div style="position:absolute;bottom:8px;left:-12px;
+                background:#6C63FF;border:2.5px solid #4E46C0;
+                box-shadow:3px 3px 0px #3830A0;border-radius:14px;
+                padding:8px 14px;white-space:nowrap;">
+                <div style="font-size:0.7rem;font-weight:700;color:rgba(255,255,255,0.9);">📍 2026 Market</div>
             </div>
         </div>
     </div>
-
-</div>
     """, unsafe_allow_html=True)
 
-    # Red glow line below hero — cinematic separator
-    st.markdown("""
-    <div style="
-        width: 100%;
-        height: 1px;
-        background: linear-gradient(90deg,
-            transparent 0%,
-            #E63946 30%,
-            #E63946 70%,
-            transparent 100%);
-        opacity: 0.35;
-        margin: 0 0 40px;
-    "></div>
-    """, unsafe_allow_html=True)
-
-    # ── STAT CARDS (unchanged from before) ───────────────────────
-    st.markdown("""
-    <p style="
-        color:#6B7280; font-size:0.75rem; font-weight:600;
-        letter-spacing:0.1em; text-transform:uppercase; margin-bottom:16px;
-    ">BY THE NUMBERS</p>
-    """, unsafe_allow_html=True)
-
+    # ── STAT CARDS ─────────────────────────────────────────────────────────
     s1, s2, s3, s4 = st.columns(4, gap="medium")
+    s1.markdown(stat_card("🚗", "816+", "Cars Analysed", "Real Quikr listings"), unsafe_allow_html=True)
+    s2.markdown(stat_card("🏭", "25+", "Manufacturers", "Maruti to Mercedes",
+                           bg="#FFFFFF", shadow="#CFC8BC"), unsafe_allow_html=True)
+    s3.markdown(stat_card("🎯", "R² 0.79", "Model Accuracy",
+                           "GradientBoosting",
+                           bg="#FFFFFF", shadow="#CFC8BC",
+                           val_color="#FF6B35"), unsafe_allow_html=True)
+    s4.markdown(stat_card("⚡", "<1 sec", "Prediction Speed", "Instant valuation"), unsafe_allow_html=True)
 
-    s1.markdown(stat_card("", "816+", "Cars in Dataset", "Quikr listings, Indian market"), unsafe_allow_html=True)
-    s2.markdown(stat_card("", "25+", "Manufacturers", "Maruti to Mercedes"), unsafe_allow_html=True)
-    s3.markdown(stat_card("", "R² ~0.89", "Model Accuracy", "Linear Regression pipeline"), unsafe_allow_html=True)
-    s4.markdown(stat_card("", "<1 sec", "Prediction Time", "Instant valuation"), unsafe_allow_html=True)
+    st.markdown("<div style='height:8px;'></div>", unsafe_allow_html=True)
 
-    # ── DIVIDER ───────────────────────────────
-    st.markdown("<hr>", unsafe_allow_html=True)
-
-    # ── HOW IT WORKS ──────────────────────────
-    st.markdown(section_header(
-        "How It Works",
-        "Three steps to your car's fair market value"
-    ), unsafe_allow_html=True)
+    # ── HOW IT WORKS ───────────────────────────────────────────────────────
+    st.markdown("""
+    <div style="margin:12px 0 20px;">
+        <p style="color:#9A8B7C;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;
+            text-transform:uppercase;margin-bottom:8px;">How It Works</p>
+        <h2 style="color:#1A1210;font-size:1.6rem;font-weight:900;letter-spacing:-0.03em;
+            margin-bottom:4px;">Three steps to your valuation</h2>
+        <p style="color:#7A6B5C;font-size:0.9rem;margin-bottom:0;">
+            Simple inputs, smart ML, instant result.
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
 
     h1, h2, h3 = st.columns(3, gap="medium")
+    h1.markdown(step_card("01", "Select Your Car",
+        "Pick manufacturer, model, fuel type, year, and kilometers driven from our dropdowns.",
+        "#FFF0EA", "#FF6B35"), unsafe_allow_html=True)
+    h2.markdown(step_card("02", "ML Model Analyses",
+        "GradientBoosting pipeline trained on 800+ real listings processes your inputs instantly.",
+        "#EEEEFF", "#6C63FF"), unsafe_allow_html=True)
+    h3.markdown(step_card("03", "Get Your Valuation",
+        "Receive the estimated 2026 market price with context from similar car listings.",
+        "#EDFBF4", "#1A7040"), unsafe_allow_html=True)
 
-    with h1:
-        st.markdown(card(f"""
-        <div style="
-            width:36px; height:36px; background:rgba(255,107,74,0.1);
-            border:1px solid rgba(255,107,74,0.2); border-radius:10px;
-            display:flex; align-items:center; justify-content:center;
-            font-size:1rem; margin-bottom:16px;
-        ">01</div>
-        <p style="color:#111827; font-size:1rem; font-weight:600; margin:0 0 8px;">
-            Select Your Car
-        </p>
-        <p style="color:#6B7280; font-size:0.88rem; line-height:1.6; margin:0;">
-            Choose the manufacturer, model, fuel type, manufacturing year, 
-            and kilometers driven from our dropdowns.
-        </p>
-        """), unsafe_allow_html=True)
-
-    with h2:
-        st.markdown(card(f"""
-        <div style="
-            width:36px; height:36px; background:#F3F4F6;
-            border:1px solid #E5E7EB; border-radius:10px;
-            display:flex; align-items:center; justify-content:center;
-            font-size:1rem; margin-bottom:16px; color:#3B82F6;
-        ">02</div>
-        <p style="color:#111827; font-size:1rem; font-weight:600; margin:0 0 8px;">
-            ML Model Analyzes
-        </p>
-        <p style="color:#6B7280; font-size:0.88rem; line-height:1.6; margin:0;">
-            Our Linear Regression pipeline — trained on 816+ real listings — 
-            processes your inputs through OneHotEncoding and predicts the price.
-        </p>
-        """), unsafe_allow_html=True)
-
-    with h3:
-        st.markdown(card(f"""
-        <div style="
-            width:36px; height:36px; background:#F3F4F6;
-            border:1px solid #E5E7EB; border-radius:10px;
-            display:flex; align-items:center; justify-content:center;
-            font-size:1rem; margin-bottom:16px; color:#22C55E;
-        ">03</div>
-        <p style="color:#111827; font-size:1rem; font-weight:600; margin:0 0 8px;">
-            Get Your Valuation
-        </p>
-        <p style="color:#6B7280; font-size:0.88rem; line-height:1.6; margin:0;">
-            Receive the estimated market price in INR with context: 
-            how your car compares to similar listings in the dataset.
-        </p>
-        """), unsafe_allow_html=True)
-
-    # ── FOOTER LINE ───────────────────────────
+    # ── FOOTER ─────────────────────────────────────────────────────────────
     st.markdown("""
-<div style="
-    text-align:center; padding:40px 0 20px;
-    color:#9CA3AF; font-size:0.78rem; letter-spacing:0.03em;
-">
-    CarWorthML · BCA Major Project · JEMTEC, Greater Noida · 2022–2025
-</div>
+    <div style="text-align:center;padding:40px 0 20px;
+        color:#9A8B7C;font-size:0.78rem;letter-spacing:0.03em;">
+        CarWorthML · BCA Major Project · Abhishek Gupta · JEMTEC, Greater Noida · 2022–2025
+    </div>
     """, unsafe_allow_html=True)
 
 
-# ══════════════════════════════════════════════
+# ════════════════════════════════════════════════════════════════════════════
 # TAB 2 — PREDICT
-# ══════════════════════════════════════════════
+# ════════════════════════════════════════════════════════════════════════════
 with tab2:
 
-    # Load data and model (cached)
     @st.cache_data
     def load_data():
         return pd.read_csv("Cleaned_Car_data.csv")
@@ -726,55 +515,62 @@ with tab2:
         with open("LinearRegressionModel.pkl", "rb") as f:
             return pickle.load(f)
 
-    import pickle
-    import pandas as pd
+    def uses_log_transform() -> bool:
+        if os.path.exists("model_meta.pkl"):
+            with open("model_meta.pkl", "rb") as f:
+                meta = pickle.load(f)
+            return meta.get("log_transform", False)
+        return False
 
-    data_loaded = False
-    model_loaded = False
-
+    data_ok = model_ok = False
     try:
-        df   = load_data()
-        data_loaded = True
+        df = load_data()
+        data_ok = True
     except FileNotFoundError:
         st.error("❌ Cleaned_Car_data.csv not found. Run `python data_cleaning.py` first.")
 
     try:
         model = load_model()
-        model_loaded = True
+        model_ok = True
     except FileNotFoundError:
         st.error("❌ LinearRegressionModel.pkl not found. Run `python model_training.py` first.")
 
-    if data_loaded and model_loaded:
+    if data_ok and model_ok:
+        log_transform = uses_log_transform()
 
-        st.markdown("<div style='padding:32px 0 16px;'>", unsafe_allow_html=True)
-        st.markdown(section_header(
-            "Predict Your Car's Value",
-            "Fill in the details below for an instant market valuation"
-        ), unsafe_allow_html=True)
-
-        # ── TWO COLUMN LAYOUT: Form left | Result right ──
-        form_col, result_col = st.columns([1.1, 0.9], gap="large")
-
-        # ── LEFT: Input Form ──────────────────────────────
-        with form_col:
-            st.markdown("""
-            <p style="color:#6B7280; font-size:0.75rem; font-weight:600;
-                      letter-spacing:0.08em; text-transform:uppercase; margin-bottom:20px;">
-                CAR DETAILS
+        st.markdown("""
+        <div style="margin:8px 0 28px;">
+            <p style="color:#9A8B7C;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;
+                text-transform:uppercase;margin-bottom:6px;">Price Predictor</p>
+            <h2 style="color:#1A1210;font-size:1.7rem;font-weight:900;
+                letter-spacing:-0.03em;margin-bottom:4px;">Get Your Car's Market Value</h2>
+            <p style="color:#7A6B5C;font-size:0.9rem;">
+                Fill in your vehicle details for an instant 2026 market valuation.
             </p>
-            """, unsafe_allow_html=True)
+        </div>
+        """, unsafe_allow_html=True)
+
+        form_col, result_col = st.columns([1.05, 0.95], gap="large")
+
+        # ── LEFT: FORM ─────────────────────────────────────────────────────
+        with form_col:
+            companies_sorted = sorted(df["company"].unique())
 
             with st.form("predict_form"):
 
+                st.markdown("""
+                <p style="color:#9A8B7C;font-size:0.72rem;font-weight:700;letter-spacing:0.09em;
+                    text-transform:uppercase;margin-bottom:18px;">Vehicle Details</p>
+                """, unsafe_allow_html=True)
+
                 # Manufacturer
-                companies_sorted = sorted(df["company"].unique())
                 company = st.selectbox(
                     "Manufacturer",
                     options=companies_sorted,
-                    help="Select the car manufacturer"
+                    help="Choose the car brand"
                 )
 
-                # Model — filtered by company
+                # Model filtered by company
                 models_for_company = sorted(
                     df[df["company"] == company]["name"].unique()
                 )
@@ -784,7 +580,7 @@ with tab2:
                     help="Select the specific model variant"
                 )
 
-                # Fuel Type
+                # Fuel type
                 fuel_type = st.selectbox(
                     "Fuel Type",
                     options=sorted(df["fuel_type"].unique()),
@@ -794,68 +590,71 @@ with tab2:
                 # Year
                 year = st.slider(
                     "Year of Manufacture",
-                    min_value=1995,
+                    min_value=2000,
                     max_value=2024,
                     value=2015,
                     step=1,
                 )
 
-                # KMs Driven
+                # KMs
                 kms_driven = st.number_input(
                     "Kilometers Driven",
                     min_value=0,
-                    max_value=500000,
-                    value=50000,
-                    step=1000,
+                    max_value=500_000,
+                    value=50_000,
+                    step=1_000,
                 )
 
-                st.caption(
-                    f"≈ {kms_driven // 15000} years of average Indian driving"
-                )
+                st.caption(f"≈ {kms_driven // 15000} years of average Indian city driving")
 
-                st.markdown("<div style='height:8px;'></div>", unsafe_allow_html=True)
+                st.markdown("<div style='height:10px;'></div>", unsafe_allow_html=True)
+
                 submitted = st.form_submit_button(
-                    "Predict Price →",
-                    use_container_width=True
+                    "🚀  Predict Price →",
+                    use_container_width=True,
                 )
 
-        # ── RIGHT: Result Panel ───────────────────────────
+        # ── RIGHT: RESULT ──────────────────────────────────────────────────
         with result_col:
-            st.markdown("""
-            <p style="color:#6B7280; font-size:0.75rem; font-weight:600;
-                      letter-spacing:0.08em; text-transform:uppercase; margin-bottom:20px;">
-                VALUATION
-            </p>
-            """, unsafe_allow_html=True)
 
             if not submitted:
-                # Idle state — clean placeholder
-                st.markdown(card("""
-                <div style="text-align:center; padding:40px 0;">
-                    <div style="font-size:3rem; margin-bottom:16px; opacity:0.2;"></div>
-                    <p style="color:#9CA3AF; font-size:0.9rem; margin:0; line-height:1.6;">
-                        Fill in your car details on the left<br>
-                        and click <strong style="color:#6B7280;">Predict Price</strong> to see your valuation.
+                st.markdown("""
+                <div style="
+                    background: #FFFFFF;
+                    border-radius: 28px;
+                    border: 2.5px solid #E0D8CE;
+                    box-shadow: 7px 7px 0px #CFC8BC;
+                    padding: 52px 36px;
+                    text-align: center;
+                    min-height: 280px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                ">
+                    <div style="font-size:3.5rem;margin-bottom:18px;opacity:0.18;">🚗</div>
+                    <p style="color:#7A6B5C;font-size:0.92rem;line-height:1.65;max-width:220px;margin:0 auto;">
+                        Fill in your car details and click
+                        <strong style="color:#FF6B35;">Predict Price →</strong>
+                        to see your 2026 market valuation.
                     </p>
                 </div>
-                """, padding="32px"), unsafe_allow_html=True)
+                """, unsafe_allow_html=True)
 
             else:
-                # Run prediction
                 try:
                     input_df = pd.DataFrame(
                         [[car_name, company, year, kms_driven, fuel_type]],
                         columns=["name", "company", "year", "kms_driven", "fuel_type"],
                     )
-                    price = model.predict(input_df)[0]
-                    price = max(float(price), 25000.0)
+                    pred_raw = model.predict(input_df)[0]
+                    price = float(np.exp(pred_raw) if log_transform else pred_raw)
+                    price = max(price, 40_000.0)
 
-                    
+                    # Price display card
+                    st.markdown(price_card(price), unsafe_allow_html=True)
 
-                    # Price result card
-                    st.markdown(price_result_card(price), unsafe_allow_html=True)
-
-                    # Context: similar cars in dataset
+                    # Similar cars context
                     similar = df[
                         (df["company"] == company) &
                         (df["fuel_type"] == fuel_type) &
@@ -863,656 +662,492 @@ with tab2:
                     ]
 
                     if len(similar) >= 3:
-                        avg_s = similar["Price"].mean()
-                        min_s = similar["Price"].min()
-                        max_s = similar["Price"].max()
-
                         st.markdown("""
-                        <p style="color:#6B7280; font-size:0.72rem; font-weight:600;
-                                  letter-spacing:0.08em; text-transform:uppercase;
-                                  margin:24px 0 12px;">
-                            VS SIMILAR CARS IN DATASET
-                        </p>
+                        <p style="color:#9A8B7C;font-size:0.72rem;font-weight:700;
+                            letter-spacing:0.09em;text-transform:uppercase;
+                            margin:22px 0 12px;">Similar Cars in Dataset</p>
                         """, unsafe_allow_html=True)
 
                         m1, m2, m3 = st.columns(3)
-                        m1.metric("Min", f"₹{min_s:,.0f}")
-                        m2.metric("Average", f"₹{avg_s:,.0f}")
-                        m3.metric("Max", f"₹{max_s:,.0f}")
+                        m1.metric("Min", f"₹{similar['Price'].min()/100000:.1f}L")
+                        m2.metric("Avg", f"₹{similar['Price'].mean()/100000:.1f}L")
+                        m3.metric("Max", f"₹{similar['Price'].max()/100000:.1f}L")
 
                     # Summary table
                     st.markdown("""
-                    <p style="color:#6B7280; font-size:0.72rem; font-weight:600;
-                              letter-spacing:0.08em; text-transform:uppercase;
-                              margin:24px 0 12px;">
-                        SUMMARY
-                    </p>
+                    <p style="color:#9A8B7C;font-size:0.72rem;font-weight:700;
+                        letter-spacing:0.09em;text-transform:uppercase;
+                        margin:22px 0 12px;">Input Summary</p>
                     """, unsafe_allow_html=True)
 
-                    summary = {
-                        "Parameter": ["Manufacturer", "Model", "Year", "Fuel", "KMs Driven", "Predicted Price"],
-                        "Value": [
-                            company,
-                            car_name,
-                            str(year),
-                            fuel_type,
-                            f"{kms_driven:,} km",
-                            f"₹ {price:,.0f}"
-                        ]
-                    }
                     st.dataframe(
-                        pd.DataFrame(summary),
+                        pd.DataFrame({
+                            "Parameter": ["Manufacturer", "Model", "Year",
+                                          "Fuel", "KMs Driven", "Predicted Price"],
+                            "Value": [
+                                company, car_name, str(year),
+                                fuel_type, f"{kms_driven:,} km",
+                                f"₹{price:,.0f}",
+                            ],
+                        }),
                         use_container_width=True,
-                        hide_index=True
+                        hide_index=True,
                     )
 
                 except Exception as e:
-                    st.markdown(card(f"""
-                    <p style="color:#FF6B4A; font-size:0.9rem; margin:0 0 8px;">
-                        Prediction failed
+                    st.markdown(clay_card(f"""
+                    <p style="color:#CC4010;font-size:0.9rem;font-weight:700;margin-bottom:8px;">
+                        Prediction error
                     </p>
-                    <p style="color:#6B7280; font-size:0.83rem; margin:0;">
+                    <p style="color:#7A6B5C;font-size:0.84rem;margin:0;">
                         {str(e)}<br><br>
-                        Try a different car and model combination.
+                        Try a different combination of manufacturer and model.
                     </p>
                     """), unsafe_allow_html=True)
 
-        st.markdown("</div>", unsafe_allow_html=True)
 
-
-# ══════════════════════════════════════════════
-# TAB 3 — EXPLAINATORY (Market Analytics)
-# ══════════════════════════════════════════════
+# ════════════════════════════════════════════════════════════════════════════
+# TAB 3 — INSIGHTS
+# ════════════════════════════════════════════════════════════════════════════
 with tab3:
-    import pandas as pd
-    import json
 
     @st.cache_data
-    def load_data_tab3():
+    def load_data_insights():
         return pd.read_csv("Cleaned_Car_data.csv")
 
     try:
-        df3 = load_data_tab3()
-        data3_ok = True
+        df3 = load_data_insights()
+        insights_ok = True
     except FileNotFoundError:
-        st.error("❌ Cleaned_Car_data.csv not found. Run Phase 2 scripts first.")
-        data3_ok = False
+        st.error("❌ Cleaned_Car_data.csv not found.")
+        insights_ok = False
 
-    if data3_ok:
+    if insights_ok:
 
-        st.markdown("<div style='padding:32px 0 16px;'>", unsafe_allow_html=True)
-
-        # ── HEADER + LOTTIE ROW ──────────────────────
-        hdr_col, anim_col = st.columns([3, 1], gap="large")
-
-        with hdr_col:
-            st.markdown(section_header(
-                "Market Insights",
-                "Explore price trends across manufacturers, fuel types, and years"
-            ), unsafe_allow_html=True)
-
-            # Dataset KPIs — compact row
-            k1, k2, k3, k4, k5 = st.columns(5)
-            k1.metric("Total Records",   f"{len(df3):,}")
-            k2.metric("Avg Price",        f"₹{df3['Price'].mean()/100000:.1f}L")
-            k3.metric("Lowest",           f"₹{df3['Price'].min():,}")
-            k4.metric("Highest",          f"₹{df3['Price'].max()/100000:.1f}L")
-            k5.metric("Manufacturers",    f"{df3['company'].nunique()}")
-
-        with anim_col:
-            st.markdown("""
-            <div style="height:160px; display:flex; align-items:center; justify-content:center;">
-                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#FF6B4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-            </div>
-            """, unsafe_allow_html=True)
-
-        st.markdown("<hr>", unsafe_allow_html=True)
-
-        # ── CHART 1: Avg Price by Manufacturer ───────
         st.markdown("""
-        <p style="color:#6B7280; font-size:0.75rem; font-weight:600;
-                  letter-spacing:0.08em; text-transform:uppercase; margin-bottom:4px;">
-            CHART 01
-        </p>
-        <h3 style="color:#111827; font-size:1.15rem; font-weight:600;
-                   letter-spacing:-0.01em; margin:0 0 6px;">
-            Average Resale Price by Manufacturer
-        </h3>
-        <p style="color:#6B7280; font-size:0.85rem; margin:0 0 20px;">
-            Luxury brands command the highest resale values. 
-            Maruti and Datsun hold value well in the mass market segment.
-        </p>
+        <div style="margin:8px 0 28px;">
+            <p style="color:#9A8B7C;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;
+                text-transform:uppercase;margin-bottom:6px;">Market Intelligence</p>
+            <h2 style="color:#1A1210;font-size:1.7rem;font-weight:900;
+                letter-spacing:-0.03em;margin-bottom:4px;">Market Insights</h2>
+            <p style="color:#7A6B5C;font-size:0.9rem;">
+                Price trends, brand comparisons, and fuel-type analysis across 816 listings.
+            </p>
+        </div>
         """, unsafe_allow_html=True)
 
-        avg_company = (
+        # KPI metrics row
+        k1, k2, k3, k4, k5 = st.columns(5)
+        k1.metric("Total Records",   f"{len(df3):,}")
+        k2.metric("Avg Price",       f"₹{df3['Price'].mean()/100000:.1f}L")
+        k3.metric("Lowest",          f"₹{df3['Price'].min()/1000:.0f}K")
+        k4.metric("Highest",         f"₹{df3['Price'].max()/100000:.1f}L")
+        k5.metric("Brands",          f"{df3['company'].nunique()}")
+
+        st.markdown("<div style='height:12px;'></div>", unsafe_allow_html=True)
+
+        # ── CHART 1: Avg Price by Manufacturer ─────────────────────────────
+        st.markdown("""
+        <div style="margin-bottom:16px;">
+            <p style="color:#9A8B7C;font-size:0.72rem;font-weight:700;
+                letter-spacing:0.09em;text-transform:uppercase;margin-bottom:4px;">Chart 01</p>
+            <h3 style="color:#1A1210;font-size:1.15rem;font-weight:800;
+                letter-spacing:-0.02em;margin-bottom:4px;">Average Resale Price by Manufacturer</h3>
+            <p style="color:#7A6B5C;font-size:0.84rem;margin-bottom:0;">
+                Luxury brands command highest resale. Maruti and Hyundai hold value well in mass-market.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+        avg_co = (
             df3.groupby("company")["Price"]
             .mean()
             .sort_values(ascending=False)
             .reset_index()
         )
-        avg_company.columns = ["Manufacturer", "Average Price (₹)"]
-        avg_company["Average Price (₹)"] = avg_company["Average Price (₹)"].astype(int)
-
-        # Split into two charts for readability: Luxury + Premium / Mass market
-        luxury_premium = avg_company[avg_company["Average Price (₹)"] >= 600000]
-        mass_market    = avg_company[avg_company["Average Price (₹)"] <  600000]
+        avg_co.columns = ["Manufacturer", "Avg Price (₹)"]
+        avg_co["Avg Price (₹)"] = avg_co["Avg Price (₹)"].astype(int)
 
         c_lux, c_mass = st.columns(2, gap="large")
 
+        lux = avg_co[avg_co["Avg Price (₹)"] >= 600_000]
+        mass = avg_co[avg_co["Avg Price (₹)"] < 600_000]
+
         with c_lux:
-            st.markdown("""
-            <p style="color:#6B7280; font-size:0.78rem; font-weight:500;
-                      margin-bottom:8px;">Luxury & Premium</p>
-            """, unsafe_allow_html=True)
-            st.bar_chart(
-                luxury_premium.set_index("Manufacturer"),
-                use_container_width=True,
-                height=300,
-                color="#FF6B4A",
-            )
+            st.caption("Luxury & Premium segment")
+            if not lux.empty:
+                st.bar_chart(lux.set_index("Manufacturer"),
+                             use_container_width=True, height=300, color="#FF6B35")
 
         with c_mass:
-            st.markdown("""
-            <p style="color:#6B7280; font-size:0.78rem; font-weight:500;
-                      margin-bottom:8px;">Mass Market</p>
-            """, unsafe_allow_html=True)
-            st.bar_chart(
-                mass_market.set_index("Manufacturer"),
-                use_container_width=True,
-                height=300,
-                color="#3B82F6",
-            )
+            st.caption("Mass market segment")
+            if not mass.empty:
+                st.bar_chart(mass.set_index("Manufacturer"),
+                             use_container_width=True, height=300, color="#6C63FF")
 
-        st.markdown("<hr>", unsafe_allow_html=True)
+        st.markdown("<div style='height:8px;'></div>", unsafe_allow_html=True)
 
-        # ── CHART 2: Price by Fuel Type ───────────────
+        # ── CHART 2: Fuel type ──────────────────────────────────────────────
         st.markdown("""
-        <p style="color:#6B7280; font-size:0.75rem; font-weight:600;
-                  letter-spacing:0.08em; text-transform:uppercase; margin-bottom:4px;">
-            CHART 02
-        </p>
-        <h3 style="color:#111827; font-size:1.15rem; font-weight:600;
-                   letter-spacing:-0.01em; margin:0 0 6px;">
-            Price Distribution by Fuel Type
-        </h3>
-        <p style="color:#6B7280; font-size:0.85rem; margin:0 0 20px;">
-            Diesel vehicles fetch higher resale prices on average due to better mileage 
-            and preference in commercial and highway usage.
-        </p>
+        <div style="margin:20px 0 16px;">
+            <p style="color:#9A8B7C;font-size:0.72rem;font-weight:700;
+                letter-spacing:0.09em;text-transform:uppercase;margin-bottom:4px;">Chart 02</p>
+            <h3 style="color:#1A1210;font-size:1.15rem;font-weight:800;
+                letter-spacing:-0.02em;margin-bottom:4px;">Price Distribution by Fuel Type</h3>
+            <p style="color:#7A6B5C;font-size:0.84rem;margin-bottom:0;">
+                Diesel vehicles typically fetch higher resale prices due to fuel efficiency and highway preference.
+            </p>
+        </div>
         """, unsafe_allow_html=True)
 
-        fuel_col1, fuel_col2 = st.columns([1, 1], gap="large")
+        f1, f2 = st.columns([1, 1], gap="large")
 
-        with fuel_col1:
+        with f1:
             avg_fuel = (
                 df3.groupby("fuel_type")["Price"]
-                .agg(["mean", "median", "count"])
+                .agg(["mean", "median"])
                 .reset_index()
             )
-            avg_fuel.columns = ["Fuel Type", "Avg Price (₹)", "Median Price (₹)", "Count"]
+            avg_fuel.columns = ["Fuel Type", "Avg Price (₹)", "Median Price (₹)"]
             avg_fuel["Avg Price (₹)"]    = avg_fuel["Avg Price (₹)"].astype(int)
             avg_fuel["Median Price (₹)"] = avg_fuel["Median Price (₹)"].astype(int)
-
             st.bar_chart(
                 avg_fuel.set_index("Fuel Type")[["Avg Price (₹)", "Median Price (₹)"]],
-                use_container_width=True,
-                height=280,
-                color=["#E63946", "#3B82F6"],
+                use_container_width=True, height=280,
+                color=["#FF6B35", "#6C63FF"],
             )
 
-        with fuel_col2:
-            # Fuel type distribution — show as styled cards
-            st.markdown("""
-            <p style="color:#6B7280; font-size:0.78rem; font-weight:500;
-                      margin-bottom:12px;">Listing Count by Fuel Type</p>
-            """, unsafe_allow_html=True)
+        with f2:
+            st.markdown("<p style='color:#9A8B7C;font-size:0.78rem;font-weight:600;"
+                        "margin-bottom:14px;'>Listing Count by Fuel Type</p>",
+                        unsafe_allow_html=True)
             fuel_counts = df3["fuel_type"].value_counts()
-            total       = len(df3)
-
+            total = len(df3)
+            palette = {"Diesel": "#FF6B35", "Petrol": "#6C63FF", "LPG": "#FFD166"}
             for fuel, count in fuel_counts.items():
-                pct   = count / total * 100
-                color = "#E63946" if fuel == "Diesel" else "#3B82F6" if fuel == "Petrol" else "#F59E0B"
+                pct = count / total * 100
+                color = palette.get(fuel, "#9A8B7C")
                 st.markdown(f"""
-                <div style="
-                    background:#FFFFFF; border: 1px solid #E5E7EB; box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-                    border-radius:10px; padding:14px 18px;
-                    margin-bottom:10px; display:flex;
-                    align-items:center; justify-content:space-between;
-                ">
-                    <div style="display:flex; align-items:center; gap:10px;">
-                        <div style="
-                            width:10px; height:10px; border-radius:50%;
-                            background:{color};
-                        "></div>
-                        <span style="color:#111827; font-size:0.9rem; font-weight:500;">
-                            {fuel}
-                        </span>
+                <div style="background:#FFFFFF;border:2.5px solid #E0D8CE;
+                    box-shadow:4px 4px 0px #CFC8BC;
+                    border-radius:16px;padding:14px 20px;
+                    margin-bottom:10px;display:flex;
+                    align-items:center;justify-content:space-between;">
+                    <div style="display:flex;align-items:center;gap:10px;">
+                        <div style="width:12px;height:12px;border-radius:50%;
+                            background:{color};flex-shrink:0;"></div>
+                        <span style="color:#1A1210;font-size:0.9rem;font-weight:700;">{fuel}</span>
                     </div>
-                    <div style="text-align:right;">
-                        <span style="color:#111827; font-size:0.9rem; font-weight:700;">
-                            {count:,}
-                        </span>
-                        <span style="color:#6B7280; font-size:0.78rem; margin-left:8px;">
-                            ({pct:.1f}%)
-                        </span>
+                    <div>
+                        <span style="color:#1A1210;font-size:0.9rem;font-weight:800;">{count:,}</span>
+                        <span style="color:#9A8B7C;font-size:0.78rem;margin-left:6px;">({pct:.0f}%)</span>
                     </div>
                 </div>
                 """, unsafe_allow_html=True)
 
-        st.markdown("<hr>", unsafe_allow_html=True)
+        st.markdown("<div style='height:8px;'></div>", unsafe_allow_html=True)
 
-        # ── CHART 3: Price Trend by Year ──────────────
+        # ── CHART 3: Price by Year ──────────────────────────────────────────
         st.markdown("""
-        <p style="color:#6B7280; font-size:0.75rem; font-weight:600;
-                  letter-spacing:0.08em; text-transform:uppercase; margin-bottom:4px;">
-            CHART 03
-        </p>
-        <h3 style="color:#111827; font-size:1.15rem; font-weight:600;
-                   letter-spacing:-0.01em; margin:0 0 6px;">
-            Average Resale Price by Manufacturing Year
-        </h3>
-        <p style="color:#6B7280; font-size:0.85rem; margin:0 0 20px;">
-            Newer cars depreciate less and command higher resale values. 
-            The upward curve after 2015 reflects both inflation and improved quality retention.
-        </p>
+        <div style="margin:20px 0 16px;">
+            <p style="color:#9A8B7C;font-size:0.72rem;font-weight:700;
+                letter-spacing:0.09em;text-transform:uppercase;margin-bottom:4px;">Chart 03</p>
+            <h3 style="color:#1A1210;font-size:1.15rem;font-weight:800;
+                letter-spacing:-0.02em;margin-bottom:4px;">Average Price by Manufacturing Year</h3>
+            <p style="color:#7A6B5C;font-size:0.84rem;margin-bottom:0;">
+                Newer cars depreciate less and command higher resale values in the 2026 market.
+            </p>
+        </div>
         """, unsafe_allow_html=True)
 
-        price_by_year = (
+        price_yr = (
             df3.groupby("year")["Price"]
             .mean()
             .reset_index()
             .sort_values("year")
         )
-        price_by_year.columns = ["Year", "Avg Price (₹)"]
-        price_by_year["Avg Price (₹)"] = price_by_year["Avg Price (₹)"].astype(int)
+        price_yr.columns = ["Year", "Avg Price (₹)"]
+        price_yr["Avg Price (₹)"] = price_yr["Avg Price (₹)"].astype(int)
+        st.line_chart(price_yr.set_index("Year"),
+                      use_container_width=True, height=300, color="#FF6B35")
 
-        st.line_chart(
-            price_by_year.set_index("Year"),
-            use_container_width=True,
-            height=300,
-            color="#FF6B4A",
-        )
+        st.markdown("<div style='height:8px;'></div>", unsafe_allow_html=True)
 
-        st.markdown("<hr>", unsafe_allow_html=True)
-
-        # ── CHART 4: Top 10 Most Listed Brands ────────
+        # ── CHART 4: Top brands by listing count ───────────────────────────
         st.markdown("""
-        <p style="color:#6B7280; font-size:0.75rem; font-weight:600;
-                  letter-spacing:0.08em; text-transform:uppercase; margin-bottom:4px;">
-            CHART 04
-        </p>
-        <h3 style="color:#111827; font-size:1.15rem; font-weight:600;
-                   letter-spacing:-0.01em; margin:0 0 6px;">
-            Top 10 Most Listed Manufacturers
-        </h3>
-        <p style="color:#6B7280; font-size:0.85rem; margin:0 0 20px;">
-            Maruti and Hyundai dominate resale listings — consistent with India's 
-            new car sales data where they hold the top two positions.
-        </p>
+        <div style="margin:20px 0 16px;">
+            <p style="color:#9A8B7C;font-size:0.72rem;font-weight:700;
+                letter-spacing:0.09em;text-transform:uppercase;margin-bottom:4px;">Chart 04</p>
+            <h3 style="color:#1A1210;font-size:1.15rem;font-weight:800;
+                letter-spacing:-0.02em;margin-bottom:4px;">Top 10 Most Listed Manufacturers</h3>
+            <p style="color:#7A6B5C;font-size:0.84rem;margin-bottom:0;">
+                Maruti and Hyundai dominate resale listings — consistent with India's new car sales rankings.
+            </p>
+        </div>
         """, unsafe_allow_html=True)
 
         top10 = df3["company"].value_counts().head(10).reset_index()
         top10.columns = ["Manufacturer", "Listings"]
+        st.bar_chart(top10.set_index("Manufacturer"),
+                     use_container_width=True, height=300, color="#4ECDC4")
 
-        st.bar_chart(
-            top10.set_index("Manufacturer"),
-            use_container_width=True,
-            height=300,
-            color="#22C55E",
-        )
-
-        # ── RAW DATA TOGGLE ───────────────────────────
-        st.markdown("<hr>", unsafe_allow_html=True)
-
-        with st.expander("View raw dataset sample (first 20 rows)"):
-            st.dataframe(
-                df3.head(20),
-                use_container_width=True,
-                hide_index=True
-            )
+        # ── RAW DATA EXPANDER ───────────────────────────────────────────────
+        st.markdown("<div style='height:8px;'></div>", unsafe_allow_html=True)
+        with st.expander("📋  View raw dataset sample (first 20 rows)"):
+            st.dataframe(df3.head(20), use_container_width=True, hide_index=True)
             st.caption(
-                f"Showing 20 of {len(df3):,} records · "
-                f"{df3.shape[1]} columns · "
-                f"Source: Synthetic Quikr-style Indian used car data"
+                f"Showing 20 of {len(df3):,} records · {df3.shape[1]} columns · "
+                f"Source: Quikr India used car listings (2019–2020) + 1.55× 2026 market correction"
             )
 
-        st.markdown("</div>", unsafe_allow_html=True)
 
-
-# ══════════════════════════════════════════════
+# ════════════════════════════════════════════════════════════════════════════
 # TAB 4 — ABOUT
-# ══════════════════════════════════════════════
+# ════════════════════════════════════════════════════════════════════════════
 with tab4:
 
-    st.markdown("<div style='padding:32px 0 16px;'>", unsafe_allow_html=True)
-
-    # ── HEADER ─────────────────────────────────
-    about_left, about_right = st.columns([3, 1], gap="large")
-
-    with about_left:
-        st.markdown(section_header(
-            "About This Project",
-            "CarWorthML — BCA Major Project · JEMTEC, Greater Noida · 2022–2025"
-        ), unsafe_allow_html=True)
-
-    with about_right:
-        pass
-
-    st.markdown("<hr>", unsafe_allow_html=True)
-
-    # ── PROJECT IDENTITY ───────────────────────
     st.markdown("""
-    <p style="color:#6B7280; font-size:0.75rem; font-weight:600;
-              letter-spacing:0.08em; text-transform:uppercase; margin-bottom:16px;">
-        PROJECT IDENTITY
-    </p>
-    """, unsafe_allow_html=True)
-
-    id_col1, id_col2 = st.columns(2, gap="large")
-
-    with id_col1:
-        st.markdown(card("""
-        <table style="width:100%; border-collapse:collapse;">
-            <tr>
-                <td style="color:#9CA3AF; font-size:0.8rem; padding:8px 0;
-                           font-weight:500; letter-spacing:0.03em; white-space:nowrap;
-                           text-transform:uppercase; vertical-align:top; padding-right:16px;">
-                    Project Title
-                </td>
-                <td style="color:#111827; font-size:0.88rem; padding:8px 0;
-                           font-weight:500; line-height:1.4;">
-                    CarWorthML – Second Hand Car Price Predictor
-                </td>
-            </tr>
-            <tr>
-                <td style="color:#9CA3AF; font-size:0.8rem; padding:8px 0;
-                           font-weight:500; letter-spacing:0.03em; text-transform:uppercase;
-                           vertical-align:top; padding-right:16px;">
-                    Student
-                </td>
-                <td style="color:#111827; font-size:0.88rem; padding:8px 0;">
-                    Abhishek Gupta
-                </td>
-            </tr>
-            <tr>
-                <td style="color:#9CA3AF; font-size:0.8rem; padding:8px 0;
-                           font-weight:500; letter-spacing:0.03em; text-transform:uppercase;
-                           vertical-align:top; padding-right:16px;">
-                    Enrolment
-                </td>
-                <td style="color:#111827; font-size:0.88rem; padding:8px 0;">
-                    01425502022
-                </td>
-            </tr>
-            <tr>
-                <td style="color:#9CA3AF; font-size:0.8rem; padding:8px 0;
-                           font-weight:500; letter-spacing:0.03em; text-transform:uppercase;
-                           vertical-align:top; padding-right:16px;">
-                    Course
-                </td>
-                <td style="color:#111827; font-size:0.88rem; padding:8px 0;">
-                    Bachelor of Computer Applications (BCA) – VI Semester
-                </td>
-            </tr>
-            <tr>
-                <td style="color:#9CA3AF; font-size:0.8rem; padding:8px 0;
-                           font-weight:500; letter-spacing:0.03em; text-transform:uppercase;
-                           vertical-align:top; padding-right:16px;">
-                    Session
-                </td>
-                <td style="color:#111827; font-size:0.88rem; padding:8px 0;">
-                    2022 – 2025
-                </td>
-            </tr>
-        </table>
-        """, padding="24px 28px"), unsafe_allow_html=True)
-
-    with id_col2:
-        st.markdown(card("""
-        <table style="width:100%; border-collapse:collapse;">
-            <tr>
-                <td style="color:#9CA3AF; font-size:0.8rem; padding:8px 0;
-                           font-weight:500; letter-spacing:0.03em; white-space:nowrap;
-                           text-transform:uppercase; vertical-align:top; padding-right:16px;">
-                    Guide
-                </td>
-                <td style="color:#111827; font-size:0.88rem; padding:8px 0;
-                           font-weight:500; line-height:1.4;">
-                    Dr. Ruchi Agarwal
-                </td>
-            </tr>
-            <tr>
-                <td style="color:#9CA3AF; font-size:0.8rem; padding:8px 0;
-                           font-weight:500; letter-spacing:0.03em; text-transform:uppercase;
-                           vertical-align:top; padding-right:16px;">
-                    Designation
-                </td>
-                <td style="color:#111827; font-size:0.88rem; padding:8px 0;">
-                    HOD, BCA Department
-                </td>
-            </tr>
-            <tr>
-                <td style="color:#9CA3AF; font-size:0.8rem; padding:8px 0;
-                           font-weight:500; letter-spacing:0.03em; text-transform:uppercase;
-                           vertical-align:top; padding-right:16px;">
-                    Institution
-                </td>
-                <td style="color:#111827; font-size:0.88rem; padding:8px 0;
-                           line-height:1.4;">
-                    JIMS Engineering Management Technical Campus (JEMTEC), Greater Noida
-                </td>
-            </tr>
-            <tr>
-                <td style="color:#9CA3AF; font-size:0.8rem; padding:8px 0;
-                           font-weight:500; letter-spacing:0.03em; text-transform:uppercase;
-                           vertical-align:top; padding-right:16px;">
-                    Affiliation
-                </td>
-                <td style="color:#111827; font-size:0.88rem; padding:8px 0;
-                           line-height:1.4;">
-                    Guru Gobind Singh Indraprastha University, Delhi
-                </td>
-            </tr>
-        </table>
-        """, padding="24px 28px"), unsafe_allow_html=True)
-
-    st.markdown("<hr>", unsafe_allow_html=True)
-
-    # ── HOW THE MODEL WORKS ────────────────────
-    st.markdown("""
-    <p style="color:#6B7280; font-size:0.75rem; font-weight:600;
-              letter-spacing:0.08em; text-transform:uppercase; margin-bottom:16px;">
-        TECHNICAL OVERVIEW
-    </p>
-    """, unsafe_allow_html=True)
-
-    tech_col1, tech_col2 = st.columns([3, 2], gap="large")
-
-    with tech_col1:
-        st.markdown(card("""
-        <p style="color:#111827; font-size:1rem; font-weight:600; margin:0 0 14px;">
-            How the ML Pipeline Works
-        </p>
-        <p style="color:#6B7280; font-size:0.88rem; line-height:1.7; margin:0 0 12px;">
-            CarWorthML uses a supervised machine learning pipeline built with 
-            Scikit-learn. Raw used car data sourced from Quikr India listings 
-            is cleaned and preprocessed before training.
-        </p>
-        <p style="color:#6B7280; font-size:0.88rem; line-height:1.7; margin:0 0 16px;">
-            Categorical features — manufacturer name, car model, and fuel type — 
-            are transformed using <span style="color:#111827;">OneHotEncoder</span> inside 
-            a <span style="color:#111827;">ColumnTransformer</span>. The numeric features 
-            (year and kilometers driven) pass through unchanged.
-        </p>
-        <p style="color:#6B7280; font-size:0.88rem; line-height:1.7; margin:0 0 16px;">
-            The entire preprocessing + model pipeline is wrapped using 
-            <span style="color:#111827;">make_pipeline()</span> and serialized with 
-            <span style="color:#111827;">Pickle</span> for efficient loading at runtime.
-        </p>
-        <div style="
-            background:#F9FAFB; border: 1px solid #E5E7EB; box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-            border-radius:10px; padding:16px; font-family:monospace;
-            font-size:0.8rem; color:#22C55E; line-height:1.8;
-        ">
-            Input → [name, company, year, kms_driven, fuel_type]<br>
-            ↓ OneHotEncoder (categorical columns)<br>
-            ↓ passthrough (year, kms_driven)<br>
-            ↓ LinearRegression<br>
-            Output → Predicted Price (₹)
-        </div>
-        """), unsafe_allow_html=True)
-
-    with tech_col2:
-        st.markdown(card("""
-        <p style="color:#111827; font-size:1rem; font-weight:600; margin:0 0 16px;">
-            Model Performance
-        </p>
-        <div style="margin-bottom:16px;">
-            <p style="color:#6B7280; font-size:0.75rem; font-weight:600;
-                      letter-spacing:0.06em; text-transform:uppercase; margin:0 0 6px;">
-                ALGORITHM
-            </p>
-            <p style="color:#111827; font-size:0.9rem; margin:0;">
-                Linear Regression
-            </p>
-        </div>
-        <div style="margin-bottom:16px;">
-            <p style="color:#6B7280; font-size:0.75rem; font-weight:600;
-                      letter-spacing:0.06em; text-transform:uppercase; margin:0 0 6px;">
-                ACCURACY (R² SCORE)
-            </p>
-            <p style="color:#FF6B4A; font-size:1.4rem; font-weight:700;
-                      letter-spacing:-0.02em; margin:0;">
-                ~0.89
-            </p>
-        </div>
-        <div style="margin-bottom:16px;">
-            <p style="color:#6B7280; font-size:0.75rem; font-weight:600;
-                      letter-spacing:0.06em; text-transform:uppercase; margin:0 0 6px;">
-                TRAIN / TEST SPLIT
-            </p>
-            <p style="color:#111827; font-size:0.9rem; margin:0;">90% / 10%</p>
-        </div>
-        <div style="margin-bottom:16px;">
-            <p style="color:#6B7280; font-size:0.75rem; font-weight:600;
-                      letter-spacing:0.06em; text-transform:uppercase; margin:0 0 6px;">
-                BEST SPLIT SELECTION
-            </p>
-            <p style="color:#111827; font-size:0.9rem; margin:0;">
-                Auto-selected from 1,000 random state trials
-            </p>
-        </div>
-        <div>
-            <p style="color:#6B7280; font-size:0.75rem; font-weight:600;
-                      letter-spacing:0.06em; text-transform:uppercase; margin:0 0 6px;">
-                DATASET SIZE
-            </p>
-            <p style="color:#111827; font-size:0.9rem; margin:0;">
-                816+ cleaned records
-            </p>
-        </div>
-        """), unsafe_allow_html=True)
-
-    st.markdown("<hr>", unsafe_allow_html=True)
-
-    # ── TECH STACK GRID ────────────────────────
-    st.markdown("""
-    <p style="color:#6B7280; font-size:0.75rem; font-weight:600;
-              letter-spacing:0.08em; text-transform:uppercase; margin-bottom:16px;">
-        TECHNOLOGY STACK
-    </p>
-    """, unsafe_allow_html=True)
-
-    tech_stack = [
-        ("●", "Python 3.10+",        "Core language"),
-        ("●", "Scikit-learn",         "ML pipeline, OHE, LinearRegression"),
-        ("●", "Pandas",               "Data loading, cleaning, analysis"),
-        ("●", "NumPy",                "Numerical operations"),
-        ("●", "Streamlit",            "Web framework and UI"),
-        ("●", "Pickle",               "Model serialization"),
-        ("●", "streamlit-lottie",     "Lottie animations"),
-        ("●", "Requests",             "CDN asset fetching"),
-    ]
-
-    rows_of_4 = [tech_stack[i:i+4] for i in range(0, len(tech_stack), 4)]
-
-    for row in rows_of_4:
-        cols = st.columns(4, gap="medium")
-        for col, (icon, name, desc) in zip(cols, row):
-            col.markdown(f"""
-            <div style="
-                background:#FFFFFF; border: 1px solid #E5E7EB; box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-                border-radius:12px; padding:18px;
-                transition: border-color 0.2s;
-                margin-bottom:12px;
-            ">
-                <div style="font-size:1.4rem; margin-bottom:10px;">{icon}</div>
-                <p style="color:#111827; font-size:0.88rem; font-weight:600; margin:0 0 4px;">
-                    {name}
-                </p>
-                <p style="color:#6B7280; font-size:0.78rem; margin:0; line-height:1.4;">
-                    {desc}
-                </p>
-            </div>
-            """, unsafe_allow_html=True)
-
-    # ── LIMITATIONS ────────────────────────────
-    st.markdown("<hr>", unsafe_allow_html=True)
-    st.markdown("""
-    <p style="color:#6B7280; font-size:0.75rem; font-weight:600;
-              letter-spacing:0.08em; text-transform:uppercase; margin-bottom:16px;">
-        KNOWN LIMITATIONS
-    </p>
-    """, unsafe_allow_html=True)
-
-    lim_col1, lim_col2 = st.columns(2, gap="large")
-
-    limitations = [
-        ("●", "No geolocation data", "Prices vary significantly across cities. This model does not account for city-based pricing differences."),
-        ("●", "Local deployment only", "No CI/CD pipeline or cloud hosting. The app runs on localhost only in its current form."),
-        ("●", "Brand coverage", "Only 25 manufacturers are covered. Rare or imported brands may not return accurate predictions."),
-        ("●", "Dataset recency", "Training data reflects listings up to 2023. Newer models and price inflation may reduce accuracy."),
-        ("●", "Linear model limits", "Linear Regression assumes linear relationships. Non-linear price factors like condition or service history are not captured."),
-        ("●", "Internet for Lottie", "Animations require internet on first load. A local fallback shows if unavailable."),
-    ]
-
-    for i, (icon, title, desc) in enumerate(limitations):
-        col = lim_col1 if i % 2 == 0 else lim_col2
-        col.markdown(f"""
-        <div style="
-            background:#FFFFFF; border: 1px solid #E5E7EB; box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-            border-left: 3px solid #E63946;
-            border-radius:10px; padding:16px 18px;
-            margin-bottom:10px;
-        ">
-            <p style="color:#111827; font-size:0.88rem; font-weight:600;
-                      margin:0 0 6px;">
-                {icon} {title}
-            </p>
-            <p style="color:#6B7280; font-size:0.82rem; margin:0; line-height:1.5;">
-                {desc}
-            </p>
-        </div>
-        """, unsafe_allow_html=True)
-
-    # ── FOOTER ─────────────────────────────────
-    st.markdown("<hr>", unsafe_allow_html=True)
-    st.markdown("""
-    <div style="text-align:center; padding:24px 0 16px;">
-        <p style="
-            color:#111827; font-size:1rem; font-weight:600;
-            letter-spacing:-0.01em; margin:0 0 8px;
-        ">CarWorthML</p>
-        <p style="color:#9CA3AF; font-size:0.8rem; margin:0 0 4px;">
-            BCA Major Project · Abhishek Gupta · 01425502022
-        </p>
-        <p style="color:#9CA3AF; font-size:0.78rem; margin:0;">
-            JEMTEC, Greater Noida · Affiliated to GGSIPU · Session 2022–2025
-        </p>
-        <p style="color:#2D2D3D; font-size:0.72rem; margin:20px 0 0;">
-            © 2025 Abhishek Gupta · All rights reserved
+    <div style="margin:8px 0 28px;">
+        <p style="color:#9A8B7C;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;
+            text-transform:uppercase;margin-bottom:6px;">Project Info</p>
+        <h2 style="color:#1A1210;font-size:1.7rem;font-weight:900;
+            letter-spacing:-0.03em;margin-bottom:4px;">About CarWorthML</h2>
+        <p style="color:#7A6B5C;font-size:0.9rem;">
+            BCA Major Project · JEMTEC, Greater Noida · Session 2022–2025
         </p>
     </div>
     """, unsafe_allow_html=True)
 
-    st.markdown("</div>", unsafe_allow_html=True)
+    id1, id2 = st.columns(2, gap="large")
+
+    with id1:
+        st.markdown(clay_card("""
+        <p style="color:#9A8B7C;font-size:0.72rem;font-weight:700;letter-spacing:0.09em;
+            text-transform:uppercase;margin-bottom:18px;">Student Details</p>
+        <table style="width:100%;border-collapse:collapse;">
+            <tr>
+                <td style="color:#9A8B7C;font-size:0.78rem;font-weight:600;
+                    padding:9px 16px 9px 0;vertical-align:top;white-space:nowrap;
+                    text-transform:uppercase;letter-spacing:0.04em;">Project</td>
+                <td style="color:#1A1210;font-size:0.88rem;font-weight:500;padding:9px 0;line-height:1.4;">
+                    CarWorthML – Used Car Price Predictor</td>
+            </tr>
+            <tr>
+                <td style="color:#9A8B7C;font-size:0.78rem;font-weight:600;
+                    padding:9px 16px 9px 0;vertical-align:top;
+                    text-transform:uppercase;letter-spacing:0.04em;">Student</td>
+                <td style="color:#1A1210;font-size:0.88rem;font-weight:500;padding:9px 0;">
+                    Abhishek Gupta</td>
+            </tr>
+            <tr>
+                <td style="color:#9A8B7C;font-size:0.78rem;font-weight:600;
+                    padding:9px 16px 9px 0;vertical-align:top;
+                    text-transform:uppercase;letter-spacing:0.04em;">Enrolment</td>
+                <td style="color:#1A1210;font-size:0.88rem;font-weight:500;padding:9px 0;">
+                    01425502022</td>
+            </tr>
+            <tr>
+                <td style="color:#9A8B7C;font-size:0.78rem;font-weight:600;
+                    padding:9px 16px 9px 0;vertical-align:top;
+                    text-transform:uppercase;letter-spacing:0.04em;">Course</td>
+                <td style="color:#1A1210;font-size:0.88rem;font-weight:500;padding:9px 0;">
+                    BCA – VI Semester</td>
+            </tr>
+            <tr>
+                <td style="color:#9A8B7C;font-size:0.78rem;font-weight:600;
+                    padding:9px 16px 9px 0;
+                    text-transform:uppercase;letter-spacing:0.04em;">Session</td>
+                <td style="color:#1A1210;font-size:0.88rem;font-weight:500;padding:9px 0;">
+                    2022 – 2025</td>
+            </tr>
+        </table>
+        """), unsafe_allow_html=True)
+
+    with id2:
+        st.markdown(clay_card("""
+        <p style="color:#9A8B7C;font-size:0.72rem;font-weight:700;letter-spacing:0.09em;
+            text-transform:uppercase;margin-bottom:18px;">Institution & Guide</p>
+        <table style="width:100%;border-collapse:collapse;">
+            <tr>
+                <td style="color:#9A8B7C;font-size:0.78rem;font-weight:600;
+                    padding:9px 16px 9px 0;vertical-align:top;white-space:nowrap;
+                    text-transform:uppercase;letter-spacing:0.04em;">Guide</td>
+                <td style="color:#1A1210;font-size:0.88rem;font-weight:500;padding:9px 0;">
+                    Dr. Ruchi Agarwal</td>
+            </tr>
+            <tr>
+                <td style="color:#9A8B7C;font-size:0.78rem;font-weight:600;
+                    padding:9px 16px 9px 0;vertical-align:top;
+                    text-transform:uppercase;letter-spacing:0.04em;">Role</td>
+                <td style="color:#1A1210;font-size:0.88rem;font-weight:500;padding:9px 0;">
+                    HOD, BCA Department</td>
+            </tr>
+            <tr>
+                <td style="color:#9A8B7C;font-size:0.78rem;font-weight:600;
+                    padding:9px 16px 9px 0;vertical-align:top;
+                    text-transform:uppercase;letter-spacing:0.04em;">Institution</td>
+                <td style="color:#1A1210;font-size:0.88rem;font-weight:500;padding:9px 0;line-height:1.4;">
+                    JIMS Engineering Management Technical Campus (JEMTEC), Greater Noida</td>
+            </tr>
+            <tr>
+                <td style="color:#9A8B7C;font-size:0.78rem;font-weight:600;
+                    padding:9px 16px 9px 0;
+                    text-transform:uppercase;letter-spacing:0.04em;">Affiliation</td>
+                <td style="color:#1A1210;font-size:0.88rem;font-weight:500;padding:9px 0;">
+                    GGSIPU, Delhi</td>
+            </tr>
+        </table>
+        """), unsafe_allow_html=True)
+
+    # ── TECH OVERVIEW ──────────────────────────────────────────────────────
+    st.markdown("""
+    <p style="color:#9A8B7C;font-size:0.72rem;font-weight:700;letter-spacing:0.09em;
+        text-transform:uppercase;margin:8px 0 16px;">Technical Overview</p>
+    """, unsafe_allow_html=True)
+
+    t1, t2 = st.columns([3, 2], gap="large")
+
+    with t1:
+        st.markdown(clay_card("""
+        <p style="color:#1A1210;font-size:1rem;font-weight:800;margin-bottom:14px;">
+            ML Pipeline</p>
+        <p style="color:#7A6B5C;font-size:0.87rem;line-height:1.7;margin-bottom:12px;">
+            Raw Quikr India listings are cleaned and preprocessed.
+            Categorical features (brand, model, fuel type) are encoded with
+            <strong style="color:#1A1210;">OneHotEncoder</strong> inside a
+            <strong style="color:#1A1210;">ColumnTransformer</strong>.
+            Numeric features (year, kms) pass through unchanged.
+        </p>
+        <p style="color:#7A6B5C;font-size:0.87rem;line-height:1.7;margin-bottom:16px;">
+            Price is <strong style="color:#1A1210;">log-transformed</strong> before training —
+            this captures percentage-based depreciation and dramatically improves accuracy.
+            A <strong style="color:#1A1210;">GradientBoostingRegressor</strong> then learns
+            non-linear pricing relationships.
+        </p>
+        <div style="background:#F8F3EC;border:2px solid #E0D8CE;border-radius:14px;
+            padding:18px;font-family:monospace;font-size:0.8rem;color:#FF6B35;line-height:1.9;">
+            Input → [name, company, year, kms_driven, fuel_type]<br>
+            ↓ OneHotEncoder (name, company, fuel_type)<br>
+            ↓ passthrough (year, kms_driven)<br>
+            ↓ GradientBoostingRegressor (300 trees)<br>
+            ↓ exp() → Predicted Price (₹)
+        </div>
+        """), unsafe_allow_html=True)
+
+    with t2:
+        st.markdown(clay_card("""
+        <p style="color:#1A1210;font-size:1rem;font-weight:800;margin-bottom:18px;">
+            Model Performance</p>
+
+        <div style="margin-bottom:16px;">
+            <p style="color:#9A8B7C;font-size:0.72rem;font-weight:700;
+                text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">Algorithm</p>
+            <p style="color:#1A1210;font-size:0.9rem;font-weight:600;">
+                Gradient Boosting Regressor</p>
+        </div>
+        <div style="margin-bottom:16px;">
+            <p style="color:#9A8B7C;font-size:0.72rem;font-weight:700;
+                text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">R² Score</p>
+            <p style="color:#FF6B35;font-size:1.5rem;font-weight:900;letter-spacing:-0.02em;">
+                0.79</p>
+        </div>
+        <div style="margin-bottom:16px;">
+            <p style="color:#9A8B7C;font-size:0.72rem;font-weight:700;
+                text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">CV R² (5-fold)</p>
+            <p style="color:#1A1210;font-size:0.9rem;font-weight:600;">0.71 ± 0.10</p>
+        </div>
+        <div style="margin-bottom:16px;">
+            <p style="color:#9A8B7C;font-size:0.72rem;font-weight:700;
+                text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">Dataset</p>
+            <p style="color:#1A1210;font-size:0.9rem;font-weight:600;">
+                816 real Quikr listings + 1.55× 2026 inflation</p>
+        </div>
+        <div>
+            <p style="color:#9A8B7C;font-size:0.72rem;font-weight:700;
+                text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">Price Transform</p>
+            <p style="color:#1A1210;font-size:0.9rem;font-weight:600;">
+                log(price) → exp() at inference</p>
+        </div>
+        """), unsafe_allow_html=True)
+
+    # ── TECH STACK ─────────────────────────────────────────────────────────
+    st.markdown("""
+    <p style="color:#9A8B7C;font-size:0.72rem;font-weight:700;letter-spacing:0.09em;
+        text-transform:uppercase;margin:8px 0 16px;">Technology Stack</p>
+    """, unsafe_allow_html=True)
+
+    tech = [
+        ("🐍", "Python 3.11+",        "Core language"),
+        ("🤖", "Scikit-learn",         "ML pipeline, GradientBoosting, OHE"),
+        ("📊", "Pandas / NumPy",       "Data loading, cleaning, analysis"),
+        ("🌐", "Streamlit 1.32",       "Web framework and UI"),
+        ("📦", "Pickle",               "Model serialization"),
+        ("🎨", "Custom CSS",           "Corporate Memphis 3D design"),
+        ("📈", "Altair (st.bar_chart)","Market insight charts"),
+        ("🔢", "NumPy (log/exp)",      "Price log-transform pipeline"),
+    ]
+
+    rows = [tech[i:i+4] for i in range(0, len(tech), 4)]
+    for row in rows:
+        cols = st.columns(4, gap="medium")
+        for col, (icon, name, desc) in zip(cols, row):
+            col.markdown(f"""
+            <div style="background:#FFFFFF;border:2.5px solid #E0D8CE;
+                box-shadow:5px 5px 0px #CFC8BC;border-radius:20px;
+                padding:20px;margin-bottom:12px;">
+                <div style="font-size:1.5rem;margin-bottom:10px;">{icon}</div>
+                <p style="color:#1A1210;font-size:0.88rem;font-weight:700;margin-bottom:4px;">{name}</p>
+                <p style="color:#7A6B5C;font-size:0.76rem;margin:0;line-height:1.5;">{desc}</p>
+            </div>
+            """, unsafe_allow_html=True)
+
+    # ── KNOWN LIMITATIONS ──────────────────────────────────────────────────
+    st.markdown("""
+    <p style="color:#9A8B7C;font-size:0.72rem;font-weight:700;letter-spacing:0.09em;
+        text-transform:uppercase;margin:8px 0 16px;">Known Limitations</p>
+    """, unsafe_allow_html=True)
+
+    limitations = [
+        ("No geolocation data",
+         "Prices vary significantly across cities. This model does not account for city-level pricing."),
+        ("Brand coverage",
+         "Only 25 manufacturers are covered. Rare or imported brands may not return accurate predictions."),
+        ("Gradient Boosting limits",
+         "Tree-based models may extrapolate poorly for very rare or unseen car configurations."),
+        ("Dataset window",
+         "Training data reflects 2019–2020 listings × 1.55 inflation. Individual market fluctuations may vary."),
+        ("Condition not captured",
+         "Accident history, service records, and physical condition significantly affect actual resale value."),
+        ("No city-tier pricing",
+         "Metro vs tier-2 city price differences of 10–20% are not modelled in this version."),
+    ]
+
+    lc1, lc2 = st.columns(2, gap="large")
+    for i, (title, desc) in enumerate(limitations):
+        col = lc1 if i % 2 == 0 else lc2
+        col.markdown(f"""
+        <div style="background:#FFFFFF;border-left:4px solid #FF6B35;
+            border:2.5px solid #E0D8CE;border-left-width:4px;
+            border-radius:16px;padding:16px 20px;margin-bottom:10px;
+            box-shadow:4px 4px 0px #CFC8BC;">
+            <p style="color:#1A1210;font-size:0.88rem;font-weight:700;
+                margin-bottom:5px;">⚠ {title}</p>
+            <p style="color:#7A6B5C;font-size:0.81rem;margin:0;line-height:1.55;">
+                {desc}</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # ── FOOTER ─────────────────────────────────────────────────────────────
+    st.markdown("""
+    <div style="text-align:center;padding:40px 0 20px;border-top:2px solid #E0D8CE;margin-top:24px;">
+        <p style="color:#1A1210;font-size:1rem;font-weight:900;letter-spacing:-0.02em;
+            margin-bottom:6px;">CarWorthML</p>
+        <p style="color:#9A8B7C;font-size:0.8rem;margin-bottom:4px;">
+            BCA Major Project · Abhishek Gupta · 01425502022
+        </p>
+        <p style="color:#9A8B7C;font-size:0.78rem;margin-bottom:0;">
+            JEMTEC, Greater Noida · Affiliated to GGSIPU · Session 2022–2025
+        </p>
+        <p style="color:#CFC8BC;font-size:0.7rem;margin-top:16px;">© 2025 Abhishek Gupta</p>
+    </div>
+    """, unsafe_allow_html=True)
