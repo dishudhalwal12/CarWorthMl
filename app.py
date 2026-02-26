@@ -7,7 +7,7 @@ import os
 # ─── PAGE CONFIG ────────────────────────────────────────────────────────────
 st.set_page_config(
     page_title="CarWorthML | Smart Car Valuation",
-    page_icon="🚗",
+    page_icon="👾",
     layout="wide",
     initial_sidebar_state="collapsed",
 )
@@ -73,7 +73,7 @@ section[data-testid="stSidebarContent"] {
 }
 
 /* ── FORM container ─────────────────────────── */
-[data-testid="stForm"] {
+[data-testid="stForm"], [data-testid="column"] > [data-testid="stVerticalBlock"]:has(#form_col_marker) {
     background: #FFFFFF !important;
     border-radius: 28px !important;
     border: 2.5px solid #E0D8CE !important;
@@ -87,12 +87,17 @@ div[data-baseweb="select"] > div:first-child {
     border: 2.5px solid #E0D8CE !important;
     border-radius: 16px !important;
     min-height: 56px !important;
-    padding: 0 16px !important;
     transition: border-color 0.15s !important;
 }
 
 div[data-baseweb="select"] > div:first-child:hover {
     border-color: #FF6B35 !important;
+}
+
+div[data-baseweb="select"] span {
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    color: #1A1210 !important;
 }
 
 /* ── INPUT LABELS ───────────────────────────── */
@@ -296,40 +301,43 @@ def price_card(price: float) -> str:
         display = f"₹{lakhs:.2f}L"
     else:
         display = f"₹{price:,.0f}"
-    return f"""
-    <div style="
-        background: linear-gradient(145deg, #1C1640, #261E5A);
-        border-radius: 28px;
-        border: 2.5px solid #3D3280;
-        box-shadow: 8px 8px 0px #0E0A28, 0 24px 60px rgba(108,99,255,0.22);
-        padding: 44px 36px;
-        text-align: center;
-    ">
-        <div style="
-            color: rgba(200,190,255,0.7); font-size: 0.72rem; font-weight: 700;
-            letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px;
-        ">✦ Estimated Resale Value · 2026 Market</div>
 
-        <div style="
-            color: #FFFFFF; font-size: clamp(2.6rem, 6vw, 4rem);
-            font-weight: 900; letter-spacing: -0.04em; line-height: 1;
-            margin-bottom: 8px;
-        ">{display}</div>
-
-        <div style="
-            color: rgba(200,190,255,0.55); font-size: 0.78rem; margin-bottom: 28px;
-        ">= ₹{price:,.0f}</div>
-
-        <div style="
-            display: inline-flex; align-items: center; gap: 8px;
-            background: rgba(108,99,255,0.2); border: 1.5px solid rgba(108,99,255,0.35);
-            border-radius: 100px; padding: 8px 18px;
-        ">
-            <span style="color: #A89CFF; font-size: 0.8rem; font-weight: 600;">
-                ⚡ GradientBoosting ML — R² 0.79
-            </span>
-        </div>
-    </div>"""
+    lines = [
+        '<div style="',
+        '    background: linear-gradient(145deg, #1C1640, #261E5A);',
+        '    border-radius: 28px;',
+        '    border: 2.5px solid #3D3280;',
+        '    box-shadow: 8px 8px 0px #0E0A28, 0 24px 60px rgba(108,99,255,0.22);',
+        '    padding: 44px 36px;',
+        '    text-align: center;',
+        '">',
+        '    <div style="',
+        '        color: rgba(200,190,255,0.7); font-size: 0.72rem; font-weight: 700;',
+        '        letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px;',
+        '    ">✦ Estimated Resale Value · 2026 Market</div>',
+        '',
+        '    <div style="',
+        '        color: #FFFFFF; font-size: clamp(2.6rem, 6vw, 4rem);',
+        '        font-weight: 900; letter-spacing: -0.04em; line-height: 1;',
+        '        margin-bottom: 8px;',
+        f'    ">{display}</div>',
+        '',
+        '    <div style="',
+        '        color: rgba(200,190,255,0.55); font-size: 0.78rem; margin-bottom: 28px;',
+        f'    ">= ₹{price:,.0f}</div>',
+        '',
+        '    <div style="',
+        '        display: inline-flex; align-items: center; gap: 8px;',
+        '        background: rgba(108,99,255,0.2); border: 1.5px solid rgba(108,99,255,0.35);',
+        '        border-radius: 100px; padding: 8px 18px;',
+        '">',
+        '        <span style="color: #A89CFF; font-size: 0.8rem; font-weight: 600;">',
+        '            ⚡ GradientBoosting ML — R² 0.79',
+        '        </span>',
+        '    </div>',
+        '</div>'
+    ]
+    return "".join(lines)
 
 
 # ─── TABS ───────────────────────────────────────────────────────────────────
@@ -342,118 +350,119 @@ tab1, tab2, tab3, tab4 = st.tabs(["🏠  Home", "🎯  Predict", "📊  Insights
 with tab1:
 
     # ── HERO CARD ──────────────────────────────────────────────────────────
-    st.markdown("""
-    <div style="
-        background: linear-gradient(135deg, #FFFFFF 0%, #FFF6EF 100%);
-        border-radius: 32px;
-        border: 2.5px solid #E0D8CE;
-        box-shadow: 10px 10px 0px #CFC8BC, 0 30px 80px rgba(60,40,20,0.08);
-        padding: 52px 56px;
-        margin-bottom: 28px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 32px;
-        overflow: hidden;
-        position: relative;
-        flex-wrap: wrap;
-    ">
-        <!-- BG blobs -->
-        <div style="position:absolute;top:-60px;right:-40px;width:300px;height:300px;
-            background:radial-gradient(circle,rgba(255,107,53,0.10) 0%,transparent 70%);
-            border-radius:50%;pointer-events:none;"></div>
-        <div style="position:absolute;bottom:-80px;left:260px;width:240px;height:240px;
-            background:radial-gradient(circle,rgba(108,99,255,0.07) 0%,transparent 70%);
-            border-radius:50%;pointer-events:none;"></div>
-
-        <!-- Left: text -->
-        <div style="flex:1;min-width:260px;max-width:520px;position:relative;z-index:1;">
-            <div style="display:inline-flex;align-items:center;gap:8px;
-                background:rgba(255,107,53,0.10);border:1.5px solid rgba(255,107,53,0.22);
-                border-radius:100px;padding:6px 16px;margin-bottom:22px;">
-                <div style="width:7px;height:7px;background:#FF6B35;border-radius:50%;"></div>
-                <span style="color:#FF6B35;font-size:0.75rem;font-weight:700;
-                    letter-spacing:0.06em;text-transform:uppercase;">AI-Powered Valuation</span>
-            </div>
-
-            <h1 style="font-size:clamp(2rem,4vw,3.2rem);font-weight:900;color:#1A1210;
-                letter-spacing:-0.04em;line-height:1.08;margin-bottom:16px;">
-                Know Your Car's<br>
-                <span style="background:linear-gradient(135deg,#FF6B35,#FF8C5A);
-                    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-                    background-clip:text;">True Worth.</span>
-            </h1>
-
-            <p style="color:#7A6B5C;font-size:1rem;line-height:1.72;
-                margin-bottom:26px;max-width:400px;">
-                India's accurate used car price predictor — trained on <strong style="color:#1A1210;">800+
-                real Quikr listings</strong> with 2026 market price correction.
-            </p>
-
-            <div style="display:flex;gap:10px;flex-wrap:wrap;">
-                <div style="background:#F8F3EC;border:2px solid #E0D8CE;border-radius:100px;
-                    padding:8px 18px;font-size:0.81rem;font-weight:700;color:#5C4E3E;">
-                    ✓ 25+ Brands
-                </div>
-                <div style="background:#EDFBF4;border:2px solid #B8EDD4;border-radius:100px;
-                    padding:8px 18px;font-size:0.81rem;font-weight:700;color:#1A7040;">
-                    ✓ 2026 Prices
-                </div>
-                <div style="background:#EEEEFF;border:2px solid #C4BEFF;border-radius:100px;
-                    padding:8px 18px;font-size:0.81rem;font-weight:700;color:#3A30A0;">
-                    ✓ Instant Result
-                </div>
-            </div>
-        </div>
-
-        <!-- Right: car SVG + floating badges -->
-        <div style="flex-shrink:0;position:relative;width:280px;height:190px;">
-            <svg viewBox="0 0 280 160" width="280" height="160" xmlns="http://www.w3.org/2000/svg">
-                <ellipse cx="140" cy="156" rx="112" ry="7" fill="rgba(0,0,0,0.09)"/>
-                <rect x="15" y="86" width="250" height="55" rx="27" fill="#FF6B35"/>
-                <rect x="15" y="86" width="250" height="22" rx="22" fill="#FF8C5A" opacity="0.45"/>
-                <path d="M64,86 Q89,40 120,35 L160,35 Q191,40 216,86 Z" fill="#FF6B35"/>
-                <path d="M74,86 Q97,48 124,43 L156,43 Q183,48 206,86 Z" fill="#FF8C5A" opacity="0.40"/>
-                <path d="M86,86 Q109,57 127,51 L153,51 Q171,57 194,86 Z" fill="#B8DEF0" opacity="0.88"/>
-                <path d="M96,86 Q113,67 127,62 L141,62 Q150,65 160,73"
-                    stroke="white" stroke-width="2.5" fill="none" opacity="0.55" stroke-linecap="round"/>
-                <circle cx="68" cy="140" r="28" fill="#221A18"/>
-                <circle cx="68" cy="140" r="18" fill="#DDD8D0"/>
-                <circle cx="68" cy="140" r="7" fill="#221A18"/>
-                <circle cx="212" cy="140" r="28" fill="#221A18"/>
-                <circle cx="212" cy="140" r="18" fill="#DDD8D0"/>
-                <circle cx="212" cy="140" r="7" fill="#221A18"/>
-                <rect x="248" y="98" width="16" height="10" rx="5" fill="#FFD166" opacity="0.95"/>
-                <rect x="248" y="112" width="11" height="7" rx="3.5" fill="#FFD166" opacity="0.55"/>
-                <rect x="16" y="98" width="16" height="10" rx="5" fill="#FF4444" opacity="0.90"/>
-                <line x1="140" y1="91" x2="140" y2="134" stroke="#E85C28" stroke-width="2" opacity="0.65"/>
-                <rect x="154" y="112" width="17" height="4" rx="2" fill="#D85020" opacity="0.75"/>
-                <rect x="109" y="112" width="17" height="4" rx="2" fill="#D85020" opacity="0.75"/>
-                <rect x="18" y="134" width="24" height="6" rx="3" fill="#D85020" opacity="0.55"/>
-                <rect x="238" y="134" width="24" height="6" rx="3" fill="#D85020" opacity="0.55"/>
-            </svg>
-
-            <!-- Floating price tag -->
-            <div style="position:absolute;top:-8px;right:-14px;
-                background:#FFFFFF;border:2.5px solid #E0D8CE;
-                box-shadow:4px 4px 0px #CFC8BC;border-radius:18px;
-                padding:10px 16px;text-align:center;min-width:90px;">
-                <div style="font-size:0.62rem;font-weight:700;color:#9A8B7C;
-                    text-transform:uppercase;letter-spacing:0.06em;margin-bottom:2px;">Est. Value</div>
-                <div style="font-size:1.1rem;font-weight:900;color:#FF6B35;
-                    letter-spacing:-0.02em;">₹4.8L</div>
-            </div>
-
-            <!-- Floating year badge -->
-            <div style="position:absolute;bottom:8px;left:-12px;
-                background:#6C63FF;border:2.5px solid #4E46C0;
-                box-shadow:3px 3px 0px #3830A0;border-radius:14px;
-                padding:8px 14px;white-space:nowrap;">
-                <div style="font-size:0.7rem;font-weight:700;color:rgba(255,255,255,0.9);">📍 2026 Market</div>
-            </div>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
+    hero_lines = [
+        '<div style="',
+        '    background: linear-gradient(135deg, #FFFFFF 0%, #FFF6EF 100%);',
+        '    border-radius: 32px;',
+        '    border: 2.5px solid #E0D8CE;',
+        '    box-shadow: 10px 10px 0px #CFC8BC, 0 30px 80px rgba(60,40,20,0.08);',
+        '    padding: 52px 56px;',
+        '    margin-bottom: 28px;',
+        '    display: flex;',
+        '    align-items: center;',
+        '    justify-content: space-between;',
+        '    gap: 32px;',
+        '    overflow: hidden;',
+        '    position: relative;',
+        '    flex-wrap: wrap;',
+        '">',
+        '    <!-- BG blobs -->',
+        '    <div style="position:absolute;top:-60px;right:-40px;width:300px;height:300px;',
+        '        background:radial-gradient(circle,rgba(255,107,53,0.10) 0%,transparent 70%);',
+        '        border-radius:50%;pointer-events:none;"></div>',
+        '    <div style="position:absolute;bottom:-80px;left:260px;width:240px;height:240px;',
+        '        background:radial-gradient(circle,rgba(108,99,255,0.07) 0%,transparent 70%);',
+        '        border-radius:50%;pointer-events:none;"></div>',
+        '',
+        '    <!-- Left: text -->',
+        '    <div style="flex:1;min-width:260px;max-width:520px;position:relative;z-index:1;">',
+        '        <div style="display:inline-flex;align-items:center;gap:8px;',
+        '            background:rgba(255,107,53,0.10);border:1.5px solid rgba(255,107,53,0.22);',
+        '            border-radius:100px;padding:6px 16px;margin-bottom:22px;">',
+        '            <div style="width:7px;height:7px;background:#FF6B35;border-radius:50%;"></div>',
+        '            <span style="color:#FF6B35;font-size:0.75rem;font-weight:700;',
+        '                letter-spacing:0.06em;text-transform:uppercase;">AI-Powered Valuation</span>',
+        '        </div>',
+        '',
+        '        <h1 style="font-size:clamp(2rem,4vw,3.2rem);font-weight:900;color:#1A1210;',
+        '            letter-spacing:-0.04em;line-height:1.08;margin-bottom:16px;">',
+        '            Know Your Car\'s<br>',
+        '            <span style="background:linear-gradient(135deg,#FF6B35,#FF8C5A);',
+        '                -webkit-background-clip:text;-webkit-text-fill-color:transparent;',
+        '                background-clip:text;">True Worth.</span>',
+        '        </h1>',
+        '',
+        '        <p style="color:#7A6B5C;font-size:1rem;line-height:1.72;',
+        '            margin-bottom:26px;max-width:400px;">',
+        '            India\'s accurate used car price predictor — trained on <strong style="color:#1A1210;">800+',
+        '            real Quikr listings</strong> with 2026 market price correction.',
+        '        </p>',
+        '',
+        '        <div style="display:flex;gap:10px;flex-wrap:wrap;">',
+        '            <div style="background:#F8F3EC;border:2px solid #E0D8CE;border-radius:100px;',
+        '                padding:8px 18px;font-size:0.81rem;font-weight:700;color:#5C4E3E;">',
+        '                ✓ 25+ Brands',
+        '            </div>',
+        '            <div style="background:#EDFBF4;border:2px solid #B8EDD4;border-radius:100px;',
+        '                padding:8px 18px;font-size:0.81rem;font-weight:700;color:#1A7040;">',
+        '                ✓ 2026 Prices',
+        '            </div>',
+        '            <div style="background:#EEEEFF;border:2px solid #C4BEFF;border-radius:100px;',
+        '                padding:8px 18px;font-size:0.81rem;font-weight:700;color:#3A30A0;">',
+        '                ✓ Instant Result',
+        '            </div>',
+        '        </div>',
+        '    </div>',
+        '',
+        '    <!-- Right: car SVG + floating badges -->',
+        '    <div style="flex-shrink:0;position:relative;width:280px;height:190px;">',
+        '        <svg viewBox="0 0 280 160" width="280" height="160" xmlns="http://www.w3.org/2000/svg">',
+        '            <ellipse cx="140" cy="156" rx="112" ry="7" fill="rgba(0,0,0,0.09)"/>',
+        '            <rect x="15" y="86" width="250" height="55" rx="27" fill="#FF6B35"/>',
+        '            <rect x="15" y="86" width="250" height="22" rx="22" fill="#FF8C5A" opacity="0.45"/>',
+        '            <path d="M64,86 Q89,40 120,35 L160,35 Q191,40 216,86 Z" fill="#FF6B35"/>',
+        '            <path d="M74,86 Q97,48 124,43 L156,43 Q183,48 206,86 Z" fill="#FF8C5A" opacity="0.40"/>',
+        '            <path d="M86,86 Q109,57 127,51 L153,51 Q171,57 194,86 Z" fill="#B8DEF0" opacity="0.88"/>',
+        '            <path d="M96,86 Q113,67 127,62 L141,62 Q150,65 160,73"',
+        '                stroke="white" stroke-width="2.5" fill="none" opacity="0.55" stroke-linecap="round"/>',
+        '            <circle cx="68" cy="140" r="28" fill="#221A18"/>',
+        '            <circle cx="68" cy="140" r="18" fill="#DDD8D0"/>',
+        '            <circle cx="68" cy="140" r="7" fill="#221A18"/>',
+        '            <circle cx="212" cy="140" r="28" fill="#221A18"/>',
+        '            <circle cx="212" cy="140" r="18" fill="#DDD8D0"/>',
+        '            <circle cx="212" cy="140" r="7" fill="#221A18"/>',
+        '            <rect x="248" y="98" width="16" height="10" rx="5" fill="#FFD166" opacity="0.95"/>',
+        '            <rect x="248" y="112" width="11" height="7" rx="3.5" fill="#FFD166" opacity="0.55"/>',
+        '            <rect x="16" y="98" width="16" height="10" rx="5" fill="#FF4444" opacity="0.90"/>',
+        '            <line x1="140" y1="91" x2="140" y2="134" stroke="#E85C28" stroke-width="2" opacity="0.65"/>',
+        '            <rect x="154" y="112" width="17" height="4" rx="2" fill="#D85020" opacity="0.75"/>',
+        '            <rect x="109" y="112" width="17" height="4" rx="2" fill="#D85020" opacity="0.75"/>',
+        '            <rect x="18" y="134" width="24" height="6" rx="3" fill="#D85020" opacity="0.55"/>',
+        '            <rect x="238" y="134" width="24" height="6" rx="3" fill="#D85020" opacity="0.55"/>',
+        '        </svg>',
+        '',
+        '        <!-- Floating price tag -->',
+        '        <div style="position:absolute;top:-8px;right:-14px;',
+        '            background:#FFFFFF;border:2.5px solid #E0D8CE;',
+        '            box-shadow:4px 4px 0px #CFC8BC;border-radius:18px;',
+        '            padding:10px 16px;text-align:center;min-width:90px;">',
+        '            <div style="font-size:0.62rem;font-weight:700;color:#9A8B7C;',
+        '                text-transform:uppercase;letter-spacing:0.06em;margin-bottom:2px;">Est. Value</div>',
+        '            <div style="font-size:1.1rem;font-weight:900;color:#FF6B35;',
+        '                letter-spacing:-0.02em;">₹4.8L</div>',
+        '        </div>',
+        '',
+        '        <!-- Floating year badge -->',
+        '        <div style="position:absolute;bottom:8px;left:-12px;',
+        '            background:#6C63FF;border:2.5px solid #4E46C0;',
+        '            box-shadow:3px 3px 0px #3830A0;border-radius:14px;',
+        '            padding:8px 14px;white-space:nowrap;">',
+        '            <div style="font-size:0.7rem;font-weight:700;color:rgba(255,255,255,0.9);">📍 2026 Market</div>',
+        '        </div>',
+        '    </div>',
+        '</div>'
+    ]
+    st.markdown("".join(hero_lines), unsafe_allow_html=True)
 
     # ── STAT CARDS ─────────────────────────────────────────────────────────
     s1, s2, s3, s4 = st.columns(4, gap="medium")
@@ -552,72 +561,72 @@ with tab2:
 
         form_col, result_col = st.columns([1.05, 0.95], gap="large")
 
+        if "predict_clicked" not in st.session_state:
+            st.session_state.predict_clicked = False
+
         # ── LEFT: FORM ─────────────────────────────────────────────────────
         with form_col:
+            st.markdown("<div id='form_col_marker'></div>", unsafe_allow_html=True)
             companies_sorted = sorted(df["company"].unique())
 
-            with st.form("predict_form"):
+            st.markdown("""
+            <p style="color:#9A8B7C;font-size:0.72rem;font-weight:700;letter-spacing:0.09em;
+                text-transform:uppercase;margin-bottom:18px;">Vehicle Details</p>
+            """, unsafe_allow_html=True)
 
-                st.markdown("""
-                <p style="color:#9A8B7C;font-size:0.72rem;font-weight:700;letter-spacing:0.09em;
-                    text-transform:uppercase;margin-bottom:18px;">Vehicle Details</p>
-                """, unsafe_allow_html=True)
+            # Manufacturer
+            company = st.selectbox(
+                "Manufacturer",
+                options=companies_sorted,
+                help="Choose the car brand"
+            )
 
-                # Manufacturer
-                company = st.selectbox(
-                    "Manufacturer",
-                    options=companies_sorted,
-                    help="Choose the car brand"
-                )
+            # Model filtered by company
+            models_for_company = sorted(
+                df[df["company"] == company]["name"].unique()
+            )
+            car_name = st.selectbox(
+                "Model",
+                options=models_for_company,
+                help="Select the specific model variant"
+            )
 
-                # Model filtered by company
-                models_for_company = sorted(
-                    df[df["company"] == company]["name"].unique()
-                )
-                car_name = st.selectbox(
-                    "Model",
-                    options=models_for_company,
-                    help="Select the specific model variant"
-                )
+            # Fuel type
+            fuel_type = st.selectbox(
+                "Fuel Type",
+                options=sorted(df["fuel_type"].unique()),
+                help="Select fuel type"
+            )
 
-                # Fuel type
-                fuel_type = st.selectbox(
-                    "Fuel Type",
-                    options=sorted(df["fuel_type"].unique()),
-                    help="Select fuel type"
-                )
+            # Year
+            year = st.slider(
+                "Year of Manufacture",
+                min_value=2000,
+                max_value=2024,
+                value=2015,
+                step=1,
+            )
 
-                # Year
-                year = st.slider(
-                    "Year of Manufacture",
-                    min_value=2000,
-                    max_value=2024,
-                    value=2015,
-                    step=1,
-                )
+            # KMs
+            kms_driven = st.number_input(
+                "Kilometers Driven",
+                min_value=0,
+                max_value=500_000,
+                value=50_000,
+                step=1_000,
+            )
 
-                # KMs
-                kms_driven = st.number_input(
-                    "Kilometers Driven",
-                    min_value=0,
-                    max_value=500_000,
-                    value=50_000,
-                    step=1_000,
-                )
+            st.caption(f"≈ {kms_driven // 15000} years of average Indian city driving")
 
-                st.caption(f"≈ {kms_driven // 15000} years of average Indian city driving")
+            st.markdown("<div style='height:10px;'></div>", unsafe_allow_html=True)
 
-                st.markdown("<div style='height:10px;'></div>", unsafe_allow_html=True)
-
-                submitted = st.form_submit_button(
-                    "🚀  Predict Price →",
-                    use_container_width=True,
-                )
+            if st.button("🚀  Predict Price →", use_container_width=True):
+                st.session_state.predict_clicked = True
 
         # ── RIGHT: RESULT ──────────────────────────────────────────────────
         with result_col:
 
-            if not submitted:
+            if not st.session_state.predict_clicked:
                 st.markdown("""
                 <div style="
                     background: #FFFFFF;
@@ -651,8 +660,9 @@ with tab2:
                     price = float(np.exp(pred_raw) if log_transform else pred_raw)
                     price = max(price, 40_000.0)
 
-                    # Price display card
-                    st.markdown(price_card(price), unsafe_allow_html=True)
+                    # Price display card - fixed to not markdown inside clay_card
+                    html_content = price_card(price)
+                    st.markdown(html_content, unsafe_allow_html=True)
 
                     # Similar cars context
                     similar = df[
@@ -1008,67 +1018,70 @@ with tab4:
     t1, t2 = st.columns([3, 2], gap="large")
 
     with t1:
-        st.markdown(clay_card("""
-        <p style="color:#1A1210;font-size:1rem;font-weight:800;margin-bottom:14px;">
-            ML Pipeline</p>
-        <p style="color:#7A6B5C;font-size:0.87rem;line-height:1.7;margin-bottom:12px;">
-            Raw Quikr India listings are cleaned and preprocessed.
-            Categorical features (brand, model, fuel type) are encoded with
-            <strong style="color:#1A1210;">OneHotEncoder</strong> inside a
-            <strong style="color:#1A1210;">ColumnTransformer</strong>.
-            Numeric features (year, kms) pass through unchanged.
-        </p>
-        <p style="color:#7A6B5C;font-size:0.87rem;line-height:1.7;margin-bottom:16px;">
-            Price is <strong style="color:#1A1210;">log-transformed</strong> before training —
-            this captures percentage-based depreciation and dramatically improves accuracy.
-            A <strong style="color:#1A1210;">GradientBoostingRegressor</strong> then learns
-            non-linear pricing relationships.
-        </p>
-        <div style="background:#F8F3EC;border:2px solid #E0D8CE;border-radius:14px;
-            padding:18px;font-family:monospace;font-size:0.8rem;color:#FF6B35;line-height:1.9;">
-            Input → [name, company, year, kms_driven, fuel_type]<br>
-            ↓ OneHotEncoder (name, company, fuel_type)<br>
-            ↓ passthrough (year, kms_driven)<br>
-            ↓ GradientBoostingRegressor (300 trees)<br>
-            ↓ exp() → Predicted Price (₹)
-        </div>
-        """), unsafe_allow_html=True)
+        ml_pipeline_lines = [
+            '<p style="color:#1A1210;font-size:1rem;font-weight:800;margin-bottom:18px;">',
+            '    ML Pipeline</p>',
+            '',
+            '<p style="color:#7A6B5C;font-size:0.87rem;line-height:1.7;margin-bottom:16px;">',
+            '    Raw Quikr India listings are cleaned and preprocessed.',
+            '    Categorical features (brand, model, fuel type) are encoded with',
+            '    <strong style="color:#1A1210;">OneHotEncoder</strong> inside a',
+            '    <strong style="color:#1A1210;">ColumnTransformer</strong>.',
+            '    Numeric features (year, kms) pass through unchanged.',
+            '</p>',
+            '<p style="color:#7A6B5C;font-size:0.87rem;line-height:1.7;margin-bottom:16px;">',
+            '    Price is <strong style="color:#1A1210;">log-transformed</strong> before training —',
+            '    this captures percentage-based depreciation and dramatically improves accuracy.',
+            '    A <strong style="color:#1A1210;">GradientBoostingRegressor</strong> then learns',
+            '    non-linear pricing relationships.',
+            '</p>',
+            '<div style="background:#F8F3EC;border:2px solid #E0D8CE;border-radius:14px;',
+            '    padding:18px;font-family:monospace;font-size:0.8rem;color:#FF6B35;line-height:1.9;">',
+            '    Input → [name, company, year, kms_driven, fuel_type]<br>',
+            '    ↓ OneHotEncoder (name, company, fuel_type)<br>',
+            '    ↓ passthrough (year, kms_driven)<br>',
+            '    ↓ GradientBoostingRegressor (300 trees)<br>',
+            '    ↓ exp() → Predicted Price (₹)',
+            '</div>'
+        ]
+        st.markdown(clay_card("".join(ml_pipeline_lines)), unsafe_allow_html=True)
 
     with t2:
-        st.markdown(clay_card("""
-        <p style="color:#1A1210;font-size:1rem;font-weight:800;margin-bottom:18px;">
-            Model Performance</p>
-
-        <div style="margin-bottom:16px;">
-            <p style="color:#9A8B7C;font-size:0.72rem;font-weight:700;
-                text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">Algorithm</p>
-            <p style="color:#1A1210;font-size:0.9rem;font-weight:600;">
-                Gradient Boosting Regressor</p>
-        </div>
-        <div style="margin-bottom:16px;">
-            <p style="color:#9A8B7C;font-size:0.72rem;font-weight:700;
-                text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">R² Score</p>
-            <p style="color:#FF6B35;font-size:1.5rem;font-weight:900;letter-spacing:-0.02em;">
-                0.79</p>
-        </div>
-        <div style="margin-bottom:16px;">
-            <p style="color:#9A8B7C;font-size:0.72rem;font-weight:700;
-                text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">CV R² (5-fold)</p>
-            <p style="color:#1A1210;font-size:0.9rem;font-weight:600;">0.71 ± 0.10</p>
-        </div>
-        <div style="margin-bottom:16px;">
-            <p style="color:#9A8B7C;font-size:0.72rem;font-weight:700;
-                text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">Dataset</p>
-            <p style="color:#1A1210;font-size:0.9rem;font-weight:600;">
-                816 real Quikr listings + 1.55× 2026 inflation</p>
-        </div>
-        <div>
-            <p style="color:#9A8B7C;font-size:0.72rem;font-weight:700;
-                text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">Price Transform</p>
-            <p style="color:#1A1210;font-size:0.9rem;font-weight:600;">
-                log(price) → exp() at inference</p>
-        </div>
-        """), unsafe_allow_html=True)
+        model_perf_lines = [
+            '<p style="color:#1A1210;font-size:1rem;font-weight:800;margin-bottom:18px;">',
+            '    Model Performance</p>',
+            '',
+            '<div style="margin-bottom:16px;">',
+            '    <p style="color:#9A8B7C;font-size:0.72rem;font-weight:700;',
+            '        text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">Algorithm</p>',
+            '    <p style="color:#1A1210;font-size:0.9rem;font-weight:600;">',
+            '        Gradient Boosting Regressor</p>',
+            '</div>',
+            '<div style="margin-bottom:16px;">',
+            '    <p style="color:#9A8B7C;font-size:0.72rem;font-weight:700;',
+            '        text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">R² Score</p>',
+            '    <p style="color:#FF6B35;font-size:1.5rem;font-weight:900;letter-spacing:-0.02em;">',
+            '        0.79</p>',
+            '</div>',
+            '<div style="margin-bottom:16px;">',
+            '    <p style="color:#9A8B7C;font-size:0.72rem;font-weight:700;',
+            '        text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">CV R² (5-fold)</p>',
+            '    <p style="color:#1A1210;font-size:0.9rem;font-weight:600;">0.71 ± 0.10</p>',
+            '</div>',
+            '<div style="margin-bottom:16px;">',
+            '    <p style="color:#9A8B7C;font-size:0.72rem;font-weight:700;',
+            '        text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">Dataset</p>',
+            '    <p style="color:#1A1210;font-size:0.9rem;font-weight:600;">',
+            '        816 real Quikr listings + 1.55× 2026 inflation</p>',
+            '</div>',
+            '<div>',
+            '    <p style="color:#9A8B7C;font-size:0.72rem;font-weight:700;',
+            '        text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">Price Transform</p>',
+            '    <p style="color:#1A1210;font-size:0.9rem;font-weight:600;">',
+            '        log(price) → exp() at inference</p>',
+            '</div>'
+        ]
+        st.markdown(clay_card("".join(model_perf_lines)), unsafe_allow_html=True)
 
     # ── TECH STACK ─────────────────────────────────────────────────────────
     st.markdown("""
