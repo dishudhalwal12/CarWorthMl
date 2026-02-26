@@ -1,0 +1,1149 @@
+MAJOR PROJECT REPORT ON
+CarWorthML – SecondHandCar Price Predictor
+Subinitted in partial fulfillment of the requirement of
+Bachelors of Computer Application (BCA)
+Guru Gobind Singh Indraprastha University, Delhi
+Session 2022-2025
+Under Supervision of: Submitted by:
+Dr Ruchi Agarwal Abhishek Gupta
+(HOD, BCA Department) [01425502022]
+JIMS Engineering Management Technical Campus
+(JEMTEC), Greater Noida
+(Affiliated to Guru Gobind Singh Indraprastha University)
+ACKNOWLEDGEMENT
+We take this opportunity to express our gratitude to my project guide Dr Ruchi
+Aggarwal for her endeavour encouragement and support throughout this endeavour. Her
+insight and expertise in this field motivated and supported us during the duration of this
+project.
+It is our privilege and honour to have worked under her supervision, her invaluable
+guidance and helpful discussion in every stage this project really helped us in
+materializing this project. Without her constructive direction and invaluable advice, this
+work would not have been completed.
+Our gratitude is also extended to all teaching and nonteaching staff for their unwavering
+encouragement and support in our pursuit for academics. We wish to express our
+deepest love for our parents & family, whose endless love, understanding, and support
+during all these years has been the greatest assets in my life.
+Date:
+ABHISHEK GUPTA, Enrolment no. 01425502022
+Course: BCA (VI-Sem)
+SIGNATURE
+CERTIFICATE FROM THE GUIDE
+This is to certify that this project entitled “CarWorthML – Second Hand Car Price
+Predictor” submitted in partial fulfilment of the degree of Bachelor of Computer
+Applications to the “Guru Gobind Singh Indraprastha University (GGSIPU)”
+through Jagan Institute of Management Studies (JIMS) done by, ABHISHEK
+GUPTA Enrolment no. 01425502022 is an is an authentic work carried out by them at
+JIMS, SEC-5, ROHINI under my guidance. The matter embodied in this project
+work has not been submitted earlier for award of any degree to the best of my
+knowledge and belief.
+Signature of the student Signature of the Guide
+SELF CERTIFICATE
+This is to certify that the dissertation/project report entitled “CarWorthML – Second
+Hand Car Price Predictor” is done by me is an authentic work carried out for the partial
+fulfilment of the requirements for the award of the degree of Bachelor of Computer
+Applications under the guidance of Dr Ruchi Aggarwal. The matter embodied in this
+project work has not been submitted earlier for award of any degree or diploma to the
+best of my knowledge and belief.
+ABHISHEK GUPTA, Enrolment no. 01425502022
+SIGNATURE
+NAME – ABHISHEK GUPTA
+ENROLL – 01425502022
+TABLE OF CONTENT
+1. Acknowledgement
+2. Self Certificate
+3. Certificate
+4. Synopsis…………………………………………………………….1-6
+4.1 Statement about the Problem
+4.2 Why This Topic Was Chosen
+4.3 Objectives of the Project
+4.4 Hardware & Software to be Used
+4.5 Testing Technologies Used
+4.6 Contribution of the Project
+4.7 References
+5. Problem Formulation……………………………………………...8-12
+5.1 Introduction about the Project
+5.2 Introduction about the Problem
+5.3 Present State of the Art
+5.4 Need of Computerization
+5.5 Proposed Software / Project
+5.6 Importance of the work
+5.7 Objectives of the Project
+5.8. Scope of the Project
+5.9 Methodology Expected Outcomes
+6. System Analysis…………………………………………………….13-18
+6.1 Feasibility Study
+6.1.2 Technical Feasibility
+6.1.2 Economical Feasibility
+6.1.3 Operational Feasibility
+6.1.4 Other Feasibility Dimensions
+6.2 Analysis Methodology
+6.3 Choice of the Platforms
+6.3.1 S/W used
+6.3.2 6.3.2 H/W used
+7. System Design………………………………………………………19-22
+7.1 Design Methodology
+7.2. Database Design
+7.2.1. DFD (25)
+7.2.2. Workflow diagram
+7.3. Input Design
+7.4. Output Design
+8. Testing And Implementation………………………………………23-28
+8.1 Testing Methodology
+8.1.1. Functional testing
+8.1.2. UI testing
+8.1.3. Usability testing
+8.1.4. Security testing
+8.1.5. Unit testing
+8.1.6. Module testing
+8.1.7. Integration testing
+8.1.8. System testing
+8.1.9. White-box testing
+8.2. Test Data & Test Cases
+8.3. Test Reports and Debugging
+8.4 Implementation Manual
+8.5 Implementation
+8.6 Users’ Training Post Implementation Maintenance
+9. Conclusion And References………………………………………..29-33
+9.1 Conclusion
+9.2 System Specifications
+9.2.1 H/W Requirement
+9.2.2. S/W Requirement
+9.3 Limitations of the System
+10. Annexures………………………………………………………….34-65
+10.1 Screenshots of App
+10.2 Menu Flow Diagram
+10.3 Structure Chart
+10.4 Decision Table/Tree
+10.5 Data Dictionary
+10.6 Sample Inputs
+10.7 Sample Outputs
+11. References………………………………………………………….66-66
+11.1 References
+Synopsis On
+CarWorthML – SecondHand Car Price
+Predictor
+CHAPTER 1: SYNOPSIS
+The Synopsis of a project serves as a comprehensive summary of its purpose, scope,
+implementation strategy, technical components, testing mechanisms, and impact. For the
+CarWorthML system, a machine learning-based car price prediction web application, the
+synopsis consolidates the technical rationale, problem motivation, software architecture,
+methodological frameworks, and the broader significance of the work. This chapter is crafted
+to reflect not just the system's capabilities, but also the thinking, planning, and learning that
+shaped its development.
+1.1 Statement about the Problem
+In the Indian automobile market, and in similar emerging economies, the used car segment
+constitutes a substantial portion of total car sales. With more than 4 million used vehicles
+exchanged annually, determining a fair market price for a pre-owned car has become
+increasingly difficult due to the absence of standard valuation tools. Unlike new cars, which
+have fixed pricing from manufacturers, the value of used cars is influenced by a multitude of
+variables: brand, model, fuel type, kilometers driven, ownership history, maintenance record,
+location, and even visual condition.
+The problem arises from a lack of transparent and reliable systems that consider these variables
+holistically. Currently, both buyers and sellers rely on incomplete data or heuristic
+approximations, often comparing listings on various websites like OLX, Quikr, or CarTrade.
+However, such listings often do not reflect actual sale prices, are outdated, or lack completeness
+in terms of features (e.g., missing kilometers or ownership history).
+This causes several systemic issues:
+1 Sellers may underprice their vehicle, resulting in financial losses.
+2 Buyers may overpay or purchase undervalued vehicles without knowledge of the fair price.
+3 Dealers may exploit the pricing ambiguity, reducing trust in the resale ecosystem.
+The absence of a data-driven, ML-powered solution in this space is both a technical and
+commercial gap—one that CarWorthML is designed to fill.
+1 | P a g e
+1.2 Why This Topic Was Chosen
+This topic was selected after careful evaluation of market relevance, technical challenge, and
+social utility. It addresses a real-world problem with tangible economic impact while providing
+an opportunity to implement a wide array of technical skills learned in machine learning and
+software engineering courses.
+Key Motivations:
+1 High Practical Value: Car valuation affects millions of Indian households. A robust pricing
+tool helps reduce friction and improve fairness in vehicle transactions.
+2 Technical Richness: Predicting prices involves multivariate regression, handling of
+categorical and numerical data, feature encoding, and normalization—all core ML
+concepts.
+3 End-to-End Development: This project offers the opportunity to execute the full machine
+learning lifecycle: from data acquisition, cleaning, modeling, evaluation, deployment, to
+UI design.
+4 Lack of Existing Open Tools: Most available tools are commercial or proprietary. A free,
+open, and explainable tool would benefit both developers and users.
+By choosing this topic, the developer sought to bridge the gap between theory and real-world
+impact, while also producing a tool that could be easily scaled, extended, or integrated into
+existing systems.
+1.3 Objectives of the Project
+The CarWorthML project was designed with both technical and human-centered goals in mind.
+These objectives reflect the commitment to solving a relevant problem while delivering an
+application that is useful, scalable, and explainable.
+Primary Technical Objectives:
+1. To build a supervised machine learning model (Linear Regression) that predicts the
+resale value of used cars using multiple independent variables.
+2. To clean and preprocess a real-world dataset containing raw used car listings scraped
+from Quikr.
+3. To design a modular Python pipeline capable of handling new user input and passing it
+through the trained model seamlessly.
+4. To serialize the trained model using Pickle and deploy it efficiently within a lightweight
+web framework.
+Frontend and UX Objectives:
+2 | P a g e
+5. To build a user interface using Streamlit that allows for easy interaction through
+dropdowns, sliders, and numeric fields.
+6. To ensure that the system is accessible even to users with no technical background.
+7. To incorporate dynamic and engaging visuals using Lottie animations and metric
+indicators to improve user engagement.
+Operational and Analytical Objectives:
+8. To provide users with contextual insights such as average car price by manufacturer or
+fuel type.
+9. To test the model and UI under various conditions, ensuring responsiveness, accuracy,
+and error handling.
+10. To create a project that is easily extensible for future features like location-based pricing,
+mobile deployment, or advanced modeling.
+Together, these objectives ensure that CarWorthML is not just a technical demo, but a usable
+product.
+1.4 Hardware & Software to Be Used
+The success of any software system depends significantly on the choice of hardware and
+software platforms. For CarWorthML, lightweight tools and minimal hardware were selected
+to ensure accessibility and portability.
+Hardware Requirements:
+Component Minimum Requirement Recommended Setup
+Processor Intel Core i3 / AMD Ryzen 3 Intel Core i5 / Ryzen 5 or higher
+RAM 4 GB 8–16 GB for smoother processing
+Storage 500 MB free disk space 1 GB+ (for extended datasets)
+Internet Required for deployment and APIs Stable broadband
+Screen 1024x768 resolution Full HD display recommended
+Software Requirements:
+Category Technology Used Purpose
+Programming Python 3.10+ Core language
+IDE Jupyter Notebook, VS Code Development and debugging
+ML Framework Scikit-learn Model training, pipeline building
+3 | P a g e
+Category Technology Used Purpose
+Data Handling Pandas, NumPy Data cleaning and transformation
+Frontend UI Streamlit Web application interface
+Visualization Streamlit Charts, Lottie Visual elements and user feedback
+Model Storage Pickle Persisting trained ML models
+Deployment Localhost / Streamlit Cloud Hosting and testing application
+These platforms enable the creation of an interactive, maintainable, and scalable machine
+learning solution that can be deployed on local or cloud environments.
+1.5 Testing Technologies Used
+Testing was a critical phase in the project lifecycle. A multi-tiered approach was adopted to
+evaluate the system's correctness, usability, responsiveness, and robustness.
+Testing Strategies and Tools:
+Testing Type Description
+Unit Testing Module Testing Functional Testing Usability Testing Performance
+Testing System Testing Verified individual Python functions and model inputs
+Checked integration between data processing, model inference, and UI
+Simulated user scenarios and validated output predictions
+Collected feedback from 5+ non-technical users for interface usability
+Measured prediction speed and UI load times under stress
+Validated application across OS platforms and multiple browser
+environments
+White-box Testing Manually reviewed internal logic and input-output consistency
+Tests were conducted with various car configurations (brands, years, kilometers) to ensure the
+model maintained consistency and logic. Errors were gracefully handled, and appropriate
+messages were displayed to the user.
+4 | P a g e
+1.6 Contribution of the Project
+The contribution of CarWorthML is multi-dimensional, impacting both academic learning and
+real-world utility.
+1. Academic and Learning Contribution
+1 Demonstrated full lifecycle of a data science project—from data acquisition to deployment.
+2 Applied theory in regression, encoding, feature engineering, and model evaluation.
+3 Showcased how machine learning integrates with software engineering and UI/UX design.
+2. Technical Contribution
+1 Developed a scalable machine learning architecture using modular, reusable Python code.
+2 Built an interactive web app that can be deployed without full-stack web development
+experience.
+3 Designed a UI system that simplifies technical processes for non-technical users.
+3. Societal Impact
+1 Enables transparency in the used car resale process, reducing pricing inequality.
+2 Empowers users to make better economic decisions through self-service predictions.
+3 Encourages the adoption of AI and ML tools in traditionally manual domains.
+4. Research Foundation
+1 Provides a strong foundation for future enhancements like:
+1.1 Classification of good vs. poor deals
+1.2 1.3 Predicting depreciation rates over time
+Integrating real-time market trends via APIs
+In summary, CarWorthML contributes not only a working solution but a platform for further
+innovation.
+5 | P a g e
+1.7 References
+The development of CarWorthML was guided and supported by various authoritative resources
+from academic, industrial, and community domains.
+Primary References:
+1. Scikit-learn Documentation – https://scikit-learn.org/stable/
+2. Streamlit Documentation – https://docs.streamlit.io/
+3. Pandas Library – https://pandas.pydata.org/
+4. NumPy Documentation – https://numpy.org/
+5. Jupyter Notebooks – https://jupyter.org/
+6. Python Official Docs – https://docs.python.org/
+7. LottieFiles – https://lottiefiles.com/
+8. Quikr Car Listings – https://www.quikr.com/
+9. Stack Overflow – For community-based technical guidance
+10. GitHub Repositories – For studying ML deployment architectures
+11. Medium ML Blogs – For understanding regression modeling in real-world data
+These resources collectively enabled a strong theoretical base and practical application
+framework.
+6 | P a g e
+MAIN
+REPORT
+7 | P a g e
+CHAPTER 2: PROBLEM FORMULATION
+Problem formulation is the initial phase in a project’s lifecycle where the nature, scope,
+background, and need for a solution are identified and clearly articulated. For CarWorthML, a
+machine learning-based used car price prediction system, this chapter lays the conceptual and
+foundational groundwork by addressing the what, why, and how of the project.
+2.1 Introduction about the Project
+In the age of digital transformation, data-driven technologies are playing an increasingly
+significant role in simplifying real-life decision-making processes. One such domain that stands
+to benefit enormously is the automobile resale market, which often lacks transparency and data-
+backed decision tools. The CarWorthML project is a machine learning-powered web application
+that aims to bridge this gap by providing accurate, real-time predictions for the resale value of
+used cars.
+CarWorthML uses historical car listing data collected from online classified platforms,
+processes it using data cleaning techniques, and trains a predictive model using regression-
+based algorithms. The result is a lightweight, responsive, and scalable web application built
+using Python and Streamlit, which allows users to enter a few details about their vehicle and
+receive an estimated resale price instantly. By leveraging the power of machine learning, the
+project aims to reduce the uncertainty in used car pricing and provide equitable value
+estimations for both buyers and sellers.
+2.2 Introduction about the Problem
+In India and across many emerging markets, the used car industry is flourishing due to growing
+consumer demand, affordability concerns, and the increasing lifespan of vehicles. However,
+this surge in demand is not matched by a consistent system for evaluating the resale value of
+used cars. Pricing decisions are typically based on subjective estimates, heuristic guesses, or
+comparison across various listings, which can be misleading due to regional disparities,
+inconsistencies in car conditions, and lack of structured information.
+The core of the problem lies in the absence of a standardized, accessible, and data-backed
+platform that can determine the fair market price of a used vehicle. Buyers risk overpaying for
+cars that are not worth the quoted price, while sellers might undervalue their cars due to poor
+market awareness. Dealers, on the other hand, often exploit this information asymmetry to their
+advantage.
+This lack of transparency not only creates distrust but also reduces the overall efficiency and
+fairness of the vehicle resale process. CarWorthML seeks to address this problem by providing
+a user-friendly tool that uses machine learning to deliver realistic car price estimations based
+on past sales data and current trends.
+8 | P a g e
+2.3 Present State of the Art
+Currently, several platforms such as CarDekho, CarTrade, and OLX Autos offer car valuation
+tools as part of their vehicle listings. These tools, however, come with certain limitations:
+1 Black-box Models: Many commercial platforms do not reveal how they arrive at a given
+price, making it difficult for users to trust or understand the valuation process.
+2 Limited Feature Inclusion: Often, only a few basic inputs are considered, such as brand,
+model, and year, while important factors like kilometers driven, fuel type, and market
+trends are overlooked or generalized.
+3 Non-personalized Estimates: These platforms tend to provide price ranges instead of
+specific estimates, which might not align well with the actual condition or usage of the car
+in question.
+From a technical perspective, most existing solutions are built on rule-based heuristics or basic
+averaging models, which lack the adaptability and learning capability of machine learning
+algorithms.
+In contrast, CarWorthML is a transparent, open-source project that allows users to see how input
+features directly impact the outcome. It employs supervised learning and is trained on a cleaned
+dataset of real-world used car listings, providing a more accurate and personalized estimate.
+2.4 Need for Computerization
+Manual methods of estimating used car prices are not only time-consuming but also unreliable.
+These methods depend on:
+1 Browsing through hundreds of listings to find similar car models.
+2 Asking for suggestions from friends, dealers, or mechanics.
+3 Relying on subjective negotiation and guesswork.
+These practices introduce bias, waste time, and result in either underpricing or overpricing.
+Moreover, in the digital era, where most services are accessible at the click of a button, car
+valuation should be no different.
+Computerizing the process offers numerous benefits:
+1 Speed: Instant price predictions reduce the time spent on market research.
+2 Accuracy: The model uses mathematical relationships between features and pricing trends
+to deliver consistent results.
+3 Accessibility: The web interface makes it available to anyone with internet access—buyers,
+sellers, and dealers alike.
+4 Transparency: Users gain insights into the logic behind the prediction, building trust in the
+valuation process.
+Therefore, computerization using machine learning models like the one in CarWorthML is not
+just beneficial but essential in modernizing the used car market.
+9 | P a g e
+2.5 Proposed Software / Project
+The proposed software, CarWorthML, is a responsive web application that predicts the resale
+price of used cars based on structured user input. The application is designed to:
+1 Accept five input parameters from the user: car brand (company), model name, year of
+manufacture, fuel type, and kilometers driven.
+2 Feed this data into a pre-trained machine learning model based on Linear Regression,
+which was trained on thousands of real car listings.
+3 Return a predicted resale value in INR that closely reflects current market trends.
+4 Provide additional insights such as average price by company and fuel type for context.
+Key Components of the Software:
+1. User Interface: Developed using Streamlit, which offers a clean layout, interactive
+widgets, and mobile responsiveness.
+2. Data Handling Layer: Uses Pandas and NumPy for data manipulation, cleaning, and
+transformation.
+3. Machine Learning Model: A Scikit-learn regression pipeline trained on a cleaned
+dataset.
+4. Deployment Setup: Localhost-based app using Streamlit with optional deployment on
+Streamlit Cloud or similar platforms.
+By integrating these components, CarWorthML functions as a complete and deployable
+machine learning system tailored to the Indian automobile resale ecosystem.
+2.6 Importance of the Work
+The CarWorthML project holds considerable significance from both academic and real-world
+perspectives. Academically, it provides a practical implementation of machine learning
+techniques, showcasing how concepts like data preprocessing, regression modeling, model
+serialization, and user interface design come together in an applied context.
+In real-world terms, it addresses a highly relevant and unsolved problem—the lack of reliable
+and accessible tools for used car valuation. Given the size and informal nature of the used car
+market in countries like India, the system offers the following benefits:
+Empowers consumers by providing information that was previously opaque or accessible only
+to dealers.
+1 Enables fair pricing by using data instead of guesswork.
+2 Builds digital trust by visualizing how features influence price.
+3 Promotes digital literacy by encouraging everyday users to interact with machine learning
+systems.
+By bridging the gap between technology and market application, CarWorthML contributes to
+making machine learning more relatable, useful, and impactful.
+10 | P a g e
+2.7 Objectives of the Project
+The CarWorthML project is driven by the following core objectives:
+1. To develop a machine learning model capable of predicting used car prices based on
+structured and cleaned historical data.
+2. To design an intuitive web-based interface that allows users to interact with the model
+without requiring technical knowledge.
+3. To analyze the market dynamics and present pricing trends by brand and fuel type
+through visualizations.
+4. To deploy a fully functional end-to-end system that demonstrates the real-world utility
+of machine learning in pricing systems.
+5. To offer users a valuable decision-support tool that helps them assess whether a price
+being offered (or asked) is fair.
+These objectives collectively align to provide both academic insight and practical usability.
+2.8 Scope of the Project
+The scope of the CarWorthML project includes:
+1 Functional Scope:
+1.1 1.2 Input processing, model prediction, and result display.
+Data visualization tools for average price insights.
+1.3 Support for a broad range of brands and models from the Indian used car market.
+2 Technical Scope:
+2.1 2.2 Usage of Linear Regression, with potential for model replacement.
+Frontend built with Streamlit to allow for rapid UI changes and mobile compatibility.
+2.3 Dataset stored locally in CSV format but structured for easy database migration.
+3 Operational Scope:
+3.1 Designed to be used by individual buyers, sellers, or vehicle evaluators.
+3.2 Capable of future integration with commercial car resale platforms or APIs.
+4 Academic Scope:
+4.1 Demonstrates end-to-end ML project development.
+4.2 Useful as a teaching or demonstration tool in data science courses.
+11 | P a g e
+2.9 Methodology & Expected Outcomes
+Methodology:
+The following process was followed:
+1. 2. Data Collection: Scraping used car listings from Quikr.
+Data Cleaning: Removing duplicates, correcting data types, handling null values.
+3. Feature Engineering: Extracting features like brand, model, fuel type, year, and kms
+driven.
+4. 5. Model Training: Applying Linear Regression and evaluating performance metrics.
+Model Serialization: Saving the model with Pickle.
+6. Frontend Development: Building UI in Streamlit with interactive widgets and Lottie
+animations.
+7. Testing and Deployment: Ensuring stability, accuracy, and user experience.
+Expected Outcomes:
+1 A web application capable of providing instant and realistic car price predictions.
+2 A fully deployable ML project demonstrating integration of data science with web
+development.
+3 A better understanding of used car market dynamics based on real-world data.
+4 A scalable system that can be upgraded with more features or advanced algorithms.
+12 | P a g e
+CHAPTER 3 : SYSTEM ANALYSIS
+System analysis serves as the foundation for designing and developing robust
+software solutions. It allows the development team to assess the viability,
+efficiency, and sustainability of the system in question. For CarWorthML, the
+system analysis phase was instrumental in ensuring that the solution could meet
+the expectations of end-users while remaining technically and economically
+viable. This chapter delves deeply into multiple dimensions of feasibility and
+platform selection, ultimately validating the roadmap for building this machine
+learning-based car price prediction system.
+3.1 Feasibility Study
+The feasibility study is a structured examination of whether the proposed system can be
+implemented successfully within defined constraints such as time, technology, cost, and
+available resources. It aims to answer the fundamental question: Should the project proceed,
+and if so, how?
+3.1.1 Technical Feasibility
+Technical feasibility evaluates the practicality of the system in terms of technology availability,
+ease of implementation, and infrastructure compatibility.
+1. Technology Stack Justification:
+1 Python is the language of choice due to its syntactical simplicity, extensive machine
+learning libraries, and widespread use in both academia and industry. It ensures reduced
+development time and greater community support.
+2 Scikit-learn is used because it offers prebuilt regression algorithms and a consistent API
+for training, testing, and tuning models. It supports modular pipeline building, which helps
+in data preprocessing and modeling workflows.
+3 Streamlit provides a fast and clean way to convert Python scripts into web apps. Unlike
+heavier frameworks like Flask or Django, Streamlit requires less boilerplate code and is
+optimized for data science applications.
+4 Pickle is a native Python module used to serialize trained models so they can be stored and
+reused without retraining every time the app is launched.
+5 Pandas and NumPy are employed for data transformation, enabling efficient operations like
+filtering, aggregation, and vectorized computations.
+13 | P a g e
+2. Infrastructure Compatibility:
+1 The system is designed to run on standard computers with modest specifications.
+2 It is compatible with Windows, Linux, and macOS environments.
+3 No proprietary hardware or cloud servers are required, although cloud deployment is
+optional for scaling.
+Hence, the chosen technology stack ensures rapid development, easy integration, and cross-
+platform deployment—all without compromising performance or scalability.
+3.1.2 Economical Feasibility
+Economic feasibility analyzes the financial investment required and assesses whether the
+project offers enough return on investment (ROI) or justifies the costs involved.
+1. Cost Breakdown:
+Software Licensing: All tools used are open-source and free of cost. No paid IDEs, libraries, or
+API subscriptions were used.
+1 Data Acquisition: The dataset was created by scraping publicly listed car data from
+Quikr.com, incurring no financial cost.
+2 Hosting: The application can be deployed for free using Streamlit Cloud, which allows
+limited free hosting for personal or academic projects.
+3 Development Labor: Since the project was developed by an individual as part of academic
+work, labor costs are considered zero or negligible.
+2. Economic Benefits:
+1 No hidden operational costs.
+2 High utility-to-cost ratio due to the real-world application.
+3 Easily scalable for commercial or educational use without licensing barriers.
+Thus, the project is economically sound, especially for student projects, startups, or non-profit
+applications where budget constraints are common.
+3.1.3 Operational Feasibility
+Operational feasibility determines how well the system will function in its intended
+environment and whether users will accept and adopt it.
+1. Ease of Use:
+1 The UI uses intuitive widgets like dropdown menus, sliders, and number inputs.
+2 Streamlit auto-refreshes the interface based on user interactions, minimizing confusion and
+errors.
+14 | P a g e
+3 Only a minimal number of inputs are required to generate accurate predictions.
+2. Accessibility:
+1 The application runs in a browser, eliminating the need for local installations.
+2 Users need no technical expertise—any individual with basic car information can use it.
+3. Reliability:
+1 System errors are caught using exception handling, and user-friendly warnings are shown.
+2 Input validation prevents invalid or unrealistic entries (e.g., negative kilometers).
+Therefore, CarWorthML is operationally feasible, with a high potential for user acceptance due
+to its simplicity, responsiveness, and accessibility.
+3.1.4 Other Feasibility Dimensions
+Beyond the standard feasibility criteria, the following considerations were also evaluated:
+1. Legal Feasibility:
+1 All technologies used are legally permissible and open source.
+2 No proprietary or personal user data is used, ensuring compliance with data privacy laws.
+2. Scalability:
+1 The CSV-based system can be easily migrated to a relational or NoSQL database in the
+future.
+2 The current regression model can be replaced by more complex algorithms (e.g., Random
+Forest, XGBoost) without architectural changes.
+3. Maintainability:
+1 Code is structured into reusable components.
+2 The ML model, dataset, and UI code are loosely coupled, allowing independent updates.
+4. Environmental Feasibility:
+1 The system consumes minimal power and does not rely on energy-intensive servers.
+2 It runs well on standard laptops or desktops, promoting green computing.
+CarWorthML scores high across all auxiliary feasibility metrics, further reinforcing the decision
+to move forward with development.
+15 | P a g e
+3.2 Analysis Methodology
+A structured approach was employed to analyze the problem space, define requirements, and
+guide the development process. The CRISP-DM model was chosen due to its iterative nature
+and adaptability to machine learning projects.
+CRISP-DM Phases in CarWorthML
+1 Business Understanding:
+1.1 Objective: Create a tool to estimate used car prices based on known parameters.
+1.2 Challenge: Variance in car pricing due to brand perception, usage, and fuel type.
+2 Data Understanding:
+2.1 2.2 Source: Car listings scraped from Quikr.com.
+Format: Brand, model, year, fuel type, kms driven, price.
+2.3 Volume: Thousands of listings across dozens of manufacturers.
+3 Data Preparation:
+3.1 3.2 Removed duplicates, empty values, and malformed records.
+Extracted brand and model from title strings.
+3.3 Normalized price and distance fields for modeling.
+4 Modeling:
+4.1 Algorithm: Linear Regression.
+4.2 Features: company, name, year, fuel_type, kms_driven.
+4.3 Label: Price (target variable).
+5 Evaluation:
+5.1 5.2 R² Score: Satisfactory for a baseline model.
+Predicted values compared with actual listings to verify reliability.
+6 Deployment:
+6.1 Model saved using Pickle.
+6.2 Deployed via Streamlit, allowing users to interact with the model in real-time.
+This methodology ensured that each phase was evidence-based and iterative, leading to a well-
+refined and robust solution.
+16 | P a g e
+3.3 Choice of the Platforms
+The selection of platforms plays a pivotal role in project longevity, compatibility, and
+scalability. Both hardware and software were chosen based on reliability, ease of use, and long-
+term sustainability.
+3.3.1 Software Used
+Component Description and Rationale
+Python 3.10+ Chosen for its readability, ML support, and huge community
+Pandas Used for data cleaning and transformation
+NumPy Supports mathematical operations and vectorization
+Scikit-learn Offers robust ML utilities and model evaluation
+Streamlit Enables quick conversion of ML code to web interface
+Pickle Stores the trained model persistently
+Matplotlib/Seaborn Optional visual analysis tools
+Jupyter Notebook Used for EDA and model prototyping
+VS Code / PyCharm Full development environment with Git and debugging tools
+LottieFiles Used for animated UI elements and loading screens
+All tools are cross-platform, well-supported, and have extensive documentation.
+3.3.2 Hardware Used
+Component Minimum Recommended
+Processor Intel Core i3 / Ryzen 3 Intel i5 / Ryzen 5 or better
+RAM 4 GB 8–16 GB for smoother multitasking
+Storage 500 MB for project files 1 GB+ for extended logs or images
+Display 13" screen with 1024x768 resolution Full HD or Retina display
+17 | P a g e
+Component Minimum Recommended
+Internet Required for Lottie assets Required for cloud deployment
+Platform Compatible with Windows/macOS/Linux Tested on Windows 10 and Ubuntu
+Even older hardware is sufficient for developing and running CarWorthML locally, making it
+highly accessible.
+18 | P a g e
+CHAPTER 4: SYSTEM DESIGN
+1. Design Methodology
+System design is a critical stage in the software development life cycle (SDLC) that determines
+how the overall architecture of the system is structured. For the CarWorthML project, a modular
+and layered design methodology was adopted to ensure scalability, maintainability, and
+separation of concerns.
+The system is structured into three primary layers:
+1 Presentation Layer (Frontend): Developed using the Streamlit library, this layer is
+responsible for user interaction. It collects input from users through UI elements like
+dropdowns, sliders, and buttons, and displays the prediction results and data visualizations
+in a visually appealing and responsive manner.
+2 Application Layer (Backend Logic): This layer processes user input, transforms it
+into a format suitable for the machine learning model, loads the trained model, and
+produces predictions. It also handles preprocessing steps, error handling, and integration
+between components.
+3 Data Layer: This includes static data files such as Cleaned_Car_data.csv, which simulates
+the role of a database by storing historical car listings used for both training the model and
+visualizing price trends. Additionally, this layer includes the trained machine learning
+model stored as a serialized .pkl file.
+This design ensures a decoupled structure where the user interface, business logic, and data
+remain independent, allowing future enhancements to any one layer without impacting the
+others significantly.
+19 | P a g e
+2. Database Design
+Though CarWorthML does not rely on a traditional relational database management system
+(RDBMS), its core data is handled through structured CSV files that emulate database-like
+behavior. The dataset (Cleaned_Car_data.csv) is formatted with headers representing fields
+such as car brand, model, manufacturing year, kilometers driven, fuel type, and price. These
+attributes serve as features for training the machine learning model and are used dynamically
+in the user interface.
+2.1 Data Flow Diagram (DFD)
+Data flow diagrams (DFDs) help in visualizing how information moves through the system.
+They illustrate the interaction between users, system processes, and data stores.
+20 | P a g e
+2.2 Workflow Diagram
+The system follows a linear, event-driven workflow:
+1. User launches the app via browser or local execution.
+2. 3. UI displays the form on the 'Predict' tab with dropdowns and sliders.
+User enters input data: car brand, model, fuel type, manufacture year, and kilometers
+driven.
+4. 5. Form submission triggers backend logic.
+Backend loads the trained ML model and applies preprocessing to the input.
+6. Model predicts resale price, which is sent back to the frontend.
+7. User sees the predicted price, accompanied by UI animations and metrics.
+8. Optionally, the user can explore data insights on the 'Explainatory' tab.
+This structured workflow ensures consistency and clarity in data handling and system response.
+3. Input Design
+The input design focuses on data accuracy, user-friendliness, and prevention of
+invalid submissions. It plays a vital role in ensuring that the correct and relevant
+data reaches the backend logic for processing and prediction.
+Input Elements in the UI:
+1 Manufacturer (SelectBox): Lists all available car companies from the dataset.
+2 Model Name (SelectBox): Dynamically filters models based on the selected
+manufacturer to avoid mismatches.
+3 Fuel Type (SelectBox): Users can choose from predefined options like Petrol, Diesel,
+CNG, etc.
+4 Year of Manufacture (Slider): Ranges from 1990 to 2025, helping users select only
+valid years.
+5 Kilometers Driven (NumberInput): Accepts integer values starting from zero,
+avoiding unrealistic entries.
+All inputs are validated on the client side using Streamlit widgets, reducing the
+risk of invalid data being passed to the model.
+21 | P a g e
+4. Output Design
+The output of the system is designed to be both informative and visually engaging.
+Once the backend ML model processes the user inputs, the predicted resale price
+is displayed using Streamlit’s st.metric() and other UI elements.
+Output Components:
+1 Estimated Price Display: The prediction result is shown in bold with currency
+formatting (₹ 4,85,000), offering a clear and direct answer.
+2 Visual Feedback: Streamlit’s animation effects (e.g., balloons) are triggered
+on successful prediction, adding a delightful user experience.
+3 Lottie Animation: A small car animation is shown beside the price to enhance visual
+appeal.
+4 Insights Section: Optional bar charts on the 'Explainatory' tab visualize:
+4.1 Average price by manufacturer.
+4.2 Average price by fuel type.
+4.3 Raw data preview (if enabled by checkbox).
+Design Considerations:
+1 Color schemes are chosen for clarity and readability.
+2 Predictions are presented in a center-aligned card format with metric highlights.
+3 Responsiveness is ensured so that the layout adapts to different screen sizes.
+The output section is not just functional but also serves an educational purpose by showing
+users how various features affect the final prediction.
+22 | P a g e
+CHAPTER 5: TESTING AND IMPLEMENTATION
+Testing and implementation are two of the most crucial phases in any software project lifecycle.
+While development ensures functionality and logic, testing guarantees that the application
+behaves as expected under various scenarios. Implementation brings the system to life, ensuring
+users can interact with it seamlessly. In the CarWorthML project, both phases were carried out
+systematically to achieve a highly functional, user-friendly, and reliable car price prediction
+system.
+5.1 Testing Methodology
+The testing methodology followed a layered and modular approach, allowing each component
+of the application to be verified individually and in integration with others. The goal was to
+detect bugs, ensure reliability, and optimize performance across various platforms and
+conditions.
+5.1.1 Functional Testing
+Functional testing verifies that each feature of the software operates in conformance with its
+requirements. In CarWorthML, each Streamlit form component, button, and prediction function
+was tested using a range of valid and edge-case inputs.
+1 Input combinations (e.g., Manufacturer = Honda, Year = 2017) were tested to ensure valid
+model predictions.
+2 Prediction outputs were validated against expected value ranges based on known listings
+from the dataset.
+3 Drop-downs dynamically responded based on selection logic (e.g., models filtered after
+selecting a company).
+Result: All functional test cases passed successfully without runtime errors.
+5.1.2 UI Testing
+User Interface testing focused on validating the responsiveness, layout integrity, and readability
+of the Streamlit web pages.
+1 UI components were checked for consistency across different browsers (Chrome, Firefox).
+2 All tabs (Home, Predict, Explainatory, About) were verified for visibility and navigation
+flow.
+3 Visual elements like Lottie animations and embedded videos were tested for correct
+rendering.
+4 Buttons, input fields, metric cards, and animations were tested for correct alignment and
+behavior.
+23 | P a g e
+Result: The UI rendered smoothly, and no visual artifacts or layout breaks were observed during
+testing.
+5.1.3 Usability Testing
+The usability of an application is measured by how easily and effectively users can operate it.
+To assess this, a group of non-technical users were invited to use the application and provide
+feedback.
+1 Users found the input form intuitive and easy to use.
+2 Minimal instruction was required to navigate the application.
+3 The output section was clear, well-labeled, and visually pleasing.
+4 The optional data visualization section helped users gain better insights into car valuation
+trends.
+Result: Positive user feedback confirmed the application’s ease of use and accessibility.
+5.1.4 Security Testing
+Although the system is not intended for multi-user or enterprise deployment in its current form,
+basic security principles were followed:
+1 User inputs were strictly limited through dropdowns and sliders to prevent injection or
+invalid data.
+2 The model and data files were loaded securely using standard file handling methods in
+Python.
+3 No direct file uploads or external input fields were included that could risk data leaks.
+Result: The application is secure for local and controlled public usage.
+5.1.5 Unit Testing
+Unit testing involves testing individual components in isolation. For CarWorthML, this
+included:
+1 Testing the load_data() and load_model() functions to ensure files are read correctly.
+2 Ensuring model predictions handle various valid input DataFrames without failure.
+3 Checking form validation logic to reject incomplete or invalid input.
+24 | P a g e
+All unit tests were manually verified using print() statements and condition checks during
+development.
+5.1.6 Module Testing
+Each module—such as data preprocessing, model loading, and prediction—was tested
+independently to ensure internal integrity. For example:
+1 The model module was tested with sample records to ensure it handled edge cases.
+2 Preprocessing was verified to ensure input data matched training schema and order.
+Result: All modules interacted correctly and performed as expected in isolation.
+5.1.7 Integration Testing
+Integration testing focused on the interaction between frontend components and backend logic.
+Specific tests included:
+1 Ensuring that the prediction triggered from the form correctly invoked the model.
+2 Confirming that results returned from the model were formatted and displayed correctly on
+the UI.
+3 Verifying that animations and metric display functions were synchronized with model
+output.
+All integrated workflows were tested, and prediction logic executed without bottlenecks or
+mismatches.
+5.1.8 System Testing
+The complete application was deployed in different environments and tested as a whole. This
+included:
+1 Verifying model predictions after simulated deployments on localhost and Streamlit Cloud.
+2 Testing the application on Windows, Linux, and macOS environments.
+3 Ensuring responsiveness and correct rendering on different screen sizes (desktop, tablet).
+Result: CarWorthML was observed to function reliably across platforms.
+25 | P a g e
+5.1.9 White-box Testing
+White-box testing involved directly examining the source code to validate logic, structure, and
+edge-case handling. Key focus areas included:
+1 Regression model structure and coefficient handling.
+2 Error messages for missing data files.
+3 Form submission and exception handling using try-except blocks.
+4 Data structure verification before prediction (e.g., column order and types).
+Result: The codebase was logically sound, clean, and structured for easy debugging.
+5.2 Test Data & Test Cases
+Test data was created from real-life examples of used car listings with known parameters.
+Various test cases were crafted to cover a range of conditions:
+Example Test Case 1:
+1 Inputs: Honda | City | 2017 | Petrol | 60,000 km
+2 Expected Output Range: ₹ 4.2–4.6 Lakhs
+3 Status: Passed
+Example Test Case 2:
+1 Inputs: Maruti | Swift | 2013 | Petrol | 95,000 km
+2 Expected Output Range: ₹ 2.0–2.5 Lakhs
+3 Status: Passed
+Example Test Case 3:
+1 Inputs: Hyundai | i20 | 2018 | Diesel | 40,000 km
+2 Expected Output Range: ₹ 5.0–5.8 Lakhs
+3 Status: Passed
+Edge cases like selecting the oldest year, zero kilometers driven, or using a rarely listed model
+were also tested to ensure the system handled unusual inputs gracefully.
+26 | P a g e
+3. Test Reports and Debugging
+The testing phase was accompanied by structured debugging practices. Each failure was logged
+and traced back to its root cause, leading to rapid resolutions.
+1 Error Logs: Console logs were monitored for file access errors or invalid data formats.
+2 Common Fixes:
+2.1 Adjusting input DataFrame to match model training schema.
+2.2 2.3 Correcting file paths for CSV and Pickle file access.
+Handling animation file loading errors with user warnings.
+3 Improvement Areas Identified:
+3.1 Inclusion of more car features in future versions.
+3.2 Handling prediction outliers with statistical thresholds.
+All testing reports were documented, and logs were stored for future reference.
+4. Implementation Manual
+A well-defined implementation procedure was followed to ensure ease of setup and
+reproducibility:
+Steps to Run CarWorthML Locally:
+1 Setup the Environment:
+bash
+CopyEdit
+pip install streamlit pandas scikit-learn
+2 Ensure all essential files are available:
+2.1 app.py – Main application
+2.2 Cleaned_Car_data.csv – Dataset
+2.3 LinearRegressionModel.pkl – Serialized model
+2.4 car_animation.json – Lottie file for car animation
+2.5 Car_Video.mp4 – Background video
+3 Run the application using Streamlit:
+bash
+CopyEdit
+streamlit run app.py
+27 | P a g e
+4 Access via browser at: http://localhost:8501
+The system can also be deployed using platforms like Streamlit Cloud for easy public access.
+5. Implementation
+The CarWorthML application was implemented using a modular development strategy. Each
+phase of development was broken into logical segments:
+1 UI Implementation: Built using Streamlit tabs (Home, Predict, Explainatory, About). Input
+forms and layouts were designed to enhance clarity and minimize confusion.
+2 Model Integration: A trained Linear Regression model was serialized using Pickle and
+loaded into the app. Inputs were passed as a DataFrame matching the training schema.
+3 Error Handling: All critical operations, especially model prediction, were wrapped in try-
+except blocks to capture and display errors gracefully.
+4 Enhancements: Animations and videos were added for visual appeal using Lottie and
+base64 encoding.
+Result: The system was implemented successfully and runs consistently across environments.
+6. Users’ Training & Post-Implementation Maintenance
+User Training
+No specialized training is required due to the simplicity of the interface. However, basic
+guidelines provided to users include:
+1 Use the correct sequence: Manufacturer → Model → Fuel Type → Year → KMs Driven
+2 Interpretation of results: Understand that predicted prices reflect estimated resale value and
+not an official valuation.
+Post-Implementation Maintenance
+To keep the system updated and maintain relevance:
+1 Data Updates: The dataset should be refreshed regularly with new listings.
+2 Model Retraining: The ML model can be retrained as data volume increases.
+3 UI Enhancements: Additional features such as location-based pricing or insurance flags can
+be integrated.
+4 Performance Monitoring: Logs should be maintained to track app usage and issues.
+28 | P a g e
+CHAPTER 6: CONCLUSION AND REFERENCES
+6.1 Conclusion
+The CarWorthML project represents a successful and practical application of machine learning
+in the domain of intelligent pricing systems. This work demonstrates how the integration of
+statistical modeling techniques, real-world data, and intuitive user interface design can
+culminate in a deployable product with measurable value to users in the used car ecosystem. In
+a market where price discrepancies and subjective negotiations dominate, the system introduces
+a level of transparency, data-driven accuracy, and user empowerment that was previously
+unavailable to the average car buyer or seller.
+At its core, CarWorthML is a comprehensive car valuation tool. It allows users to predict the
+resale price of a used vehicle based on a few simple parameters—manufacturer, model, fuel
+type, year of manufacture, and kilometers driven. These inputs, once fed into the system, are
+transformed via a trained Linear Regression model into price predictions that are not only
+prompt but also logical and contextually accurate. The application is developed using Python
+and the Streamlit framework, ensuring that users with even limited technical exposure can
+interact with it seamlessly through a browser-based interface.
+Beyond the technical implementation, the project is a manifestation of data science applied to
+everyday problems. It encapsulates the end-to-end machine learning pipeline—data collection,
+cleaning, exploration, feature engineering, model training, performance evaluation, and
+frontend integration. Importantly, it underscores the value of clean data, appropriate model
+selection, and user-centric design in building real-world systems.
+In conclusion, CarWorthML successfully meets its objective: providing an easy-to-use yet
+sophisticated tool for intelligent car price estimation. It offers immense potential for further
+expansion and integration into digital marketplaces, dealership portals, and automotive service
+providers.
+6.2 System Specifications
+The technical architecture of CarWorthML is intentionally lightweight, designed for
+accessibility and ease of deployment. Despite its minimal hardware requirements, it supports a
+high degree of scalability and extensibility.
+6.2.1 Hardware Requirements
+The system can be run on any mid-range personal computer or laptop with the following
+configuration:
+29 | P a g e
+Component Minimum Requirement Recommended Setup
+Processor Intel Core i3 / AMD Ryzen 3 Intel Core i5 or higher
+RAM 4 GB 8 GB or more
+Storage 500 MB free disk space 1 GB for extended dataset support
+Graphics Integrated (for web UI display only) Optional GPU (for future
+upgrades)
+Internet Required (for hosting & Lottie
+animation) Stable broadband connection
+Display Minimum 13-inch screen, 1024x768 Full HD resolution preferred
+The system has been tested across Windows, Linux (Ubuntu), and macOS platforms,
+confirming full compatibility across operating systems.
+6.2.2 Software Requirements
+The application relies entirely on open-source technologies, making it highly cost-effective for
+development, deployment, and academic use.
+Software Component Version / Details
+Programming Language Python 3.10+
+Machine Learning Library Scikit-learn (for Linear Regression)
+Web Interface Framework Streamlit
+Data Manipulation Pandas, NumPy
+Visualization Tools Streamlit Charts, LottieFiles, Base64 Media
+Deployment Tools Streamlit CLI, Streamlit Cloud (optional)
+File Format CSV (for data), Pickle (.pkl for ML model)
+Development Tools VS Code, Jupyter Notebook
+30 | P a g e
+Software Component Version / Details
+OS Compatibility Cross-platform
+These technologies collectively ensure that CarWorthML can be maintained, deployed, or
+upgraded by any developer with basic Python experience.
+6.3 Limitations of the System
+Although CarWorthML is functionally complete and performs effectively within its designed
+scope, several limitations have been identified that restrict its use in more complex or
+commercial environments.
+1. Static Dataset
+The current version uses a cleaned CSV file as its primary data source. While this approach
+simplifies development, it limits the model's ability to adapt to changing market conditions or
+incorporate new trends automatically.
+2. Limited Features
+Only a few features are considered for prediction (company, model, year, fuel type, and
+kilometers driven). Critical real-world factors like car condition, service history, accident
+records, location, transmission type, number of owners, and insurance status are not yet
+incorporated, potentially affecting prediction accuracy.
+3. Basic Model Complexity
+The model used is a Linear Regression pipeline. While effective for linear relationships, it may
+not capture complex interactions between variables or account for outliers and irregular pricing
+trends. More robust models (e.g., Random Forest, Gradient Boosting) may yield better
+performance in dynamic markets.
+4. No Persistent User Data
+The application currently operates statelessly. There is no feature for saving user history,
+exporting reports, or managing sessions. This limits its usefulness for repeat users or
+commercial businesses requiring audit trails.
+5. Local Deployment Only
+While the system runs perfectly in local environments, deployment to web servers for public
+access requires manual configuration. No CI/CD pipeline or user authentication is
+implemented, restricting it from being used as a production-grade SaaS platform in its current
+form.
+31 | P a g e
+6.4 Future Scope for Modification
+Despite its current limitations, CarWorthML has immense potential for enhancement and can
+evolve into a full-scale web application or business solution with the following upgrades:
+1. Real-Time Data Integration
+Incorporating live data through APIs from automotive websites like OLX, Quikr, or CarDekho
+would ensure the model learns from continuously updated listings and maintains high
+relevance.
+2. Feature Expansion
+Future versions could include:
+1 Geolocation Data: Prices vary significantly across cities and states.
+2 Transmission Type: Manual vs. automatic vehicles have different valuations.
+3 Insurance & Service History: Integrating these would reflect true vehicle condition.
+4 Color, Variant, and Seller Type: Useful for dealerships and trade-in evaluations.
+3. Model Enhancement
+Deploying more sophisticated algorithms like XGBoost, LightGBM, or Random Forest
+Regressor would increase prediction accuracy. These models handle feature interactions and
+nonlinear data distributions more effectively.
+4. User Accounts & Profiles
+Introducing user registration and login features would allow:
+1 Saving prediction history
+2 Comparing multiple cars
+3 Downloading PDF reports
+4 Creating user dashboards
+5. Mobile App Development
+A lightweight mobile application (using Flutter or React Native) would make the system even
+more accessible and practical for car dealers or buyers in the field.
+6. Visual Explanation of Predictions
+Using tools like SHAP (SHapley Additive exPlanations) or LIME can explain to the user why
+a particular price was predicted. This adds transparency and trust in model behavior.
+32 | P a g e
+7. Business Integration
+The app can be integrated with car dealership websites, service portals, or used car
+marketplaces, enabling real-time valuation widgets, trade-in estimators, and financing
+calculators.
+33 | P a g e
+Chapter 7 : Annexures
+7.1 Screenshots
+This section is cover the all the screenshots of the code by which we made all
+the Backend/Frontend of the Project.
+10.1.1 Backend Code
+34 | P a g e
+35 | P a g e
+36 | P a g e
+37 | P a g e
+38 | P a g e
+39 | P a g e
+40 | P a g e
+41 | P a g e
+42 | P a g e
+43 | P a g e
+44 | P a g e
+45 | P a g e
+46 | P a g e
+10.1.2 Frontend Code
+47 | P a g e
+48 | P a g e
+49 | P a g e
+50 | P a g e
+51 | P a g e
+52 | P a g e
+53 | P a g e
+7.1.3 Frontend – Layout
+54 | P a g e
+55 | P a g e
+56 | P a g e
+57 | P a g e
+58 | P a g e
+7.2 Menu Flow Diagram
+59 | P a g e
+7.3 Structure Chart
+60 | P a g e
+7.4 Decision Table/Tree
+This decision table outlines how various conditions during the data preprocessing phase are
+handled in the CarWorthML system. Each rule represents a sample scenario or a data row
+from the dataset. Actions define the preprocessing steps applied based on those conditions.
+Conditions
+Condition /
+Attribute
+Rule 1 Rule 2 Rule 3 Rule 4 Rule 5
+Price contains '₹', ',' Y Y Y Y Y
+Price convertible to
+float
+Y Y Y N Y
+'KMs Driven'
+contains 'kms'
+Y Y N Y Y
+'KMs Driven'
+convertible to int
+Y Y Y Y N
+'Name' contains
+brand/model
+Y N Y Y Y
+Fuel Type valid
+(Petrol/Diesel/CNG)
+Y Y Y Y N
+Missing values in
+row
+N Y N N N
+Action
+Action Rule 1 Rule 2 Rule 3 Rule 4 Rule 5
+Clean Price X X X X
+Clean KMs
+Driven
+X X X X
+Extract Brand
+& Model
+X X X X
+Encode Fuel
+Type
+X X X X
+Drop Row X X
+61 | P a g e
+7.5 CarWorthML – Data Dictionary
+This data dic onary provides a comprehensive descrip on of each feature used in the CarWorthML
+dataset and applica on. It details field names, descrip ons, data types, example values, and their use
+in the system.
+Field Name Description Data Type Example Values Used In
+name Full name of the
+car model (often
+includes
+company and
+variant)
+String Maruti Swift VXI Raw Dataset
+company Brand or
+manufacturer of
+the car,
+extracted from
+`name`
+String Maruti, Hyundai Input Feature
+model Variant/model
+name (if
+separated from
+`name`)
+String Swift, i20 (Optional, not
+isolated)
+year Year of
+manufacture of
+the vehicle
+Integer 2015, 2019,
+2021
+Input Feature
+kms_driven Total kilometers
+the vehicle has
+been driven
+(cleaned &
+numeric)
+Integer 45,000, 80,000 Input Feature
+fuel_type Type of fuel the
+car runs on
+String Petrol, Diesel,
+CNG
+Input Feature
+price Selling price of
+the car in INR
+(cleaned)
+Float 4,75,000 →
+475000.0
+Target Variable
+(label)
+fuel_type_encoded Encoded fuel
+type used
+internally by the
+ML model
+Integer 0 = Petrol, 1 =
+Diesel
+Transformed
+Feature
+company_encoded Encoded
+company name
+(if label
+encoding used)
+Integer 0, 1, 2... (If Used
+Internally)
+62 | P a g e
+name_cleaned Cleaned name
+or variant name
+(without
+symbols or
+tokens)
+String Swift VXI For display /
+modeling
+63 | P a g e
+7.6 Sample Inputs
+64 | P a g e
+7.6 Sample Output
+65 | P a g e
+Chapter 8:- References
+The development of CarWorthML was informed by various online resources, academic
+documenta on, and real-world datasets. Key references include:
+1. Scikit-learn Documentation – https://scikit-learn.org/stable/
+2. Streamlit Official Docs – https://docs.streamlit.io/
+3. Pandas Documentation – https://pandas.pydata.org/
+4. NumPy Documentation – https://numpy.org/
+5. Python Official Documentation – https://docs.python.org/
+6. Jupyter Project – https://jupyter.org/
+7. LottieFiles Animations – https://lottiefiles.com/
+8. Car Data from Quikr India – https://www.quikr.com/
+9. Stack Overflow – General troubleshooting and development advice.
+10. Kaggle Forums and Notebooks – For ML inspiration and code patterns.
+11. Open Source Projects on GitHub – Referenced for project structure and model training
+approaches.
+66 | P a g e

@@ -1,0 +1,187 @@
+---
+name: streamlit-premium-ui
+description: Generates premium dark-themed Streamlit UI components for CarWorthML. Use when writing any Streamlit code in app.py — for cards, headers, metrics, charts, or layout. This skill ensures the output looks like a high-end SaaS product, not a default Streamlit app.
+---
+
+# Streamlit Premium UI Skill
+
+## Design Target
+
+The app must look like Vercel's dark dashboard crossed with Apple's design language.
+- Near-black backgrounds, never gray
+- Confident typography with tight letter-spacing
+- Subtle borders, no harsh outlines
+- Red as the only accent color — never neon, always elegant
+
+---
+
+## Core Pattern: HTML Cards via st.markdown
+
+Never use `st.info()`, `st.success()`, or `st.container()` for visual sections.
+Always use the `card()` helper with `unsafe_allow_html=True`.
+
+```python
+# CORRECT — premium card
+st.markdown(card("""
+<p style="color:#F4F4F5; font-size:0.95rem; font-weight:600; margin:0 0 8px;">
+    Card Title
+</p>
+<p style="color:#8B8B9A; font-size:0.85rem; line-height:1.6; margin:0;">
+    Card body content goes here.
+</p>
+"""), unsafe_allow_html=True)
+
+# WRONG — never do this for visual sections
+st.info("Some information here")
+st.success("Success message")
+```
+
+---
+
+## Layout Patterns
+
+### Two-column dashboard layout
+```python
+left_col, right_col = st.columns([1.1, 0.9], gap="large")
+with left_col:
+    # form or content
+with right_col:
+    # result or visual
+```
+
+### Three equal stat cards
+```python
+c1, c2, c3 = st.columns(3, gap="medium")
+c1.markdown(stat_card("📊", "816+", "Records", "subtitle"), unsafe_allow_html=True)
+```
+
+### Four-column grid
+```python
+cols = st.columns(4, gap="medium")
+for col, item in zip(cols, items):
+    col.markdown(render_card(item), unsafe_allow_html=True)
+```
+
+---
+
+## Typography in HTML Blocks
+
+Always use this pattern for section labels (the small uppercase text above headings):
+```html
+<p style="color:#8B8B9A; font-size:0.75rem; font-weight:600;
+          letter-spacing:0.08em; text-transform:uppercase; margin-bottom:16px;">
+    SECTION LABEL
+</p>
+```
+
+For body text in cards:
+```html
+<p style="color:#8B8B9A; font-size:0.88rem; line-height:1.7; margin:0;">
+    Body content here.
+</p>
+```
+
+For values/numbers that need to stand out:
+```html
+<p style="color:#F4F4F5; font-size:1.6rem; font-weight:700;
+          letter-spacing:-0.03em; margin:0;">
+    ₹ 3,45,000
+</p>
+```
+
+---
+
+## Charts
+
+Always use Streamlit's built-in chart functions (not matplotlib, not plotly — too heavy).
+Always override the default color.
+
+```python
+# Bar chart
+st.bar_chart(df.set_index("column"), color="#E63946", height=300, use_container_width=True)
+
+# Line chart
+st.line_chart(df.set_index("column"), color="#E63946", height=300, use_container_width=True)
+
+# Two-series chart (different colors)
+st.bar_chart(df.set_index("col")[["A", "B"]], color=["#E63946", "#3B82F6"], height=280)
+```
+
+Never use `st.pyplot()` — it renders with white background that cannot be easily overridden.
+
+---
+
+## Forms
+
+Always use `st.form()` for the predict tab — prevents re-runs on every input change.
+
+```python
+with st.form("predict_form"):
+    company   = st.selectbox("Manufacturer", options=companies, help="...")
+    car_name  = st.selectbox("Model", options=models, help="...")
+    fuel_type = st.selectbox("Fuel Type", options=fuels, help="...")
+    year      = st.slider("Year", min_value=1995, max_value=2024, value=2015)
+    kms       = st.number_input("Kilometers Driven", min_value=0, max_value=500000, value=50000, step=1000)
+    submitted = st.form_submit_button("Predict Price →", use_container_width=True)
+```
+
+---
+
+## Lottie Animations
+
+Pattern for safe Lottie loading (never crash if CDN is unavailable):
+
+```python
+def load_lottie_url(url: str):
+    try:
+        r = requests.get(url, timeout=5)
+        if r.status_code == 200:
+            return r.json()
+    except Exception:
+        pass
+    return None
+
+lottie_data = load_lottie_url("https://assets3.lottiefiles.com/...")
+
+# Render with fallback
+if LOTTIE_AVAILABLE and lottie_data:
+    st_lottie(lottie_data, height=320, key="unique_key_per_tab", speed=0.8)
+else:
+    st.markdown('<div style="font-size:6rem; opacity:0.15; text-align:center;">🚗</div>',
+                unsafe_allow_html=True)
+```
+
+Each `st_lottie()` call needs a unique `key=` string. Duplicate keys cause render bugs.
+
+---
+
+## Idle State Pattern (Predict Tab)
+
+Before the user submits a form, show a placeholder — never blank space:
+
+```python
+if not submitted:
+    st.markdown(card("""
+    <div style="text-align:center; padding:40px 0;">
+        <div style="font-size:3rem; margin-bottom:16px; opacity:0.15;">🚗</div>
+        <p style="color:#4A4A5A; font-size:0.9rem; margin:0;">
+            Fill in your car details and click Predict Price.
+        </p>
+    </div>
+    """, padding="32px"), unsafe_allow_html=True)
+else:
+    # show result
+```
+
+---
+
+## Common Mistakes to Avoid
+
+| Wrong | Correct |
+|-------|---------|
+| `st.write("## Heading")` | `st.markdown(section_header("Heading"), unsafe_allow_html=True)` |
+| `st.metric("Label", value)` directly | Wrap in a `st.columns()` block first |
+| `st.bar_chart(df)` no color | `st.bar_chart(df, color="#E63946")` |
+| `st.dataframe(df)` | `st.dataframe(df, use_container_width=True, hide_index=True)` |
+| White card from `st.container()` | Use `card()` helper with markdown |
+| `st.balloons()` anywhere | Only fire on successful prediction in Tab 2 |
