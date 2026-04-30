@@ -1,73 +1,173 @@
-import pandas as pd
-import numpy as np
 import pickle
-from sklearn.ensemble import GradientBoostingRegressor
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+from catboost import CatBoostRegressor
+from sklearn.compose import ColumnTransformer
+from sklearn.ensemble import ExtraTreesRegressor
+from sklearn.impute import SimpleImputer
+from sklearn.metrics import mean_absolute_percentage_error, median_absolute_error, r2_score
+from sklearn.model_selection import train_test_split
+from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder
-from sklearn.compose import make_column_transformer
-from sklearn.pipeline import make_pipeline
-from sklearn.model_selection import train_test_split, cross_val_score
-from sklearn.metrics import r2_score
 
-car = pd.read_csv("Cleaned_Car_data.csv")
 
-# Remove top 1% price outliers (luxury cars distort the model)
-price_cap = car["Price"].quantile(0.99)
-car = car[car["Price"] <= price_cap].copy()
-print(f"Training on {len(car)} rows (after removing top-1% outliers)")
+REPO_DIR = Path(__file__).resolve().parent
+DATA_FILE = REPO_DIR / "Cleaned_Car_data.csv"
+MODEL_FILE = REPO_DIR / "LinearRegressionModel.pkl"
+META_FILE = REPO_DIR / "model_meta.pkl"
 
-X = car[["name", "company", "year", "kms_driven", "fuel_type"]]
-y_log = np.log(car["Price"])   # log-transform: better for multiplicative depreciation
+FEATURE_COLUMNS = [
+    "name",
+    "company",
+    "year",
+    "age",
+    "kms_driven",
+    "fuel_type",
+    "transmission",
+    "owner",
+]
+CATBOOST_COLUMNS = ["name", "company", "fuel_type", "transmission", "owner"]
+NUMERIC_COLUMNS = ["year", "age", "kms_driven"]
 
-# Fit OHE on full data to capture all categories
-ohe = OneHotEncoder()
-ohe.fit(X[["name", "company", "fuel_type"]])
 
-column_trans = make_column_transformer(
-    (
-        OneHotEncoder(categories=ohe.categories_, handle_unknown="ignore"),
-        ["name", "company", "fuel_type"],
-    ),
-    remainder="passthrough",
-)
+def build_tree_pipeline() -> Pipeline:
+    preprocessor = ColumnTransformer(
+        transformers=[
+            (
+                "cat",
+                Pipeline(
+                    steps=[
+                        ("imputer", SimpleImputer(strategy="most_frequent")),
+                        ("encoder", OneHotEncoder(handle_unknown="ignore")),
+                    ]
+                ),
+                CATBOOST_COLUMNS,
+            ),
+            (
+                "num",
+                Pipeline(steps=[("imputer", SimpleImputer(strategy="median"))]),
+                NUMERIC_COLUMNS,
+            ),
+        ]
+    )
 
-# GradientBoosting captures non-linear depreciation curves
-gbr = GradientBoostingRegressor(
-    n_estimators=300,
-    learning_rate=0.08,
-    max_depth=4,
-    subsample=0.85,
-    random_state=42,
-)
+    model = ExtraTreesRegressor(
+        n_estimators=300,
+        random_state=42,
+        n_jobs=1,
+        min_samples_leaf=1,
+    )
 
-pipe = make_pipeline(column_trans, gbr)
+    return Pipeline([("preprocessor", preprocessor), ("model", model)])
 
-# Cross-validation on log-price
-print("Running 5-fold cross-validation...")
-cv_scores = cross_val_score(pipe, X, y_log, cv=5, scoring="r2", n_jobs=-1)
-print(f"CV R² (log-price): {cv_scores.round(3)}")
-print(f"Mean CV R²: {cv_scores.mean():.4f} ± {cv_scores.std():.4f}")
 
-# Final model on full dataset
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y_log, test_size=0.1, random_state=42
-)
-pipe.fit(X_train, y_train)
-test_r2 = r2_score(y_test, pipe.predict(X_test))
-print(f"Hold-out test R² (log-price): {test_r2:.4f}")
+def build_catboost_model() -> CatBoostRegressor:
+    return CatBoostRegressor(
+        loss_function="RMSE",
+        depth=8,
+        learning_rate=0.05,
+        iterations=700,
+        l2_leaf_reg=5,
+        random_seed=42,
+        verbose=False,
+    )
 
-# Verify predictions are realistic (exponentiate back)
-sample_preds = np.exp(pipe.predict(X_test[:5]))
-sample_actuals = np.exp(y_test[:5].values)
-print("\nSample predictions vs actuals (₹):")
-for p, a in zip(sample_preds, sample_actuals):
-    print(f"  Predicted: ₹{p:,.0f}  |  Actual: ₹{a:,.0f}")
 
-with open("LinearRegressionModel.pkl", "wb") as f:
-    pickle.dump(pipe, f)
+def evaluate_predictions(actual_price: pd.Series, predicted_price: np.ndarray) -> dict:
+    return {
+        "r2_price": float(r2_score(actual_price, predicted_price)),
+        "mape": float(mean_absolute_percentage_error(actual_price, predicted_price)),
+        "median_abs_error": float(median_absolute_error(actual_price, predicted_price)),
+    }
 
-# Save the log-transform flag so app.py knows
-with open("model_meta.pkl", "wb") as f:
-    pickle.dump({"log_transform": True}, f)
 
-print(f"\n✅ Model saved (GradientBoosting on log-price)")
-print(f"   Note: model.predict() returns log(price); use np.exp() to get ₹")
+def main() -> None:
+    if not DATA_FILE.exists():
+        raise FileNotFoundError("Cleaned_Car_data.csv not found. Run data_cleaning.py first.")
+
+    car_df = pd.read_csv(DATA_FILE)
+    car_df = car_df.dropna(subset=FEATURE_COLUMNS + ["Price"]).copy()
+
+    X = car_df[FEATURE_COLUMNS].copy()
+    y_price = car_df["Price"].astype(float)
+    y_log = np.log1p(y_price)
+
+    X_train, X_test, y_train, y_test, price_train, price_test = train_test_split(
+        X,
+        y_log,
+        y_price,
+        test_size=0.2,
+        random_state=42,
+    )
+
+    print(f"Training rows: {len(car_df)}")
+    print(f"Brands: {car_df['company'].nunique()} | Models: {car_df['name'].nunique()}")
+
+    extra_trees = build_tree_pipeline()
+    extra_trees.fit(X_train, y_train)
+    extra_pred_log = extra_trees.predict(X_test)
+    extra_pred_price = np.expm1(extra_pred_log)
+    extra_metrics = evaluate_predictions(price_test, extra_pred_price)
+    extra_metrics["r2_log"] = float(r2_score(y_test, extra_pred_log))
+
+    catboost = build_catboost_model()
+    catboost.fit(
+        X_train,
+        y_train,
+        cat_features=CATBOOST_COLUMNS,
+    )
+    cat_pred_log = catboost.predict(X_test)
+    cat_pred_price = np.expm1(cat_pred_log)
+    cat_metrics = evaluate_predictions(price_test, cat_pred_price)
+    cat_metrics["r2_log"] = float(r2_score(y_test, cat_pred_log))
+
+    print(f"ExtraTrees holdout metrics: {extra_metrics}")
+    print(f"CatBoost holdout metrics: {cat_metrics}")
+
+    if cat_metrics["r2_log"] >= extra_metrics["r2_log"]:
+        best_model = catboost
+        best_metrics = cat_metrics
+        model_name = "CatBoostRegressor"
+    else:
+        best_model = extra_trees
+        best_metrics = extra_metrics
+        model_name = "ExtraTreesRegressor"
+
+    if model_name == "CatBoostRegressor":
+        best_model.fit(X, y_log, cat_features=CATBOOST_COLUMNS)
+    else:
+        best_model.fit(X, y_log)
+
+    with open(MODEL_FILE, "wb") as model_file:
+        pickle.dump(best_model, model_file)
+
+    metadata = {
+        "log_transform": True,
+        "model_type": model_name,
+        "feature_columns": FEATURE_COLUMNS,
+        "categorical_features": CATBOOST_COLUMNS,
+        "numeric_features": NUMERIC_COLUMNS,
+        "training_rows": int(len(car_df)),
+        "metrics": {
+            "extra_trees": extra_metrics,
+            "catboost": cat_metrics,
+            "selected_model": best_metrics,
+        },
+    }
+
+    with open(META_FILE, "wb") as meta_file:
+        pickle.dump(metadata, meta_file)
+
+    print(f"Selected model: {model_name}")
+    print(
+        "Selected holdout performance: "
+        f"R²(log)={best_metrics['r2_log']:.4f}, "
+        f"MAPE={best_metrics['mape']:.4f}, "
+        f"Median AE=₹{best_metrics['median_abs_error']:,.0f}"
+    )
+
+
+if __name__ == "__main__":
+    main()

@@ -1,55 +1,200 @@
 # CarWorthML - Used Car Price Predictor
 
-This is a machine learning web application that predicts the resale price of used cars in the Indian automobile market using a Gradient Boosting Regression model.
+CarWorthML is a Streamlit-based machine learning app that predicts the resale price of used cars in the Indian market. The current version uses a real-data pipeline built from a Kaggle used-car dataset plus the local `car data.csv` file, then trains a stronger model before serving predictions in the web app.
 
-## How to Run This Project
+## What happens in setup
 
-Follow these steps to run the application on your local machine:
+When you run the setup/training pipeline, the project will:
 
-### 1. Prerequisites
+1. Download the latest Kaggle used-car dataset.
+2. Merge that data with `car data.csv`.
+3. Clean and standardize both datasets.
+4. Train the ML model.
+5. Save the final files needed by the app.
 
-Ensure you have **Python 3.10 or higher** installed on your computer.
+Important output files:
 
-### 2. Install Dependencies
+- `Cleaned_Car_data.csv`
+- `LinearRegressionModel.pkl`
+- `model_meta.pkl`
 
-Open your terminal (or command prompt), navigate to the project folder, and install the required Python packages by running:
+## First-time installation on a laptop
+
+### 1. Install Python
+
+Make sure Python `3.9` or above is installed.
+
+Check it with:
+
+```bash
+python3 --version
+```
+
+If `python3` does not work, try:
+
+```bash
+python --version
+```
+
+### 2. Open the project folder
+
+Open Terminal and go to the project folder:
+
+```bash
+cd /path/to/car2
+```
+
+Example:
+
+```bash
+cd ~/Desktop/car2
+```
+
+### 3. Create a virtual environment
+
+On macOS/Linux:
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+On Windows Command Prompt:
+
+```bat
+python -m venv venv
+venv\Scripts\activate
+```
+
+On Windows PowerShell:
+
+```powershell
+python -m venv venv
+venv\Scripts\Activate.ps1
+```
+
+After activation, your terminal should show `(venv)` at the beginning.
+
+### 4. Install requirements
+
+Install all required packages:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Generate Data and Train the Model
+## First-time setup and model training
 
-This project requires generating the dataset, cleaning it, and training the ML model. We have provided a single setup script that does all of this automatically.
-
-Run the following command:
+Run the full pipeline:
 
 ```bash
 python setup.py
 ```
 
-_This script will:_
+If your laptop uses `python3`, run:
 
-1. Generate `quikr_car.csv` (Raw Dataset)
-2. Clean the data to produce `Cleaned_Car_data.csv`
-3. Train the model to produce `LinearRegressionModel.pkl`
+```bash
+python3 setup.py
+```
 
-Wait until you see the `✅ Setup complete.` message.
+This command will automatically:
 
-### 4. Start the Application
+1. Download the Kaggle dataset.
+2. Create the cleaned dataset.
+3. Train the prediction model.
 
-Once the setup is successfully completed, you can launch the Streamlit web app by running:
+Wait until the setup finishes successfully.
+
+## Run the app on localhost
+
+Start the Streamlit app with:
 
 ```bash
 streamlit run app.py
 ```
 
-The app will open automatically in your default internet browser (usually at `http://localhost:8501`).
+Or, if needed:
 
----
+```bash
+python -m streamlit run app.py
+```
 
-### Troubleshooting
+After that, open the local URL shown in Terminal. Usually it is:
 
-- **Missing Files Error:** If the app complains about missing `.csv` or `.pkl` files, make sure you ran `python setup.py` successfully.
-- **Port already in use:** If port 8501 is occupied, Streamlit will automatically pick the next available port (e.g., 8502, 8503). Look at your terminal output for the exact `Local URL`.
-- **Invalid image width:** If you see any browser errors related to images, ensure you do not have aggressive ad-blockers (like Dishuflix-Blocker) interfering with the page.
+```text
+http://localhost:8501
+```
+
+## If someone installs the project for the first time
+
+Use these commands in order:
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python setup.py
+streamlit run app.py
+```
+
+## How to retrain the model later
+
+If you change the dataset or want to train again, run:
+
+```bash
+python data_cleaning.py
+python model_training.py
+```
+
+Or rerun the complete pipeline:
+
+```bash
+python setup.py
+```
+
+## Project files
+
+- `app.py` - Streamlit web app
+- `generate_dataset.py` - downloads the Kaggle dataset
+- `data_cleaning.py` - cleans and merges the raw data
+- `model_training.py` - trains the machine learning model
+- `setup.py` - runs the full pipeline in one command
+- `requirements.txt` - Python dependencies
+
+## Troubleshooting
+
+### `python` command not found
+
+Use `python3` instead of `python`.
+
+### `pip` install fails
+
+Make sure the virtual environment is activated before running:
+
+```bash
+pip install -r requirements.txt
+```
+
+### Streamlit app does not start
+
+Try:
+
+```bash
+python -m streamlit run app.py
+```
+
+### Model file or dataset file missing
+
+Run the setup again:
+
+```bash
+python setup.py
+```
+
+### Port 8501 already in use
+
+Streamlit may automatically move to another port such as `8502` or `8503`. Check the Terminal output and open that URL instead.
+
+### Kaggle dataset download issue
+
+The setup uses `kagglehub` and needs internet access. If the download fails, check your connection and run the setup again.
