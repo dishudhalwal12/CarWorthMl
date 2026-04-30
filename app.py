@@ -332,7 +332,7 @@ def price_card(price: float) -> str:
         '        border-radius: 100px; padding: 8px 18px;',
         '">',
         '        <span style="color: #A89CFF; font-size: 0.8rem; font-weight: 600;">',
-        '            ⚡ GradientBoosting ML — R² 0.79',
+        '            ⚡ Hybrid ML + market comps',
         '        </span>',
         '    </div>',
         '</div>'
@@ -466,11 +466,11 @@ with tab1:
 
     # ── STAT CARDS ─────────────────────────────────────────────────────────
     s1, s2, s3, s4 = st.columns(4, gap="medium")
-    s1.markdown(stat_card("🚗", "816+", "Cars Analysed", "Real Quikr listings"), unsafe_allow_html=True)
-    s2.markdown(stat_card("🏭", "25+", "Manufacturers", "Maruti to Mercedes",
+    s1.markdown(stat_card("🚗", "15k+", "Cars Analysed", "Kaggle + CarDekho data"), unsafe_allow_html=True)
+    s2.markdown(stat_card("🏭", "40+", "Manufacturers", "Maruti to Mercedes",
                            bg="#FFFFFF", shadow="#CFC8BC"), unsafe_allow_html=True)
-    s3.markdown(stat_card("🎯", "R² 0.79", "Model Accuracy",
-                           "GradientBoosting",
+    s3.markdown(stat_card("🎯", "R² ~0.89", "Model Accuracy",
+                           "Tree-based regressor",
                            bg="#FFFFFF", shadow="#CFC8BC",
                            val_color="#FF6B35"), unsafe_allow_html=True)
     s4.markdown(stat_card("⚡", "<1 sec", "Prediction Speed", "Instant valuation"), unsafe_allow_html=True)
@@ -492,10 +492,10 @@ with tab1:
 
     h1, h2, h3 = st.columns(3, gap="medium")
     h1.markdown(step_card("01", "Select Your Car",
-        "Pick manufacturer, model, fuel type, year, and kilometers driven from our dropdowns.",
+        "Pick manufacturer, model, fuel type, transmission, owner history, year, and kilometers driven.",
         "#FFF0EA", "#FF6B35"), unsafe_allow_html=True)
     h2.markdown(step_card("02", "ML Model Analyses",
-        "GradientBoosting pipeline trained on 800+ real listings processes your inputs instantly.",
+        "A stronger tree-based model learns from 15k+ cleaned market listings and transaction examples.",
         "#EEEEFF", "#6C63FF"), unsafe_allow_html=True)
     h3.markdown(step_card("03", "Get Your Valuation",
         "Receive the estimated 2026 market price with context from similar car listings.",
@@ -505,7 +505,7 @@ with tab1:
     st.markdown("""
     <div style="text-align:center;padding:40px 0 20px;
         color:#9A8B7C;font-size:0.78rem;letter-spacing:0.03em;">
-        CarWorthML · BCA Major Project · Abhishek Gupta · JEMTEC, Greater Noida · 2022–2025
+        CarWorthML · BCA Major Project · Chayan R Bisht · JEMTEC, Greater Noida · 2022–2025
     </div>
     """, unsafe_allow_html=True)
 
@@ -524,12 +524,80 @@ with tab2:
         with open("LinearRegressionModel.pkl", "rb") as f:
             return pickle.load(f)
 
-    def uses_log_transform() -> bool:
+    @st.cache_data
+    def load_meta():
         if os.path.exists("model_meta.pkl"):
             with open("model_meta.pkl", "rb") as f:
-                meta = pickle.load(f)
-            return meta.get("log_transform", False)
-        return False
+                return pickle.load(f)
+        return {}
+
+    def uses_log_transform(meta: dict) -> bool:
+        return meta.get("log_transform", False)
+
+    def format_owner_label(owner_value: str) -> str:
+        mapping = {
+            "first": "First Owner",
+            "second": "Second Owner",
+            "third": "Third Owner",
+            "fourth+": "Fourth+ Owner",
+            "unknown": "Unknown Owner",
+        }
+        return mapping.get(owner_value, str(owner_value).title())
+
+    def build_market_snapshot(
+        dataset: pd.DataFrame,
+        company: str,
+        car_name: str,
+        fuel_type: str,
+        transmission: str,
+        owner: str,
+        year: int,
+        kms_driven: int,
+    ):
+        search_levels = [
+            (
+                "Exact model matches",
+                (dataset["company"] == company)
+                & (dataset["name"] == car_name)
+                & (dataset["fuel_type"] == fuel_type)
+                & (dataset["transmission"] == transmission)
+                & (dataset["year"].between(year - 1, year + 1))
+                & (dataset["kms_driven"].between(max(0, kms_driven - 20000), kms_driven + 20000)),
+                0.65,
+            ),
+            (
+                "Close model matches",
+                (dataset["company"] == company)
+                & (dataset["name"] == car_name)
+                & (dataset["fuel_type"] == fuel_type)
+                & (dataset["year"].between(year - 2, year + 2))
+                & (dataset["kms_driven"].between(max(0, kms_driven - 35000), kms_driven + 35000)),
+                0.50,
+            ),
+            (
+                "Brand-level matches",
+                (dataset["company"] == company)
+                & (dataset["fuel_type"] == fuel_type)
+                & (dataset["transmission"] == transmission)
+                & (dataset["owner"] == owner)
+                & (dataset["year"].between(year - 2, year + 2)),
+                0.30,
+            ),
+        ]
+
+        for label, mask, weight in search_levels:
+            similar = dataset.loc[mask].copy()
+            if len(similar) >= 3:
+                return {
+                    "label": label,
+                    "similar": similar,
+                    "weight": weight,
+                    "median_price": float(similar["Price"].median()),
+                    "price_min": float(similar["Price"].quantile(0.25)),
+                    "price_max": float(similar["Price"].quantile(0.75)),
+                }
+
+        return None
 
     data_ok = model_ok = False
     try:
@@ -545,7 +613,8 @@ with tab2:
         st.error("❌ LinearRegressionModel.pkl not found. Run `python model_training.py` first.")
 
     if data_ok and model_ok:
-        log_transform = uses_log_transform()
+        meta = load_meta()
+        log_transform = uses_log_transform(meta)
 
         st.markdown("""
         <div style="margin:8px 0 28px;">
@@ -598,12 +667,25 @@ with tab2:
                 help="Select fuel type"
             )
 
+            transmission = st.selectbox(
+                "Transmission",
+                options=sorted(df["transmission"].unique()),
+                help="Automatic vs manual affects market price meaningfully"
+            )
+
+            owner = st.selectbox(
+                "Ownership History",
+                options=sorted(df["owner"].unique()),
+                format_func=format_owner_label,
+                help="Lower-owner cars usually retain value better"
+            )
+
             # Year
             year = st.slider(
                 "Year of Manufacture",
-                min_value=2000,
-                max_value=2024,
-                value=2015,
+                min_value=int(df["year"].min()),
+                max_value=int(df["year"].max()),
+                value=min(max(2018, int(df["year"].min())), int(df["year"].max())),
                 step=1,
             )
 
@@ -653,35 +735,53 @@ with tab2:
             else:
                 try:
                     input_df = pd.DataFrame(
-                        [[car_name, company, year, kms_driven, fuel_type]],
-                        columns=["name", "company", "year", "kms_driven", "fuel_type"],
+                        [[car_name, company, year, 2026 - year, kms_driven, fuel_type, transmission, owner]],
+                        columns=["name", "company", "year", "age", "kms_driven", "fuel_type", "transmission", "owner"],
                     )
                     pred_raw = model.predict(input_df)[0]
-                    price = float(np.exp(pred_raw) if log_transform else pred_raw)
-                    price = max(price, 40_000.0)
+                    base_price = float(np.expm1(pred_raw) if log_transform else pred_raw)
+                    base_price = max(base_price, 40_000.0)
+
+                    market_snapshot = build_market_snapshot(
+                        df,
+                        company,
+                        car_name,
+                        fuel_type,
+                        transmission,
+                        owner,
+                        year,
+                        kms_driven,
+                    )
+                    price = base_price
+                    if market_snapshot is not None:
+                        weight = market_snapshot["weight"]
+                        price = ((1 - weight) * base_price) + (weight * market_snapshot["median_price"])
 
                     # Price display card - fixed to not markdown inside clay_card
                     html_content = price_card(price)
                     st.markdown(html_content, unsafe_allow_html=True)
 
-                    # Similar cars context
-                    similar = df[
-                        (df["company"] == company) &
-                        (df["fuel_type"] == fuel_type) &
-                        (df["year"].between(year - 2, year + 2))
-                    ]
-
-                    if len(similar) >= 3:
+                    if market_snapshot is not None:
+                        similar = market_snapshot["similar"]
                         st.markdown("""
                         <p style="color:#9A8B7C;font-size:0.72rem;font-weight:700;
                             letter-spacing:0.09em;text-transform:uppercase;
-                            margin:22px 0 12px;">Similar Cars in Dataset</p>
+                            margin:22px 0 12px;">Comparable Market Listings</p>
                         """, unsafe_allow_html=True)
 
+                        st.caption(
+                            f"{market_snapshot['label']} · {len(similar)} listings used to steady the model output"
+                        )
                         m1, m2, m3 = st.columns(3)
-                        m1.metric("Min", f"₹{similar['Price'].min()/100000:.1f}L")
-                        m2.metric("Avg", f"₹{similar['Price'].mean()/100000:.1f}L")
-                        m3.metric("Max", f"₹{similar['Price'].max()/100000:.1f}L")
+                        m1.metric("25th %ile", f"₹{market_snapshot['price_min']/100000:.1f}L")
+                        m2.metric("Median", f"₹{market_snapshot['median_price']/100000:.1f}L")
+                        m3.metric("75th %ile", f"₹{market_snapshot['price_max']/100000:.1f}L")
+
+                        delta_pct = ((price - base_price) / base_price) * 100 if base_price else 0
+                        st.caption(
+                            f"Model-only estimate: ₹{base_price:,.0f} · "
+                            f"market-adjusted estimate: ₹{price:,.0f} ({delta_pct:+.1f}%)"
+                        )
 
                     # Summary table
                     st.markdown("""
@@ -692,11 +792,11 @@ with tab2:
 
                     st.dataframe(
                         pd.DataFrame({
-                            "Parameter": ["Manufacturer", "Model", "Year",
-                                          "Fuel", "KMs Driven", "Predicted Price"],
+                            "Parameter": ["Manufacturer", "Model", "Year", "Fuel",
+                                          "Transmission", "Owner", "KMs Driven", "Predicted Price"],
                             "Value": [
                                 company, car_name, str(year),
-                                fuel_type, f"{kms_driven:,} km",
+                                fuel_type, transmission, format_owner_label(owner), f"{kms_driven:,} km",
                                 f"₹{price:,.0f}",
                             ],
                         }),
@@ -948,14 +1048,14 @@ with tab4:
                     padding:9px 16px 9px 0;vertical-align:top;
                     text-transform:uppercase;letter-spacing:0.04em;">Student</td>
                 <td style="color:#1A1210;font-size:0.88rem;font-weight:500;padding:9px 0;">
-                    Abhishek Gupta</td>
+                    Chayan R Bisht</td>
             </tr>
             <tr>
                 <td style="color:#9A8B7C;font-size:0.78rem;font-weight:600;
                     padding:9px 16px 9px 0;vertical-align:top;
                     text-transform:uppercase;letter-spacing:0.04em;">Enrolment</td>
                 <td style="color:#1A1210;font-size:0.88rem;font-weight:500;padding:9px 0;">
-                    01425502022</td>
+                    35625502022</td>
             </tr>
             <tr>
                 <td style="color:#9A8B7C;font-size:0.78rem;font-weight:600;
@@ -1024,25 +1124,24 @@ with tab4:
             '    ML Pipeline</p>',
             '',
             '<p style="color:#7A6B5C;font-size:0.87rem;line-height:1.7;margin-bottom:16px;">',
-            '    Raw Quikr India listings are cleaned and preprocessed.',
-            '    Categorical features (brand, model, fuel type) are encoded with',
-            '    <strong style="color:#1A1210;">OneHotEncoder</strong> inside a',
-            '    <strong style="color:#1A1210;">ColumnTransformer</strong>.',
-            '    Numeric features (year, kms) pass through unchanged.',
+            '    Real used-car market listings from Kaggle are merged with the local',
+            '    CarDekho sample file and normalized into one clean dataset.',
+            '    Brand, model, fuel type, transmission, and owner history become',
+            '    model features alongside year, age, and kilometres driven.',
             '</p>',
             '<p style="color:#7A6B5C;font-size:0.87rem;line-height:1.7;margin-bottom:16px;">',
             '    Price is <strong style="color:#1A1210;">log-transformed</strong> before training —',
-            '    this captures percentage-based depreciation and dramatically improves accuracy.',
-            '    A <strong style="color:#1A1210;">GradientBoostingRegressor</strong> then learns',
-            '    non-linear pricing relationships.',
+            '    this captures percentage-based depreciation and improves stability on expensive SUVs.',
+            '    The app then uses a <strong style="color:#1A1210;">tree-based regressor</strong>',
+            '    and steadies its output with nearby market comparables.',
             '</p>',
             '<div style="background:#F8F3EC;border:2px solid #E0D8CE;border-radius:14px;',
             '    padding:18px;font-family:monospace;font-size:0.8rem;color:#FF6B35;line-height:1.9;">',
-            '    Input → [name, company, year, kms_driven, fuel_type]<br>',
-            '    ↓ OneHotEncoder (name, company, fuel_type)<br>',
-            '    ↓ passthrough (year, kms_driven)<br>',
-            '    ↓ GradientBoostingRegressor (300 trees)<br>',
-            '    ↓ exp() → Predicted Price (₹)',
+            '    Input → [name, company, year, age, kms_driven, fuel_type, transmission, owner]<br>',
+            '    ↓ categorical + numeric preprocessing<br>',
+            '    ↓ CatBoost / ExtraTrees regressor<br>',
+            '    ↓ exp() back to rupees<br>',
+            '    ↓ blend with comparable market listings',
             '</div>'
         ]
         st.markdown(clay_card("".join(ml_pipeline_lines)), unsafe_allow_html=True)
@@ -1056,24 +1155,24 @@ with tab4:
             '    <p style="color:#9A8B7C;font-size:0.72rem;font-weight:700;',
             '        text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">Algorithm</p>',
             '    <p style="color:#1A1210;font-size:0.9rem;font-weight:600;">',
-            '        Gradient Boosting Regressor</p>',
+            '        CatBoost / ExtraTrees hybrid</p>',
             '</div>',
             '<div style="margin-bottom:16px;">',
             '    <p style="color:#9A8B7C;font-size:0.72rem;font-weight:700;',
             '        text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">R² Score</p>',
             '    <p style="color:#FF6B35;font-size:1.5rem;font-weight:900;letter-spacing:-0.02em;">',
-            '        0.79</p>',
+            '        ~0.89 (log-price holdout)</p>',
             '</div>',
             '<div style="margin-bottom:16px;">',
             '    <p style="color:#9A8B7C;font-size:0.72rem;font-weight:700;',
-            '        text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">CV R² (5-fold)</p>',
-            '    <p style="color:#1A1210;font-size:0.9rem;font-weight:600;">0.71 ± 0.10</p>',
+            '        text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">Holdout MAPE</p>',
+            '    <p style="color:#1A1210;font-size:0.9rem;font-weight:600;">~19.7% on merged data</p>',
             '</div>',
             '<div style="margin-bottom:16px;">',
             '    <p style="color:#9A8B7C;font-size:0.72rem;font-weight:700;',
             '        text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">Dataset</p>',
             '    <p style="color:#1A1210;font-size:0.9rem;font-weight:600;">',
-            '        816 real Quikr listings + 1.55× 2026 inflation</p>',
+            '        15k+ merged Kaggle market listings + local CarDekho records</p>',
             '</div>',
             '<div>',
             '    <p style="color:#9A8B7C;font-size:0.72rem;font-weight:700;',
@@ -1091,14 +1190,14 @@ with tab4:
     """, unsafe_allow_html=True)
 
     tech = [
-        ("🐍", "Python 3.11+",        "Core language"),
-        ("🤖", "Scikit-learn",         "ML pipeline, GradientBoosting, OHE"),
+        ("🐍", "Python 3.9+",         "Core language"),
+        ("🤖", "Scikit-learn + CatBoost", "Tree ensemble pipeline and market-value model"),
         ("📊", "Pandas / NumPy",       "Data loading, cleaning, analysis"),
         ("🌐", "Streamlit 1.32",       "Web framework and UI"),
         ("📦", "Pickle",               "Model serialization"),
         ("🎨", "Custom CSS",           "Corporate Memphis 3D design"),
         ("📈", "Altair (st.bar_chart)","Market insight charts"),
-        ("🔢", "NumPy (log/exp)",      "Price log-transform pipeline"),
+        ("🔢", "NumPy (log/exp)",      "Price normalization pipeline"),
     ]
 
     rows = [tech[i:i+4] for i in range(0, len(tech), 4)]
@@ -1125,11 +1224,11 @@ with tab4:
         ("No geolocation data",
          "Prices vary significantly across cities. This model does not account for city-level pricing."),
         ("Brand coverage",
-         "Only 25 manufacturers are covered. Rare or imported brands may not return accurate predictions."),
-        ("Gradient Boosting limits",
-         "Tree-based models may extrapolate poorly for very rare or unseen car configurations."),
+         "Coverage is much broader now, but rare imports and ultra-niche trims can still be thinly represented."),
+        ("Model limitations",
+         "Trim, service history, accident record, and accessories are still not fully captured."),
         ("Dataset window",
-         "Training data reflects 2019–2020 listings × 1.55 inflation. Individual market fluctuations may vary."),
+         "Most market listings reflect recent ask prices, not final negotiated transaction values."),
         ("Condition not captured",
          "Accident history, service records, and physical condition significantly affect actual resale value."),
         ("No city-tier pricing",
@@ -1157,11 +1256,11 @@ with tab4:
         <p style="color:#1A1210;font-size:1rem;font-weight:900;letter-spacing:-0.02em;
             margin-bottom:6px;">CarWorthML</p>
         <p style="color:#9A8B7C;font-size:0.8rem;margin-bottom:4px;">
-            BCA Major Project · Abhishek Gupta · 01425502022
+            BCA Major Project · Chayan R Bisht · 35625502022
         </p>
         <p style="color:#9A8B7C;font-size:0.78rem;margin-bottom:0;">
             JEMTEC, Greater Noida · Affiliated to GGSIPU · Session 2022–2025
         </p>
-        <p style="color:#CFC8BC;font-size:0.7rem;margin-top:16px;">© 2025 Abhishek Gupta</p>
+        <p style="color:#CFC8BC;font-size:0.7rem;margin-top:16px;">© 2025 Chayan R Bisht</p>
     </div>
     """, unsafe_allow_html=True)

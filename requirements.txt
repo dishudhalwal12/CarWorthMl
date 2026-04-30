@@ -4,3 +4,5 @@ numpy==1.26.4
 scikit-learn==1.4.0
 streamlit-lottie==0.0.5
 requests==2.31.0
+kagglehub==0.3.13
+catboost==1.2.10

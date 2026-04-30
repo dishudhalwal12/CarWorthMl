@@ -22,16 +22,17 @@ print("\n" + "═"*50)
 print("  CarWorthML — Setup Pipeline")
 print("═"*50)
 
-run("generate_dataset.py", "Step 1/3  →  Generating dataset")
-run("data_cleaning.py",    "Step 2/3  →  Cleaning data")
-run("model_training.py",   "Step 3/3  →  Training model (~30 sec)")
+run("generate_dataset.py", "Step 1/3  →  Downloading Kaggle dataset")
+run("data_cleaning.py",    "Step 2/3  →  Merging and cleaning sources")
+run("model_training.py",   "Step 3/3  →  Training upgraded model")
 
 print(f"\n{'─'*50}")
 print("  File Verification")
 print(f"{'─'*50}")
 
 all_ok = True
-all_ok &= check("quikr_car.csv",              "Raw dataset")
+all_ok &= check("used_cars_dataset_v2.csv",    "Kaggle market dataset")
+all_ok &= check("car data.csv",                "Local comparison dataset")
 all_ok &= check("Cleaned_Car_data.csv",        "Cleaned dataset")
 all_ok &= check("LinearRegressionModel.pkl",   "ML model")
 all_ok &= check("app.py",                      "Streamlit app")
